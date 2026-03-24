@@ -1,0 +1,93 @@
+/* Stock Manager Module — Admin Styles */
+
+.jwp-stk-stock-manager-wrap {
+	max-width: 1200px;
+}
+
+.jwp-stk-stock-toolbar {
+	margin: 12px 0;
+}
+
+.jwp-stk-stock-filters {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.jwp-stk-stock-filters select,
+.jwp-stk-stock-filters input[type="search"] {
+	min-width: 200px;
+}
+
+/* Table */
+.jwp-stk-stock-table .column-product {
+	width: 30%;
+}
+
+.jwp-stk-stock-table .column-sku {
+	width: 12%;
+}
+
+.jwp-stk-stock-table .column-stock-status,
+.jwp-stk-stock-table .column-manage-stock,
+.jwp-stk-stock-table .column-stock-qty,
+.jwp-stk-stock-table .column-backorders {
+	width: 11%;
+}
+
+.jwp-stk-stock-table .column-actions {
+	width: 10%;
+}
+
+.jwp-stk-stock-table select,
+.jwp-stk-stock-table input[type="number"] {
+	width: 100%;
+	max-width: 150px;
+}
+
+.jwp-stk-stock-table input[type="number"] {
+	max-width: 80px;
+}
+
+/* Row save/feedback */
+.jwp-stk-stock-table .jwp-stk-row-saving td {
+	opacity: 0.6;
+}
+
+.jwp-stk-stock-table .jwp-stk-row-saved {
+	background-color: #e7f5e7 !important;
+}
+
+.jwp-stk-stock-table .jwp-stk-row-error {
+	background-color: #fce4e4 !important;
+}
+
+.jwp-stk-stock-save-btn {
+	min-width: 60px;
+}
+
+/* Pagination */
+.jwp-stk-stock-pagination {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin-top: 12px;
+}
+
+.jwp-stk-stock-pagination .page-numbers {
+	display: inline-block;
+	padding: 4px 10px;
+	border: 1px solid #ddd;
+	background: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+.jwp-stk-stock-pagination .page-numbers.current,
+.jwp-stk-stock-pagination .page-numbers:hover {
+	background: #007cba;
+	color: #fff;
+	border-color: #007cba;
+}

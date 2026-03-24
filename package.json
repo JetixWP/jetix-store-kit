@@ -1,0 +1,23 @@
+{
+	"name": "store-kit",
+	"version": "0.2.0",
+	"description": "Store Kit for WooCommerce — Modular all-in-one WooCommerce toolkit.",
+	"private": true,
+	"scripts": {
+		"build": "wp-scripts build --webpack-src-dir=src/dashboard --output-path=assets/js/dashboard",
+		"start": "wp-scripts start --webpack-src-dir=src/dashboard --output-path=assets/js/dashboard",
+		"make-pot": "wp i18n make-pot . languages/store-kit.pot --slug=store-kit --domain=store-kit --exclude=node_modules,build,action-plan --merge",
+		"release": "bash scripts/release.sh",
+		"lint:js": "wp-scripts lint-js src/",
+		"lint:css": "wp-scripts lint-style src/"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^30.13.0"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^7.0.0",
+		"@wordpress/components": "^29.0.0",
+		"@wordpress/element": "^6.0.0",
+		"@wordpress/i18n": "^5.0.0"
+	}
+}
