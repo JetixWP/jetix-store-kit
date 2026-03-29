@@ -56,10 +56,10 @@ class Register {
 	 */
 	public function register_menu() {
 		add_menu_page(
-			__( 'Store Kit', 'store-kit' ),
-			__( 'Store Kit', 'store-kit' ),
+			__( 'Store Toolkit', 'jetix-store-toolkit' ),
+			__( 'Store Toolkit', 'jetix-store-toolkit' ),
 			'manage_options',
-			'store-kit',
+			'jetix-store-toolkit',
 			array( $this, 'render_dashboard' ),
 			'dashicons-store',
 			58
@@ -67,27 +67,27 @@ class Register {
 
 		// Dashboard — first submenu replaces parent link.
 		add_submenu_page(
-			'store-kit',
-			__( 'Dashboard — Store Kit', 'store-kit' ),
-			__( 'Dashboard', 'store-kit' ),
+			'jetix-store-toolkit',
+			__( 'Dashboard — Store Toolkit', 'jetix-store-toolkit' ),
+			__( 'Dashboard', 'jetix-store-toolkit' ),
 			'manage_options',
-			'store-kit',
+			'jetix-store-toolkit',
 			array( $this, 'render_dashboard' )
 		);
 
 		add_submenu_page(
-			'store-kit',
-			__( 'Modules — Store Kit', 'store-kit' ),
-			__( 'Modules', 'store-kit' ),
+			'jetix-store-toolkit',
+			__( 'Modules — Store Toolkit', 'jetix-store-toolkit' ),
+			__( 'Modules', 'jetix-store-toolkit' ),
 			'manage_options',
 			'jwp-stk-modules',
 			array( $this, 'render_dashboard' )
 		);
 
 		add_submenu_page(
-			'store-kit',
-			__( 'Global Settings — Store Kit', 'store-kit' ),
-			__( 'Global Settings', 'store-kit' ),
+			'jetix-store-toolkit',
+			__( 'Global Settings — Store Toolkit', 'jetix-store-toolkit' ),
+			__( 'Global Settings', 'jetix-store-toolkit' ),
 			'manage_options',
 			'jwp-stk-settings',
 			array( $this, 'render_dashboard' )

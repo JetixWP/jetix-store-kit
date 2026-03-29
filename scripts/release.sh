@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# Build a distributable release zip for Store Kit for WooCommerce.
+# Build a distributable release zip for Store Toolkit for WooCommerce.
 #
 # Usage:  ./scripts/release.sh
-# Output: build/store-kit.zip  (and build/store-kit/ as the source folder)
+# Output: build/jetix-store-toolkit.zip  (and build/jetix-store-toolkit/ as the source folder)
 #
 set -euo pipefail
 
-PLUGIN_SLUG="store-kit"
+PLUGIN_SLUG="jetix-store-toolkit"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_DIR="$(dirname "$SCRIPT_DIR")"
 BUILD_DIR="$PLUGIN_DIR/build"
@@ -49,7 +49,7 @@ rsync -a --exclude="*.map" "$PLUGIN_DIR/assets/" "$DEST_DIR/assets/"
 rsync -a "$PLUGIN_DIR/includes/" "$DEST_DIR/includes/"
 
 # Root files to include.
-for file in store-kit.php uninstall.php readme.txt; do
+for file in jetix-store-toolkit.php uninstall.php readme.txt; do
 	if [ -f "$PLUGIN_DIR/$file" ]; then
 		cp "$file" "$DEST_DIR/$file"
 	fi

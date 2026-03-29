@@ -6,9 +6,9 @@ import ModuleSettingsPage from './components/ModuleSettingsPage';
 import SettingsPanel from './components/SettingsPanel';
 
 const NAV_ITEMS = [
-	{ key: 'dashboard', label: __( 'Dashboard', 'store-kit' ), page: 'store-kit' },
-	{ key: 'modules', label: __( 'Modules', 'store-kit' ), page: 'jwp-stk-modules' },
-	{ key: 'settings', label: __( 'Global Settings', 'store-kit' ), page: 'jwp-stk-settings' },
+	{ key: 'dashboard', label: __( 'Dashboard', 'jetix-store-toolkit' ), page: 'jetix-store-toolkit' },
+	{ key: 'modules', label: __( 'Modules', 'jetix-store-toolkit' ), page: 'jwp-stk-modules' },
+	{ key: 'settings', label: __( 'Global Settings', 'jetix-store-toolkit' ), page: 'jwp-stk-settings' },
 ];
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
 		<div className="jwp-stk-dashboard">
 			<div className="jwp-stk-dashboard__header">
 				<div className="jwp-stk-dashboard__header-left">
-					<h1>{ __( 'Store Kit', 'store-kit' ) }</h1>
+					<h1>{ __( 'Store Toolkit for WooCommerce', 'jetix-store-toolkit' ) }</h1>
 					<span className="jwp-stk-version">
 						v{ version || '0.1.0' }
 					</span>

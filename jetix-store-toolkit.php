@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: Store Kit
- * Plugin URI:  https://github.com/jetixWP/store-kit
+ * Plugin Name: Store Toolkit for WooCommerce
+ * Plugin URI:  https://github.com/jetixWP/jetix-store-toolkit
  * Description: Modular all-in-one WooCommerce toolkit — enable only what your store needs. Quick View, Cart Notices, Checkout Fields, Wishlist, Swatches and more.
  * Version:     0.2.0
  * Author:      JetixWP
  * Author URI:  https://jetixwp.com
  * License:     GPL-2.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: store-kit
+ * Text Domain: jetix-store-toolkit
  * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 7.4
@@ -50,8 +50,8 @@ function jwp_stk_woocommerce_missing_notice() {
 			<?php
 			printf(
 				/* translators: %s: WooCommerce plugin name */
-				esc_html__( '%1$s requires %2$s to be installed and active.', 'store-kit' ),
-				'<strong>Store Kit for WooCommerce</strong>',
+				esc_html__( '%1$s requires %2$s to be installed and active.', 'jetix-store-toolkit' ),
+				'<strong>Store Toolkit for WooCommerce</strong>',
 				'<strong>WooCommerce</strong>'
 			);
 			?>

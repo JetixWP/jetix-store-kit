@@ -12,9 +12,9 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
 const SECTIONS = [
-	{ name: 'billing', title: __( 'Billing', 'store-kit' ) },
-	{ name: 'shipping', title: __( 'Shipping', 'store-kit' ) },
-	{ name: 'order', title: __( 'Additional', 'store-kit' ) },
+	{ name: 'billing', title: __( 'Billing', 'jetix-store-toolkit' ) },
+	{ name: 'shipping', title: __( 'Shipping', 'jetix-store-toolkit' ) },
+	{ name: 'order', title: __( 'Additional', 'jetix-store-toolkit' ) },
 ];
 
 const FIELD_TYPES = [
@@ -44,7 +44,7 @@ const CheckoutFieldEditorSettings = () => {
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load settings.', 'store-kit' ),
+				message: __( 'Failed to load settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -67,12 +67,12 @@ const CheckoutFieldEditorSettings = () => {
 			setSettings( res.settings );
 			setNotice( {
 				status: 'success',
-				message: __( 'Settings saved.', 'store-kit' ),
+				message: __( 'Settings saved.', 'jetix-store-toolkit' ),
 			} );
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to save settings.', 'store-kit' ),
+				message: __( 'Failed to save settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setSaving( false );
@@ -161,7 +161,7 @@ const CheckoutFieldEditorSettings = () => {
 			<div className="jwp-stk-cfe-section">
 				{ fields.length === 0 && (
 					<p className="jwp-stk-cfe-empty">
-						{ __( 'No fields configured.', 'store-kit' ) }
+						{ __( 'No fields configured.', 'jetix-store-toolkit' ) }
 					</p>
 				) }
 
@@ -181,14 +181,14 @@ const CheckoutFieldEditorSettings = () => {
 										removeField( section, index )
 									}
 								>
-									{ __( 'Remove', 'store-kit' ) }
+									{ __( 'Remove', 'jetix-store-toolkit' ) }
 								</Button>
 							) }
 						</div>
 
 						<div className="jwp-stk-cfe-field-row__controls">
 							<TextControl
-								label={ __( 'Label', 'store-kit' ) }
+								label={ __( 'Label', 'jetix-store-toolkit' ) }
 								value={ field.label || '' }
 								onChange={ ( val ) =>
 									updateField(
@@ -202,7 +202,7 @@ const CheckoutFieldEditorSettings = () => {
 							/>
 
 							<TextControl
-								label={ __( 'Placeholder', 'store-kit' ) }
+								label={ __( 'Placeholder', 'jetix-store-toolkit' ) }
 								value={ field.placeholder || '' }
 								onChange={ ( val ) =>
 									updateField(
@@ -217,7 +217,7 @@ const CheckoutFieldEditorSettings = () => {
 
 							{ field.custom && (
 								<SelectControl
-									label={ __( 'Type', 'store-kit' ) }
+									label={ __( 'Type', 'jetix-store-toolkit' ) }
 									value={ field.type || 'text' }
 									options={ FIELD_TYPES }
 									onChange={ ( val ) =>
@@ -233,7 +233,7 @@ const CheckoutFieldEditorSettings = () => {
 							) }
 
 							<ToggleControl
-								label={ __( 'Required', 'store-kit' ) }
+								label={ __( 'Required', 'jetix-store-toolkit' ) }
 								checked={ !! field.required }
 								onChange={ ( val ) =>
 									updateField(
@@ -247,7 +247,7 @@ const CheckoutFieldEditorSettings = () => {
 							/>
 
 							<ToggleControl
-								label={ __( 'Disabled', 'store-kit' ) }
+								label={ __( 'Disabled', 'jetix-store-toolkit' ) }
 								checked={ !! field.disabled }
 								onChange={ ( val ) =>
 									updateField(
@@ -268,7 +268,7 @@ const CheckoutFieldEditorSettings = () => {
 					onClick={ () => addCustomField( section ) }
 					className="jwp-stk-cfe-add-field"
 				>
-					{ __( '+ Add Custom Field', 'store-kit' ) }
+					{ __( '+ Add Custom Field', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		);
@@ -301,7 +301,7 @@ const CheckoutFieldEditorSettings = () => {
 					isBusy={ saving }
 					disabled={ saving }
 				>
-					{ __( 'Save Settings', 'store-kit' ) }
+					{ __( 'Save Settings', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		</div>

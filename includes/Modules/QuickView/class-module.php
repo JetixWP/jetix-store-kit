@@ -35,7 +35,7 @@ class Module extends Base_Module {
 	 */
 	public function get_defaults() {
 		return array(
-			'button_label'     => __( 'Quick View', 'store-kit' ),
+			'button_label'     => __( 'Quick View', 'jetix-store-toolkit' ),
 			'button_position'  => 'after_add_to_cart',
 			'show_gallery'     => true,
 			'show_price'       => true,
@@ -151,7 +151,7 @@ class Module extends Base_Module {
 		$product    = wc_get_product( $product_id );
 
 		if ( ! $product ) {
-			wp_send_json_error( array( 'message' => __( 'Product not found.', 'store-kit' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Product not found.', 'jetix-store-toolkit' ) ) );
 		}
 
 		$settings = $this->get_settings();
@@ -238,7 +238,7 @@ class Module extends Base_Module {
 					<div class="jwp-stk-qv-meta">
 						<?php if ( $product->get_sku() ) : ?>
 							<span class="jwp-stk-qv-sku">
-								<?php esc_html_e( 'SKU:', 'store-kit' ); ?> <?php echo esc_html( $product->get_sku() ); ?>
+								<?php esc_html_e( 'SKU:', 'jetix-store-toolkit' ); ?> <?php echo esc_html( $product->get_sku() ); ?>
 							</span>
 						<?php endif; ?>
 						<?php
@@ -253,7 +253,7 @@ class Module extends Base_Module {
 				<?php endif; ?>
 
 				<a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="jwp-stk-qv-view-full">
-					<?php esc_html_e( 'View full details', 'store-kit' ); ?> &rarr;
+					<?php esc_html_e( 'View full details', 'jetix-store-toolkit' ); ?> &rarr;
 				</a>
 			</div>
 		</div>

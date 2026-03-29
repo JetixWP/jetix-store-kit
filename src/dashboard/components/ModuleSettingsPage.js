@@ -37,7 +37,7 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load module.', 'store-kit' ),
+				message: __( 'Failed to load module.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -63,7 +63,7 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 			} catch {
 				setNotice( {
 					status: 'error',
-					message: __( 'Failed to update module.', 'store-kit' ),
+					message: __( 'Failed to update module.', 'jetix-store-toolkit' ),
 				} );
 			} finally {
 				setToggling( false );
@@ -83,9 +83,9 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 	if ( ! module ) {
 		return (
 			<div className="jwp-stk-module-settings-not-found">
-				<p>{ __( 'Module not found.', 'store-kit' ) }</p>
+				<p>{ __( 'Module not found.', 'jetix-store-toolkit' ) }</p>
 				<Button variant="secondary" onClick={ onBack }>
-					{ __( '\u2190 Back to Modules', 'store-kit' ) }
+					{ __( '\u2190 Back to Modules', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		);
@@ -111,7 +111,7 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 					onClick={ onBack }
 					className="jwp-stk-back-button"
 				>
-					{ __( '\u2190 Back to Modules', 'store-kit' ) }
+					{ __( '\u2190 Back to Modules', 'jetix-store-toolkit' ) }
 				</Button>
 				<div className="jwp-stk-module-settings__title-row">
 					<h2>{ module.title }</h2>
@@ -124,8 +124,8 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 						<ToggleControl
 							label={
 								module.active
-									? __( 'Active', 'store-kit' )
-									: __( 'Inactive', 'store-kit' )
+									? __( 'Active', 'jetix-store-toolkit' )
+									: __( 'Inactive', 'jetix-store-toolkit' )
 							}
 							checked={ module.active }
 							onChange={ handleToggle }
@@ -147,7 +147,7 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 						<p>
 							{ __(
 								'No configuration available for this module.',
-								'store-kit'
+								'jetix-store-toolkit'
 							) }
 						</p>
 					</div>

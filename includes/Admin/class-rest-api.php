@@ -1,6 +1,6 @@
 <?php
 /**
- * REST API handler for Store Kit dashboard.
+ * REST API handler for Store Toolkit for WooCommerce dashboard.
  *
  * @package JWP_STK
  */
@@ -163,7 +163,7 @@ class REST_API {
 		);
 
 		/**
-		 * Fires after Store Kit REST routes are registered.
+		 * Fires after Store Toolkit for WooCommerce REST routes are registered.
 		 *
 		 * @param string $namespace API namespace.
 		 */
@@ -179,7 +179,7 @@ class REST_API {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return new WP_Error(
 				'jwp_stk_rest_forbidden',
-				__( 'You do not have permission to access this resource.', 'store-kit' ),
+				__( 'You do not have permission to access this resource.', 'jetix-store-toolkit' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -228,7 +228,7 @@ class REST_API {
 		if ( ! isset( $modules[ $module_slug ] ) ) {
 			return new WP_Error(
 				'jwp_stk_invalid_module',
-				__( 'Invalid module.', 'store-kit' ),
+				__( 'Invalid module.', 'jetix-store-toolkit' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -236,7 +236,7 @@ class REST_API {
 		if ( empty( $modules[ $module_slug ]['enabled'] ) ) {
 			return new WP_Error(
 				'jwp_stk_module_not_available',
-				__( 'This module is not available for activation.', 'store-kit' ),
+				__( 'This module is not available for activation.', 'jetix-store-toolkit' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -337,7 +337,7 @@ class REST_API {
 			if ( ! $module ) {
 				return new WP_Error(
 					'jwp_stk_module_not_found',
-					__( 'Module not found.', 'store-kit' ),
+					__( 'Module not found.', 'jetix-store-toolkit' ),
 					array( 'status' => 404 )
 				);
 			}
@@ -364,7 +364,7 @@ class REST_API {
 			if ( ! $module ) {
 				return new WP_Error(
 					'jwp_stk_module_not_found',
-					__( 'Module not found.', 'store-kit' ),
+					__( 'Module not found.', 'jetix-store-toolkit' ),
 					array( 'status' => 404 )
 				);
 			}

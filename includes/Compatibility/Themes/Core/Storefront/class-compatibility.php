@@ -30,7 +30,7 @@ class Compatibility extends Base_Compatibility {
 		parent::__construct();
 
 		$this->id    = 'storefront';
-		$this->title = __( 'Storefront', 'store-kit' );
+		$this->title = __( 'Storefront', 'jetix-store-toolkit' );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}

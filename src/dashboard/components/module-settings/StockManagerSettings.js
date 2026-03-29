@@ -24,7 +24,7 @@ const StockManagerSettings = () => {
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load settings.', 'store-kit' ),
+				message: __( 'Failed to load settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -47,12 +47,12 @@ const StockManagerSettings = () => {
 			setSettings( res.settings );
 			setNotice( {
 				status: 'success',
-				message: __( 'Settings saved.', 'store-kit' ),
+				message: __( 'Settings saved.', 'jetix-store-toolkit' ),
 			} );
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to save settings.', 'store-kit' ),
+				message: __( 'Failed to save settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setSaving( false );
@@ -86,12 +86,12 @@ const StockManagerSettings = () => {
 			<p className="jwp-stk-settings-description">
 				{ __(
 					'The Stock Manager page is available under WooCommerce → Stock Manager when this module is active.',
-					'store-kit'
+					'jetix-store-toolkit'
 				) }
 			</p>
 
 			<TextControl
-				label={ __( 'Products Per Page', 'store-kit' ) }
+				label={ __( 'Products Per Page', 'jetix-store-toolkit' ) }
 				type="number"
 				min={ 5 }
 				max={ 100 }
@@ -103,7 +103,7 @@ const StockManagerSettings = () => {
 			/>
 
 			<TextControl
-				label={ __( 'Low Stock Threshold', 'store-kit' ) }
+				label={ __( 'Low Stock Threshold', 'jetix-store-toolkit' ) }
 				type="number"
 				min={ 0 }
 				value={ settings.low_stock_threshold || 5 }
@@ -115,21 +115,21 @@ const StockManagerSettings = () => {
 				}
 				help={ __(
 					'Products with stock at or below this number are flagged as low stock.',
-					'store-kit'
+					'jetix-store-toolkit'
 				) }
 				__nextHasNoMarginBottom
 			/>
 
-			<h3>{ __( 'Display Columns', 'store-kit' ) }</h3>
+			<h3>{ __( 'Display Columns', 'jetix-store-toolkit' ) }</h3>
 
 			<ToggleControl
-				label={ __( 'Show SKU', 'store-kit' ) }
+				label={ __( 'Show SKU', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_sku }
 				onChange={ ( val ) => updateSetting( 'show_sku', val ) }
 				__nextHasNoMarginBottom
 			/>
 			<ToggleControl
-				label={ __( 'Show Stock Status', 'store-kit' ) }
+				label={ __( 'Show Stock Status', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_stock_status }
 				onChange={ ( val ) =>
 					updateSetting( 'show_stock_status', val )
@@ -137,7 +137,7 @@ const StockManagerSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 			<ToggleControl
-				label={ __( 'Show Manage Stock', 'store-kit' ) }
+				label={ __( 'Show Manage Stock', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_manage_stock }
 				onChange={ ( val ) =>
 					updateSetting( 'show_manage_stock', val )
@@ -145,7 +145,7 @@ const StockManagerSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 			<ToggleControl
-				label={ __( 'Show Stock Quantity', 'store-kit' ) }
+				label={ __( 'Show Stock Quantity', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_stock_quantity }
 				onChange={ ( val ) =>
 					updateSetting( 'show_stock_quantity', val )
@@ -153,7 +153,7 @@ const StockManagerSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 			<ToggleControl
-				label={ __( 'Show Backorders', 'store-kit' ) }
+				label={ __( 'Show Backorders', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_backorders }
 				onChange={ ( val ) =>
 					updateSetting( 'show_backorders', val )
@@ -161,7 +161,7 @@ const StockManagerSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 			<ToggleControl
-				label={ __( 'Show Low Stock Filter', 'store-kit' ) }
+				label={ __( 'Show Low Stock Filter', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_low_stock }
 				onChange={ ( val ) =>
 					updateSetting( 'show_low_stock', val )
@@ -176,7 +176,7 @@ const StockManagerSettings = () => {
 					isBusy={ saving }
 					disabled={ saving }
 				>
-					{ __( 'Save Settings', 'store-kit' ) }
+					{ __( 'Save Settings', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		</div>

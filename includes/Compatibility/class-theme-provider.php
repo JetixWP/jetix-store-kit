@@ -60,12 +60,12 @@ class Theme_Provider {
 			'jwp_stk_theme_compatibility_engines',
 			array(
 				'default'    => array(
-					'title'       => __( 'Default', 'store-kit' ),
+					'title'       => __( 'Default', 'jetix-store-toolkit' ),
 					'file_source' => JWP_STK_PLUGIN_DIR . 'includes/Compatibility/Themes/Fallback/class-compatibility.php',
 					'class'       => 'JWP_STK\Compatibility\Themes\Fallback\Compatibility',
 				),
 				'storefront' => array(
-					'title'       => __( 'Storefront', 'store-kit' ),
+					'title'       => __( 'Storefront', 'jetix-store-toolkit' ),
 					'file_source' => JWP_STK_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Storefront/class-compatibility.php',
 					'class'       => 'JWP_STK\Compatibility\Themes\Core\Storefront\Compatibility',
 				),
@@ -113,8 +113,8 @@ class Theme_Provider {
 		$theme_compat = $theme_engines[ $theme_slug ]['class']::get_instance();
 
 		if ( ! $theme_compat instanceof Base_Compatibility ) {
-			$options->set( 'theme-engine-error', __( 'Failed at registration', 'store-kit' ) );
-			$options->set( 'active-theme-engine', __( 'Unregistered', 'store-kit' ) );
+			$options->set( 'theme-engine-error', __( 'Failed at registration', 'jetix-store-toolkit' ) );
+			$options->set( 'active-theme-engine', __( 'Unregistered', 'jetix-store-toolkit' ) );
 			return;
 		}
 
@@ -149,8 +149,8 @@ class Theme_Provider {
 	 */
 	public function get_selectable_engine_options() {
 		$selectable = array(
-			'disabled' => __( 'Disabled', 'store-kit' ),
-			'auto'     => __( 'Auto (Recommended)', 'store-kit' ),
+			'disabled' => __( 'Disabled', 'jetix-store-toolkit' ),
+			'auto'     => __( 'Auto (Recommended)', 'jetix-store-toolkit' ),
 		);
 
 		foreach ( $this->get_theme_engines() as $id => $data ) {

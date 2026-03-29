@@ -4,15 +4,15 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
 const TIER_LABELS = {
-	core: __( 'Core', 'store-kit' ),
-	growth: __( 'Growth', 'store-kit' ),
-	power: __( 'Power', 'store-kit' ),
+	core: __( 'Core', 'jetix-store-toolkit' ),
+	growth: __( 'Growth', 'jetix-store-toolkit' ),
+	power: __( 'Power', 'jetix-store-toolkit' ),
 };
 
 const TIER_DESCRIPTIONS = {
-	core: __( 'Essential features every WooCommerce store needs.', 'store-kit' ),
-	growth: __( 'Conversion and engagement features to grow your store.', 'store-kit' ),
-	power: __( 'Advanced features for mature stores.', 'store-kit' ),
+	core: __( 'Essential features every WooCommerce store needs.', 'jetix-store-toolkit' ),
+	growth: __( 'Conversion and engagement features to grow your store.', 'jetix-store-toolkit' ),
+	power: __( 'Advanced features for mature stores.', 'jetix-store-toolkit' ),
 };
 
 const ModulesPanel = ( { onOpenModuleSettings } ) => {
@@ -28,7 +28,7 @@ const ModulesPanel = ( { onOpenModuleSettings } ) => {
 		} catch ( err ) {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load modules.', 'store-kit' ),
+				message: __( 'Failed to load modules.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -59,7 +59,7 @@ const ModulesPanel = ( { onOpenModuleSettings } ) => {
 			} catch ( err ) {
 				setNotice( {
 					status: 'error',
-					message: __( 'Failed to update module.', 'store-kit' ),
+					message: __( 'Failed to update module.', 'jetix-store-toolkit' ),
 				} );
 			} finally {
 				setToggling( ( prev ) => ( { ...prev, [ slug ]: false } ) );
@@ -142,7 +142,7 @@ const ModulesPanel = ( { onOpenModuleSettings } ) => {
 													)
 												}
 											>
-												{ __( 'Configure', 'store-kit' ) }
+												{ __( 'Configure', 'jetix-store-toolkit' ) }
 											</button>
 										) }
 									</div>

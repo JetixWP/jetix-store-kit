@@ -66,8 +66,8 @@ class Module extends Base_Module {
 	public function add_stock_page() {
 		$hook = add_submenu_page(
 			'woocommerce',
-			__( 'Stock Manager', 'store-kit' ),
-			__( 'Stock Manager', 'store-kit' ),
+			__( 'Stock Manager', 'jetix-store-toolkit' ),
+			__( 'Stock Manager', 'jetix-store-toolkit' ),
 			'manage_woocommerce',
 			'jwp-stk-stock-manager',
 			array( $this, 'render_page' )
@@ -105,10 +105,10 @@ class Module extends Base_Module {
 				'nonce'   => wp_create_nonce( 'jwp_stk_stock_manager' ),
 				'perPage' => $this->get_setting( 'per_page' ),
 				'i18n'    => array(
-					'saving'  => __( 'Saving…', 'store-kit' ),
-					'saved'   => __( 'Saved', 'store-kit' ),
-					'error'   => __( 'Error', 'store-kit' ),
-					'noItems' => __( 'No products found.', 'store-kit' ),
+					'saving'  => __( 'Saving…', 'jetix-store-toolkit' ),
+					'saved'   => __( 'Saved', 'jetix-store-toolkit' ),
+					'error'   => __( 'Error', 'jetix-store-toolkit' ),
+					'noItems' => __( 'No products found.', 'jetix-store-toolkit' ),
 				),
 			)
 		);
@@ -123,48 +123,48 @@ class Module extends Base_Module {
 		$settings = $this->get_settings();
 		?>
 		<div class="wrap jwp-stk-stock-manager-wrap">
-			<h1><?php esc_html_e( 'Stock Manager', 'store-kit' ); ?></h1>
+			<h1><?php esc_html_e( 'Stock Manager', 'jetix-store-toolkit' ); ?></h1>
 
 			<div class="jwp-stk-stock-toolbar">
 				<div class="jwp-stk-stock-filters">
 					<select id="jwp-stk-stock-status-filter">
-						<option value=""><?php esc_html_e( 'All stock statuses', 'store-kit' ); ?></option>
-						<option value="instock"><?php esc_html_e( 'In stock', 'store-kit' ); ?></option>
-						<option value="outofstock"><?php esc_html_e( 'Out of stock', 'store-kit' ); ?></option>
-						<option value="onbackorder"><?php esc_html_e( 'On backorder', 'store-kit' ); ?></option>
+						<option value=""><?php esc_html_e( 'All stock statuses', 'jetix-store-toolkit' ); ?></option>
+						<option value="instock"><?php esc_html_e( 'In stock', 'jetix-store-toolkit' ); ?></option>
+						<option value="outofstock"><?php esc_html_e( 'Out of stock', 'jetix-store-toolkit' ); ?></option>
+						<option value="onbackorder"><?php esc_html_e( 'On backorder', 'jetix-store-toolkit' ); ?></option>
 						<?php if ( ! empty( $settings['show_low_stock'] ) ) : ?>
-							<option value="lowstock"><?php esc_html_e( 'Low stock', 'store-kit' ); ?></option>
+							<option value="lowstock"><?php esc_html_e( 'Low stock', 'jetix-store-toolkit' ); ?></option>
 						<?php endif; ?>
 					</select>
 
-					<input type="search" id="jwp-stk-stock-search" placeholder="<?php esc_attr_e( 'Search products…', 'store-kit' ); ?>" />
+					<input type="search" id="jwp-stk-stock-search" placeholder="<?php esc_attr_e( 'Search products…', 'jetix-store-toolkit' ); ?>" />
 				</div>
 			</div>
 
 			<table class="wp-list-table widefat fixed striped jwp-stk-stock-table">
 				<thead>
 					<tr>
-						<th class="column-product"><?php esc_html_e( 'Product', 'store-kit' ); ?></th>
+						<th class="column-product"><?php esc_html_e( 'Product', 'jetix-store-toolkit' ); ?></th>
 						<?php if ( ! empty( $settings['show_sku'] ) ) : ?>
-							<th class="column-sku"><?php esc_html_e( 'SKU', 'store-kit' ); ?></th>
+							<th class="column-sku"><?php esc_html_e( 'SKU', 'jetix-store-toolkit' ); ?></th>
 						<?php endif; ?>
 						<?php if ( ! empty( $settings['show_stock_status'] ) ) : ?>
-							<th class="column-stock-status"><?php esc_html_e( 'Stock Status', 'store-kit' ); ?></th>
+							<th class="column-stock-status"><?php esc_html_e( 'Stock Status', 'jetix-store-toolkit' ); ?></th>
 						<?php endif; ?>
 						<?php if ( ! empty( $settings['show_manage_stock'] ) ) : ?>
-							<th class="column-manage-stock"><?php esc_html_e( 'Manage Stock', 'store-kit' ); ?></th>
+							<th class="column-manage-stock"><?php esc_html_e( 'Manage Stock', 'jetix-store-toolkit' ); ?></th>
 						<?php endif; ?>
 						<?php if ( ! empty( $settings['show_stock_quantity'] ) ) : ?>
-							<th class="column-stock-qty"><?php esc_html_e( 'Quantity', 'store-kit' ); ?></th>
+							<th class="column-stock-qty"><?php esc_html_e( 'Quantity', 'jetix-store-toolkit' ); ?></th>
 						<?php endif; ?>
 						<?php if ( ! empty( $settings['show_backorders'] ) ) : ?>
-							<th class="column-backorders"><?php esc_html_e( 'Backorders', 'store-kit' ); ?></th>
+							<th class="column-backorders"><?php esc_html_e( 'Backorders', 'jetix-store-toolkit' ); ?></th>
 						<?php endif; ?>
-						<th class="column-actions"><?php esc_html_e( 'Actions', 'store-kit' ); ?></th>
+						<th class="column-actions"><?php esc_html_e( 'Actions', 'jetix-store-toolkit' ); ?></th>
 					</tr>
 				</thead>
 				<tbody id="jwp-stk-stock-body">
-					<tr><td colspan="7"><?php esc_html_e( 'Loading…', 'store-kit' ); ?></td></tr>
+					<tr><td colspan="7"><?php esc_html_e( 'Loading…', 'jetix-store-toolkit' ); ?></td></tr>
 				</tbody>
 			</table>
 
@@ -182,7 +182,7 @@ class Module extends Base_Module {
 		check_ajax_referer( 'jwp_stk_stock_manager', 'nonce' );
 
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'store-kit' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'jetix-store-toolkit' ) ) );
 		}
 
 		$page     = isset( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
@@ -261,14 +261,14 @@ class Module extends Base_Module {
 		check_ajax_referer( 'jwp_stk_stock_manager', 'nonce' );
 
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'store-kit' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'jetix-store-toolkit' ) ) );
 		}
 
 		$product_id = isset( $_POST['product_id'] ) ? absint( $_POST['product_id'] ) : 0;
 		$product    = wc_get_product( $product_id );
 
 		if ( ! $product ) {
-			wp_send_json_error( array( 'message' => __( 'Product not found.', 'store-kit' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Product not found.', 'jetix-store-toolkit' ) ) );
 		}
 
 		// Update stock status.

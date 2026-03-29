@@ -25,7 +25,7 @@ const QuickViewSettings = () => {
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load settings.', 'store-kit' ),
+				message: __( 'Failed to load settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -48,12 +48,12 @@ const QuickViewSettings = () => {
 			setSettings( res.settings );
 			setNotice( {
 				status: 'success',
-				message: __( 'Settings saved.', 'store-kit' ),
+				message: __( 'Settings saved.', 'jetix-store-toolkit' ),
 			} );
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to save settings.', 'store-kit' ),
+				message: __( 'Failed to save settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setSaving( false );
@@ -85,23 +85,23 @@ const QuickViewSettings = () => {
 			) }
 
 			<TextControl
-				label={ __( 'Button Label', 'store-kit' ) }
+				label={ __( 'Button Label', 'jetix-store-toolkit' ) }
 				value={ settings.button_label || '' }
 				onChange={ ( val ) => updateSetting( 'button_label', val ) }
 				__nextHasNoMarginBottom
 			/>
 
 			<SelectControl
-				label={ __( 'Button Position', 'store-kit' ) }
+				label={ __( 'Button Position', 'jetix-store-toolkit' ) }
 				value={ settings.button_position || 'after_add_to_cart' }
 				options={ [
 					{
 						value: 'before_add_to_cart',
-						label: __( 'Before Add to Cart', 'store-kit' ),
+						label: __( 'Before Add to Cart', 'jetix-store-toolkit' ),
 					},
 					{
 						value: 'after_add_to_cart',
-						label: __( 'After Add to Cart', 'store-kit' ),
+						label: __( 'After Add to Cart', 'jetix-store-toolkit' ),
 					},
 				] }
 				onChange={ ( val ) =>
@@ -110,38 +110,38 @@ const QuickViewSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 
-			<h3>{ __( 'Modal Content', 'store-kit' ) }</h3>
+			<h3>{ __( 'Modal Content', 'jetix-store-toolkit' ) }</h3>
 
 			<ToggleControl
-				label={ __( 'Show Gallery', 'store-kit' ) }
+				label={ __( 'Show Gallery', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_gallery }
 				onChange={ ( val ) => updateSetting( 'show_gallery', val ) }
 				__nextHasNoMarginBottom
 			/>
 
 			<ToggleControl
-				label={ __( 'Show Price', 'store-kit' ) }
+				label={ __( 'Show Price', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_price }
 				onChange={ ( val ) => updateSetting( 'show_price', val ) }
 				__nextHasNoMarginBottom
 			/>
 
 			<ToggleControl
-				label={ __( 'Show Rating', 'store-kit' ) }
+				label={ __( 'Show Rating', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_rating }
 				onChange={ ( val ) => updateSetting( 'show_rating', val ) }
 				__nextHasNoMarginBottom
 			/>
 
 			<ToggleControl
-				label={ __( 'Show Short Description', 'store-kit' ) }
+				label={ __( 'Show Short Description', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_excerpt }
 				onChange={ ( val ) => updateSetting( 'show_excerpt', val ) }
 				__nextHasNoMarginBottom
 			/>
 
 			<ToggleControl
-				label={ __( 'Show Add to Cart', 'store-kit' ) }
+				label={ __( 'Show Add to Cart', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_add_to_cart }
 				onChange={ ( val ) =>
 					updateSetting( 'show_add_to_cart', val )
@@ -150,7 +150,7 @@ const QuickViewSettings = () => {
 			/>
 
 			<ToggleControl
-				label={ __( 'Show Product Meta', 'store-kit' ) }
+				label={ __( 'Show Product Meta', 'jetix-store-toolkit' ) }
 				checked={ !! settings.show_meta }
 				onChange={ ( val ) => updateSetting( 'show_meta', val ) }
 				__nextHasNoMarginBottom
@@ -163,7 +163,7 @@ const QuickViewSettings = () => {
 					isBusy={ saving }
 					disabled={ saving }
 				>
-					{ __( 'Save Settings', 'store-kit' ) }
+					{ __( 'Save Settings', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		</div>

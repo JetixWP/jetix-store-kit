@@ -84,7 +84,7 @@ class Module extends Base_Module {
 				1          => $label . ' <span class="count">(%s)</span>',
 				'singular' => $label . ' <span class="count">(%s)</span>',
 				'plural'   => $label . ' <span class="count">(%s)</span>',
-				'domain'   => 'store-kit',
+				'domain'   => 'jetix-store-toolkit',
 			);
 
 			register_post_status(
@@ -139,7 +139,7 @@ class Module extends Base_Module {
 			$slug = $this->sanitize_status_slug( $status['slug'] );
 
 			/* translators: %s: status label */
-			$actions[ 'mark_' . $slug ] = sprintf( __( 'Change status to %s', 'store-kit' ), sanitize_text_field( $status['label'] ) );
+			$actions[ 'mark_' . $slug ] = sprintf( __( 'Change status to %s', 'jetix-store-toolkit' ), sanitize_text_field( $status['label'] ) );
 		}
 
 		return $actions;

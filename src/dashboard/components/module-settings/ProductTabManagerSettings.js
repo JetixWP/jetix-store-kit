@@ -25,7 +25,7 @@ const ProductTabManagerSettings = () => {
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load settings.', 'store-kit' ),
+				message: __( 'Failed to load settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -48,12 +48,12 @@ const ProductTabManagerSettings = () => {
 			setSettings( res.settings );
 			setNotice( {
 				status: 'success',
-				message: __( 'Settings saved.', 'store-kit' ),
+				message: __( 'Settings saved.', 'jetix-store-toolkit' ),
 			} );
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to save settings.', 'store-kit' ),
+				message: __( 'Failed to save settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setSaving( false );
@@ -108,18 +108,18 @@ const ProductTabManagerSettings = () => {
 				</Notice>
 			) }
 
-			<h3>{ __( 'Default Tabs', 'store-kit' ) }</h3>
+			<h3>{ __( 'Default Tabs', 'jetix-store-toolkit' ) }</h3>
 			<p className="jwp-stk-settings-description">
 				{ __(
 					'Toggle default WooCommerce product tabs on or off, and optionally rename them.',
-					'store-kit'
+					'jetix-store-toolkit'
 				) }
 			</p>
 
 			<div className="jwp-stk-ptm-default-tabs">
 				<div className="jwp-stk-ptm-tab-row">
 					<ToggleControl
-						label={ __( 'Description Tab', 'store-kit' ) }
+						label={ __( 'Description Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_description }
 						onChange={ ( val ) =>
 							updateSetting(
@@ -131,8 +131,8 @@ const ProductTabManagerSettings = () => {
 					/>
 					{ ! settings.disable_description && (
 						<TextControl
-							label={ __( 'Custom Title', 'store-kit' ) }
-							placeholder={ __( 'Description', 'store-kit' ) }
+							label={ __( 'Custom Title', 'jetix-store-toolkit' ) }
+							placeholder={ __( 'Description', 'jetix-store-toolkit' ) }
 							value={ settings.description_title || '' }
 							onChange={ ( val ) =>
 								updateSetting( 'description_title', val )
@@ -144,7 +144,7 @@ const ProductTabManagerSettings = () => {
 
 				<div className="jwp-stk-ptm-tab-row">
 					<ToggleControl
-						label={ __( 'Additional Information Tab', 'store-kit' ) }
+						label={ __( 'Additional Information Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_additional_info }
 						onChange={ ( val ) =>
 							updateSetting(
@@ -156,10 +156,10 @@ const ProductTabManagerSettings = () => {
 					/>
 					{ ! settings.disable_additional_info && (
 						<TextControl
-							label={ __( 'Custom Title', 'store-kit' ) }
+							label={ __( 'Custom Title', 'jetix-store-toolkit' ) }
 							placeholder={ __(
 								'Additional information',
-								'store-kit'
+								'jetix-store-toolkit'
 							) }
 							value={
 								settings.additional_information_title || ''
@@ -177,7 +177,7 @@ const ProductTabManagerSettings = () => {
 
 				<div className="jwp-stk-ptm-tab-row">
 					<ToggleControl
-						label={ __( 'Reviews Tab', 'store-kit' ) }
+						label={ __( 'Reviews Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_reviews }
 						onChange={ ( val ) =>
 							updateSetting( 'disable_reviews', ! val )
@@ -186,8 +186,8 @@ const ProductTabManagerSettings = () => {
 					/>
 					{ ! settings.disable_reviews && (
 						<TextControl
-							label={ __( 'Custom Title', 'store-kit' ) }
-							placeholder={ __( 'Reviews', 'store-kit' ) }
+							label={ __( 'Custom Title', 'jetix-store-toolkit' ) }
+							placeholder={ __( 'Reviews', 'jetix-store-toolkit' ) }
 							value={ settings.reviews_title || '' }
 							onChange={ ( val ) =>
 								updateSetting( 'reviews_title', val )
@@ -198,13 +198,13 @@ const ProductTabManagerSettings = () => {
 				</div>
 			</div>
 
-			<h3>{ __( 'Custom Tabs', 'store-kit' ) }</h3>
+			<h3>{ __( 'Custom Tabs', 'jetix-store-toolkit' ) }</h3>
 
 			{ ( settings.custom_tabs || [] ).length === 0 && (
 				<p className="jwp-stk-settings-description">
 					{ __(
 						'No custom tabs yet. Add one below.',
-						'store-kit'
+						'jetix-store-toolkit'
 					) }
 				</p>
 			) }
@@ -214,7 +214,7 @@ const ProductTabManagerSettings = () => {
 					<div className="jwp-stk-ptm-custom-tab__header">
 						<strong>
 							{ tab.title ||
-								__( 'Untitled Tab', 'store-kit' ) }
+								__( 'Untitled Tab', 'jetix-store-toolkit' ) }
 						</strong>
 						<Button
 							isDestructive
@@ -222,11 +222,11 @@ const ProductTabManagerSettings = () => {
 							size="small"
 							onClick={ () => removeTab( index ) }
 						>
-							{ __( 'Remove', 'store-kit' ) }
+							{ __( 'Remove', 'jetix-store-toolkit' ) }
 						</Button>
 					</div>
 					<TextControl
-						label={ __( 'Tab Title', 'store-kit' ) }
+						label={ __( 'Tab Title', 'jetix-store-toolkit' ) }
 						value={ tab.title || '' }
 						onChange={ ( val ) =>
 							updateTab( index, 'title', val )
@@ -234,7 +234,7 @@ const ProductTabManagerSettings = () => {
 						__nextHasNoMarginBottom
 					/>
 					<TextareaControl
-						label={ __( 'Tab Content', 'store-kit' ) }
+						label={ __( 'Tab Content', 'jetix-store-toolkit' ) }
 						value={ tab.content || '' }
 						onChange={ ( val ) =>
 							updateTab( index, 'content', val )
@@ -242,12 +242,12 @@ const ProductTabManagerSettings = () => {
 						rows={ 4 }
 						help={ __(
 							'HTML is allowed. Content will be auto-wrapped in paragraphs.',
-							'store-kit'
+							'jetix-store-toolkit'
 						) }
 						__nextHasNoMarginBottom
 					/>
 					<TextControl
-						label={ __( 'Priority', 'store-kit' ) }
+						label={ __( 'Priority', 'jetix-store-toolkit' ) }
 						type="number"
 						value={ tab.priority || 50 }
 						onChange={ ( val ) =>
@@ -259,7 +259,7 @@ const ProductTabManagerSettings = () => {
 						}
 						help={ __(
 							'Lower number = appears first. Default WC tabs: Description 10, Additional Info 20, Reviews 30.',
-							'store-kit'
+							'jetix-store-toolkit'
 						) }
 						__nextHasNoMarginBottom
 					/>
@@ -271,7 +271,7 @@ const ProductTabManagerSettings = () => {
 				onClick={ addCustomTab }
 				className="jwp-stk-ptm-add-tab"
 			>
-				{ __( '+ Add Custom Tab', 'store-kit' ) }
+				{ __( '+ Add Custom Tab', 'jetix-store-toolkit' ) }
 			</Button>
 
 			<div className="jwp-stk-settings-actions">
@@ -281,7 +281,7 @@ const ProductTabManagerSettings = () => {
 					isBusy={ saving }
 					disabled={ saving }
 				>
-					{ __( 'Save Settings', 'store-kit' ) }
+					{ __( 'Save Settings', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		</div>

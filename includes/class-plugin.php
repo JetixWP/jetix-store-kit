@@ -83,9 +83,9 @@ final class Plugin {
 			self::$instance = new self();
 
 			/**
-			 * Store Kit loaded.
+			 * Store Toolkit for WooCommerce loaded.
 			 *
-			 * Fires when Store Kit is fully loaded and instantiated.
+			 * Fires when Store Toolkit for WooCommerce is fully loaded and instantiated.
 			 *
 			 * @since 0.1.0
 			 */
@@ -153,7 +153,7 @@ final class Plugin {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'store-kit' ) . '</a>',
+				'settings' => '<a href="' . esc_url( $settings_url ) . '">' . esc_html__( 'Settings', 'jetix-store-toolkit' ) . '</a>',
 			),
 			$actions
 		);

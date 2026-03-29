@@ -26,7 +26,7 @@ const CustomOrderStatusesSettings = () => {
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load settings.', 'store-kit' ),
+				message: __( 'Failed to load settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -49,12 +49,12 @@ const CustomOrderStatusesSettings = () => {
 			setStatuses( res.settings.statuses || [] );
 			setNotice( {
 				status: 'success',
-				message: __( 'Settings saved. Reload the page to see new statuses.', 'store-kit' ),
+				message: __( 'Settings saved. Reload the page to see new statuses.', 'jetix-store-toolkit' ),
 			} );
 		} catch {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to save settings.', 'store-kit' ),
+				message: __( 'Failed to save settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setSaving( false );
@@ -110,11 +110,11 @@ const CustomOrderStatusesSettings = () => {
 			) }
 
 			<div className="jwp-stk-cos-builtin">
-				<h3>{ __( 'Built-in Statuses', 'store-kit' ) }</h3>
+				<h3>{ __( 'Built-in Statuses', 'jetix-store-toolkit' ) }</h3>
 				<p className="jwp-stk-settings-description">
 					{ __(
 						'These are the default WooCommerce order statuses. They cannot be removed.',
-						'store-kit'
+						'jetix-store-toolkit'
 					) }
 				</p>
 				<ul className="jwp-stk-cos-builtin-list">
@@ -128,13 +128,13 @@ const CustomOrderStatusesSettings = () => {
 				</ul>
 			</div>
 
-			<h3>{ __( 'Custom Statuses', 'store-kit' ) }</h3>
+			<h3>{ __( 'Custom Statuses', 'jetix-store-toolkit' ) }</h3>
 
 			{ statuses.length === 0 && (
 				<p className="jwp-stk-settings-description">
 					{ __(
 						'No custom statuses yet. Click the button below to add one.',
-						'store-kit'
+						'jetix-store-toolkit'
 					) }
 				</p>
 			) }
@@ -143,7 +143,7 @@ const CustomOrderStatusesSettings = () => {
 				<div key={ index } className="jwp-stk-cos-status-row">
 					<div className="jwp-stk-cos-status-row__fields">
 						<TextControl
-							label={ __( 'Label', 'store-kit' ) }
+							label={ __( 'Label', 'jetix-store-toolkit' ) }
 							value={ status.label }
 							onChange={ ( val ) =>
 								updateStatus( index, 'label', val )
@@ -151,7 +151,7 @@ const CustomOrderStatusesSettings = () => {
 							__nextHasNoMarginBottom
 						/>
 						<TextControl
-							label={ __( 'Slug', 'store-kit' ) }
+							label={ __( 'Slug', 'jetix-store-toolkit' ) }
 							value={ status.slug }
 							onChange={ ( val ) => {
 								updateStatus( index, 'slug', val );
@@ -159,12 +159,12 @@ const CustomOrderStatusesSettings = () => {
 							} }
 							help={ __(
 								'Max 17 characters, lowercase letters, numbers, hyphens.',
-								'store-kit'
+								'jetix-store-toolkit'
 							) }
 							__nextHasNoMarginBottom
 						/>
 						<div className="jwp-stk-cos-color-field">
-							<label>{ __( 'Color', 'store-kit' ) }</label>
+							<label>{ __( 'Color', 'jetix-store-toolkit' ) }</label>
 							<div className="jwp-stk-cos-color-input">
 								<ColorIndicator
 									colorValue={ status.color || '#787c82' }
@@ -188,7 +188,7 @@ const CustomOrderStatusesSettings = () => {
 						variant="tertiary"
 						onClick={ () => removeStatus( index ) }
 					>
-						{ __( 'Remove', 'store-kit' ) }
+						{ __( 'Remove', 'jetix-store-toolkit' ) }
 					</Button>
 				</div>
 			) ) }
@@ -198,7 +198,7 @@ const CustomOrderStatusesSettings = () => {
 				onClick={ addStatus }
 				className="jwp-stk-cos-add-status"
 			>
-				{ __( '+ Add Custom Status', 'store-kit' ) }
+				{ __( '+ Add Custom Status', 'jetix-store-toolkit' ) }
 			</Button>
 
 			<div className="jwp-stk-settings-actions">
@@ -208,7 +208,7 @@ const CustomOrderStatusesSettings = () => {
 					isBusy={ saving }
 					disabled={ saving }
 				>
-					{ __( 'Save Settings', 'store-kit' ) }
+					{ __( 'Save Settings', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		</div>

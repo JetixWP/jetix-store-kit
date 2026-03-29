@@ -23,7 +23,7 @@ const SettingsPanel = () => {
 		} catch ( err ) {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to load settings.', 'store-kit' ),
+				message: __( 'Failed to load settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setLoading( false );
@@ -50,12 +50,12 @@ const SettingsPanel = () => {
 			} );
 			setNotice( {
 				status: 'success',
-				message: __( 'Settings saved.', 'store-kit' ),
+				message: __( 'Settings saved.', 'jetix-store-toolkit' ),
 			} );
 		} catch ( err ) {
 			setNotice( {
 				status: 'error',
-				message: __( 'Failed to save settings.', 'store-kit' ),
+				message: __( 'Failed to save settings.', 'jetix-store-toolkit' ),
 			} );
 		} finally {
 			setSaving( false );
@@ -90,16 +90,16 @@ const SettingsPanel = () => {
 			) }
 
 			<div className="jwp-stk-settings-section">
-				<h2>{ __( 'Theme Compatibility', 'store-kit' ) }</h2>
+				<h2>{ __( 'Theme Compatibility', 'jetix-store-toolkit' ) }</h2>
 				<p className="jwp-stk-settings-description">
 					{ __(
-						'The theme compatibility engine loads additional styles and scripts to ensure Store Kit features display correctly with your theme. "Auto" will detect your theme automatically.',
-						'store-kit'
+						'The theme compatibility engine loads additional styles and scripts to ensure Store Toolkit for WooCommerce features display correctly with your theme. "Auto" will detect your theme automatically.',
+						'jetix-store-toolkit'
 					) }
 				</p>
 
 				<SelectControl
-					label={ __( 'Theme Compatibility Engine', 'store-kit' ) }
+					label={ __( 'Theme Compatibility Engine', 'jetix-store-toolkit' ) }
 					value={ themeEngine }
 					options={ engineOptions }
 					onChange={ setThemeEngine }
@@ -108,12 +108,12 @@ const SettingsPanel = () => {
 
 				{ settings?.active_theme_engine && (
 					<p className="jwp-stk-active-engine-info">
-						{ __( 'Active engine:', 'store-kit' ) }{ ' ' }
+						{ __( 'Active engine:', 'jetix-store-toolkit' ) }{ ' ' }
 						<strong>{ settings.active_theme_engine }</strong>
 						{ settings?.automatic_theme_engine && (
 							<>
 								{ ' — ' }
-								{ __( 'Auto-detected:', 'store-kit' ) }{ ' ' }
+								{ __( 'Auto-detected:', 'jetix-store-toolkit' ) }{ ' ' }
 								<strong>
 									{ settings.automatic_theme_engine }
 								</strong>
@@ -130,7 +130,7 @@ const SettingsPanel = () => {
 					isBusy={ saving }
 					disabled={ saving }
 				>
-					{ __( 'Save Settings', 'store-kit' ) }
+					{ __( 'Save Settings', 'jetix-store-toolkit' ) }
 				</Button>
 			</div>
 		</div>

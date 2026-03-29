@@ -33,14 +33,14 @@ const DashboardPanel = () => {
 				<div className="jwp-stk-welcome-banner__content">
 					<h2>
 						{ __(
-							'Welcome to Store Kit for WooCommerce',
-							'store-kit'
+							'Welcome to Store Toolkit for WooCommerce for WooCommerce',
+							'jetix-store-toolkit'
 						) }
 					</h2>
 					<p>
 						{ __(
 							'Your modular WooCommerce toolkit. Enable only the features your store needs — from Quick View and Cart Notices to Wishlists and Variation Swatches.',
-							'store-kit'
+							'jetix-store-toolkit'
 						) }
 					</p>
 					{ ! loading && stats && (
@@ -50,7 +50,7 @@ const DashboardPanel = () => {
 									{ stats.active }
 								</span>
 								<span className="jwp-stk-stat__label">
-									{ __( 'Active Modules', 'store-kit' ) }
+									{ __( 'Active Modules', 'jetix-store-toolkit' ) }
 								</span>
 							</div>
 							<div className="jwp-stk-stat">
@@ -58,7 +58,7 @@ const DashboardPanel = () => {
 									{ stats.total }
 								</span>
 								<span className="jwp-stk-stat__label">
-									{ __( 'Available Modules', 'store-kit' ) }
+									{ __( 'Available Modules', 'jetix-store-toolkit' ) }
 								</span>
 							</div>
 						</div>
@@ -69,13 +69,13 @@ const DashboardPanel = () => {
 							href={ `${ adminUrl }admin.php?page=jwp-stk-modules` }
 							className="components-button is-primary"
 						>
-							{ __( 'Manage Modules', 'store-kit' ) }
+							{ __( 'Manage Modules', 'jetix-store-toolkit' ) }
 						</a>
 						<a
 							href={ `${ adminUrl }admin.php?page=jwp-stk-settings` }
 							className="components-button is-secondary"
 						>
-							{ __( 'Global Settings', 'store-kit' ) }
+							{ __( 'Global Settings', 'jetix-store-toolkit' ) }
 						</a>
 					</div>
 				</div>

@@ -2,7 +2,7 @@
 /**
  * Base Module.
  *
- * Abstract base class for all Store Kit modules.
+ * Abstract base class for all Store Toolkit for WooCommerce modules.
  *
  * @package JWP_STK
  */

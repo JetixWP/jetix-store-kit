@@ -1,6 +1,6 @@
 <?php
 /**
- * Store Kit for WooCommerce Uninstaller.
+ * Store Toolkit for WooCommerce Uninstaller.
  *
  * Fired when the plugin is deleted via the WordPress admin.
  *

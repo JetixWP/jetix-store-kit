@@ -103,7 +103,7 @@ class Admin_Dashboard {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading page slug for menu routing only.
 		$page     = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
 		$page_map = array(
-			'store-kit'        => 'dashboard',
+			'jetix-store-toolkit'        => 'dashboard',
 			'jwp-stk-modules'  => 'modules',
 			'jwp-stk-settings' => 'settings',
 		);

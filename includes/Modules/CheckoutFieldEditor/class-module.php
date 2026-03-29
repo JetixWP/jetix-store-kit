@@ -292,91 +292,91 @@ class Module extends Base_Module {
 		$defaults = array(
 			'billing'  => array(
 				'billing_first_name' => array(
-					'label'    => __( 'First name', 'store-kit' ),
+					'label'    => __( 'First name', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_last_name'  => array(
-					'label'    => __( 'Last name', 'store-kit' ),
+					'label'    => __( 'Last name', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_company'    => array(
-					'label'    => __( 'Company name', 'store-kit' ),
+					'label'    => __( 'Company name', 'jetix-store-toolkit' ),
 					'required' => false,
 				),
 				'billing_country'    => array(
-					'label'    => __( 'Country / Region', 'store-kit' ),
+					'label'    => __( 'Country / Region', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_address_1'  => array(
-					'label'    => __( 'Street address', 'store-kit' ),
+					'label'    => __( 'Street address', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_address_2'  => array(
-					'label'    => __( 'Apartment, suite, unit, etc.', 'store-kit' ),
+					'label'    => __( 'Apartment, suite, unit, etc.', 'jetix-store-toolkit' ),
 					'required' => false,
 				),
 				'billing_city'       => array(
-					'label'    => __( 'Town / City', 'store-kit' ),
+					'label'    => __( 'Town / City', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_state'      => array(
-					'label'    => __( 'State / County', 'store-kit' ),
+					'label'    => __( 'State / County', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_postcode'   => array(
-					'label'    => __( 'Postcode / ZIP', 'store-kit' ),
+					'label'    => __( 'Postcode / ZIP', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_phone'      => array(
-					'label'    => __( 'Phone', 'store-kit' ),
+					'label'    => __( 'Phone', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'billing_email'      => array(
-					'label'    => __( 'Email address', 'store-kit' ),
+					'label'    => __( 'Email address', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 			),
 			'shipping' => array(
 				'shipping_first_name' => array(
-					'label'    => __( 'First name', 'store-kit' ),
+					'label'    => __( 'First name', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'shipping_last_name'  => array(
-					'label'    => __( 'Last name', 'store-kit' ),
+					'label'    => __( 'Last name', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'shipping_company'    => array(
-					'label'    => __( 'Company name', 'store-kit' ),
+					'label'    => __( 'Company name', 'jetix-store-toolkit' ),
 					'required' => false,
 				),
 				'shipping_country'    => array(
-					'label'    => __( 'Country / Region', 'store-kit' ),
+					'label'    => __( 'Country / Region', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'shipping_address_1'  => array(
-					'label'    => __( 'Street address', 'store-kit' ),
+					'label'    => __( 'Street address', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'shipping_address_2'  => array(
-					'label'    => __( 'Apartment, suite, unit, etc.', 'store-kit' ),
+					'label'    => __( 'Apartment, suite, unit, etc.', 'jetix-store-toolkit' ),
 					'required' => false,
 				),
 				'shipping_city'       => array(
-					'label'    => __( 'Town / City', 'store-kit' ),
+					'label'    => __( 'Town / City', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'shipping_state'      => array(
-					'label'    => __( 'State / County', 'store-kit' ),
+					'label'    => __( 'State / County', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 				'shipping_postcode'   => array(
-					'label'    => __( 'Postcode / ZIP', 'store-kit' ),
+					'label'    => __( 'Postcode / ZIP', 'jetix-store-toolkit' ),
 					'required' => true,
 				),
 			),
 			'order'    => array(
 				'order_comments' => array(
-					'label'    => __( 'Order notes', 'store-kit' ),
+					'label'    => __( 'Order notes', 'jetix-store-toolkit' ),
 					'required' => false,
 				),
 			),
