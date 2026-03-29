@@ -4,7 +4,7 @@ Tags: woocommerce, quick view, checkout fields, order status, stock manager
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ Yes. Store Toolkit for WooCommerce declares full compatibility with WooCommerce 
 4. Stock Manager admin screen.
 
 == Changelog ==
+
+= 0.3.0 =
+* Changes as per wp.org
 
 = 0.2.0 =
 * Added Quick View module with lightbox modal and configurable display options.
