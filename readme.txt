@@ -2,9 +2,9 @@
 Contributors: jetixwp
 Tags: woocommerce, quick view, checkout fields, order status, stock manager
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.3.0
+Stable tag: 0.4.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,9 @@ Yes. Jetix Store Toolkit for WooCommerce declares full compatibility with WooCom
 4. Stock Manager admin screen.
 
 == Changelog ==
+
+= 0.4.0 =
+* Changes as per wp.org
 
 = 0.3.0 =
 * Changes as per wp.org
