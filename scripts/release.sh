@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Build a distributable release zip for Store Toolkit for WooCommerce.
+# Build a distributable release zip for Jetix Store Toolkit for WooCommerce.
 #
 # Usage:  ./scripts/release.sh
 # Output: build/jetix-store-toolkit.zip  (and build/jetix-store-toolkit/ as the source folder)

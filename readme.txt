@@ -1,4 +1,4 @@
-=== Store Toolkit for WooCommerce ===
+=== Jetix Store Toolkit for WooCommerce ===
 Contributors: jetixwp
 Tags: woocommerce, quick view, checkout fields, order status, stock manager
 Requires at least: 6.0
@@ -12,7 +12,7 @@ Modular all-in-one WooCommerce toolkit — enable only the features your store n
 
 == Description ==
 
-Store Toolkit for WooCommerce is a lightweight, modular toolkit that bundles the most essential WooCommerce enhancements into a single plugin. Activate only the modules you need — no bloat, no conflicts.
+Jetix Store Toolkit for WooCommerce is a lightweight, modular toolkit that bundles the most essential WooCommerce enhancements into a single plugin. Activate only the modules you need — no bloat, no conflicts.
 
 = Core Modules =
 
@@ -22,7 +22,7 @@ Store Toolkit for WooCommerce is a lightweight, modular toolkit that bundles the
 * **Stock Manager** — Manage stock quantities, statuses and backorder settings for all products from a single admin screen.
 * **Product Tab Manager** — Disable, rename or reorder default WooCommerce product tabs, and add unlimited custom tabs with your own content.
 
-= Why Store Toolkit for WooCommerce? =
+= Why Jetix Store Toolkit for WooCommerce? =
 
 * **Modular** — Each feature is a self-contained module you can toggle on or off.
 * **Lightweight** — Only active modules load on the front end, keeping your store fast.
@@ -37,7 +37,7 @@ The full source code, including build tools, is publicly available on GitHub: ht
 
 1. Upload the `jetix-store-toolkit` folder to the `/wp-content/plugins/` directory, or install directly from the WordPress plugin screen.
 2. Activate the plugin through the **Plugins** menu in WordPress.
-3. Navigate to **Store Toolkit for WooCommerce → Modules** and enable the modules you need.
+3. Navigate to **Jetix Store Toolkit for WooCommerce → Modules** and enable the modules you need.
 4. Click **Configure** on any active module to adjust its settings.
 
 == Frequently Asked Questions ==
@@ -52,7 +52,7 @@ No. Only active modules load their assets. Inactive modules add zero overhead.
 
 = Is the plugin compatible with HPOS? =
 
-Yes. Store Toolkit for WooCommerce declares full compatibility with WooCommerce High-Performance Order Storage.
+Yes. Jetix Store Toolkit for WooCommerce declares full compatibility with WooCommerce High-Performance Order Storage.
 
 == Screenshots ==
 

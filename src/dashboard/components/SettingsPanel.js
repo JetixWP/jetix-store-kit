@@ -93,7 +93,7 @@ const SettingsPanel = () => {
 				<h2>{ __( 'Theme Compatibility', 'jetix-store-toolkit' ) }</h2>
 				<p className="jwp-stk-settings-description">
 					{ __(
-						'The theme compatibility engine loads additional styles and scripts to ensure Store Toolkit for WooCommerce features display correctly with your theme. "Auto" will detect your theme automatically.',
+						'The theme compatibility engine loads additional styles and scripts to ensure Jetix Store Toolkit for WooCommerce features display correctly with your theme. "Auto" will detect your theme automatically.',
 						'jetix-store-toolkit'
 					) }
 				</p>

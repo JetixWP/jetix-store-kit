@@ -33,7 +33,7 @@ const DashboardPanel = () => {
 				<div className="jwp-stk-welcome-banner__content">
 					<h2>
 						{ __(
-							'Welcome to Store Toolkit for WooCommerce for WooCommerce',
+							'Welcome to Jetix Store Toolkit for WooCommerce',
 							'jetix-store-toolkit'
 						) }
 					</h2>

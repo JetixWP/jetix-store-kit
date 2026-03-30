@@ -1,7 +1,7 @@
 {
 	"name": "jetix-store-toolkit",
 	"version": "0.3.0",
-	"description": "Store Toolkit for WooCommerce — Modular all-in-one WooCommerce toolkit.",
+	"description": "Jetix Store Toolkit for WooCommerce — Modular all-in-one WooCommerce toolkit.",
 	"private": true,
 	"scripts": {
 		"build": "wp-scripts build --webpack-src-dir=src/dashboard --output-path=assets/js/dashboard",

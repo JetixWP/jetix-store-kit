@@ -83,9 +83,9 @@ final class Plugin {
 			self::$instance = new self();
 
 			/**
-			 * Store Toolkit for WooCommerce loaded.
+			 * Jetix Store Toolkit for WooCommerce loaded.
 			 *
-			 * Fires when Store Toolkit for WooCommerce is fully loaded and instantiated.
+			 * Fires when Jetix Store Toolkit for WooCommerce is fully loaded and instantiated.
 			 *
 			 * @since 0.1.0
 			 */
@@ -149,7 +149,7 @@ final class Plugin {
 	 * @return array
 	 */
 	public function filter_plugin_action_links( array $actions ) {
-		$settings_url = admin_url( 'admin.php?page=jwp-stk' );
+		$settings_url = admin_url( 'admin.php?page=jetix-store-toolkit' );
 
 		return array_merge(
 			array(

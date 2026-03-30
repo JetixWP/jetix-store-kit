@@ -2,7 +2,7 @@
 /**
  * Base Module.
  *
- * Abstract base class for all Store Toolkit for WooCommerce modules.
+ * Abstract base class for all Jetix Store Toolkit for WooCommerce modules.
  *
  * @package JWP_STK
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * REST API handler for Store Toolkit for WooCommerce dashboard.
+ * REST API handler for Jetix Store Toolkit for WooCommerce dashboard.
  *
  * @package JWP_STK
  */
@@ -163,7 +163,7 @@ class REST_API {
 		);
 
 		/**
-		 * Fires after Store Toolkit for WooCommerce REST routes are registered.
+		 * Fires after Jetix Store Toolkit for WooCommerce REST routes are registered.
 		 *
 		 * @param string $namespace API namespace.
 		 */
