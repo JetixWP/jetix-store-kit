@@ -64,7 +64,7 @@ class Admin_Dashboard {
 
 		wp_enqueue_style(
 			'jwp-stk-dashboard',
-			JWP_STK_PLUGIN_URL . 'assets/js/dashboard/style-index.css',
+			JWP_STK_PLUGIN_URL . 'assets/js/dashboard/index.css',
 			array( 'wp-components' ),
 			$asset['version']
 		);
@@ -85,10 +85,10 @@ class Admin_Dashboard {
 	 */
 	public static function get_hide_notices_css() {
 		return '
-			.jwp-stk-dashboard-page .notice,
-			.jwp-stk-dashboard-page .updated,
-			.jwp-stk-dashboard-page .update-nag,
-			.jwp-stk-dashboard-page .error {
+			.jstk-dashboard-page .notice,
+			.jstk-dashboard-page .updated,
+			.jstk-dashboard-page .update-nag,
+			.jstk-dashboard-page .error {
 				display: none !important;
 			}
 		';
@@ -103,9 +103,9 @@ class Admin_Dashboard {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Reading page slug for menu routing only.
 		$page     = isset( $_GET['page'] ) ? sanitize_text_field( wp_unslash( $_GET['page'] ) ) : '';
 		$page_map = array(
-			'jetix-store-toolkit'        => 'dashboard',
-			'jwp-stk-modules'  => 'modules',
-			'jwp-stk-settings' => 'settings',
+			'jetix-store-toolkit' => 'dashboard',
+			'jwp-stk-modules'     => 'modules',
+			'jwp-stk-settings'    => 'settings',
 		);
 
 		$data = array(

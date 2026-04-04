@@ -1,0 +1,846 @@
+/**
+ * Jetix Store Toolkit — Admin Panel Styles
+ *
+ * Design tokens lean on WordPress admin CSS variables so the panel
+ * feels native while still having its own identity.
+ *
+ * @package Jetix_Store_Toolkit
+ */
+
+@use 'sass:color';
+@use './ui';
+
+// ─── Tokens ──────────────────────────────────────────────────────────────────
+
+// Colors
+$color-accent:              #2271b1;
+$color-text-body:           #262626;
+$color-text-muted:          #858586;
+$color-bg-body:             #f0f0f1;
+$color-bg-light:            #f6f7f7;
+$color-bg-ultra-light:      #ffffff;
+$color-border-light:        #e2e2e4;
+$color-border-medium:       #c3c4c7;
+$color-border-strong:       #8d8f95;
+
+// Status
+$color-status-success:      #66A378;
+$color-status-warning:      #EAB42E;
+$color-status-danger:       #DB5E50;
+
+// Spacing
+$space-2xs:                 4px;
+$space-xs:                  8px;
+$space-s:                   12px;
+$space-m:                   16px;
+$space-xl:                  24px;
+$space-2xl:                 32px;
+$control-description-gap:   12px;
+
+// Border Radius
+$radius-container:          8px;
+$radius-button:             5px;
+$radius-input:              5px;
+$radius-checkbox:           4px;
+
+// Shadows
+$shadow-input:              0 2px 2px rgba(0, 0, 0, 0.05);
+$shadow-box:                0 4px 4px rgba(0, 0, 0, 0.05);
+
+// Typography — Font Family
+$font-family:               -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                            Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+// Typography — Title XL
+$title-xl-size:             24px;
+$title-xl-weight:           590;
+$title-xl-line-height:      1.5;
+
+// Typography — Title L
+$title-l-size:              18px;
+$title-l-weight:            590;
+$title-l-line-height:       1.5;
+
+// Typography — Title M
+$title-m-size:              16px;
+$title-m-weight:            590;
+$title-m-line-height:       1.5;
+
+// Typography — Title S
+$title-s-size:              14px;
+$title-s-weight:            700;
+$title-s-line-height:       1.5;
+
+// Typography — Text L
+$text-l-size:               16px;
+$text-l-weight:             400;
+$text-l-line-height:        1.6;
+
+// Typography — Text M
+$text-m-size:               14px;
+$text-m-weight:             400;
+$text-m-line-height:        1.5;
+
+// Typography — Text S
+$text-s-size:               13px;
+$text-s-weight:             400;
+$text-s-line-height:        1.5;
+
+// Typography — Label
+$label-size:                14px;
+$label-weight:              700;
+$label-line-height:         1.3;
+
+// Typography — Accent
+$accent-size:               12px;
+$accent-weight:             700;
+$accent-line-height:        1.3;
+
+// Typography — Button Text
+$button-text-size:          14px;
+$button-text-weight:        590;
+$button-text-line-height:   1;
+
+:root {
+
+  /* Colors */
+  --color-accent:            #{$color-accent};
+  --color-text-body:         #{$color-text-body};
+  --color-text-muted:        #{$color-text-muted};
+  --color-bg-body:           #{$color-bg-body};
+  --color-bg-light:          #{$color-bg-light};
+  --color-bg-ultra-light:    #{$color-bg-ultra-light};
+  --color-border-light:      #{$color-border-light};
+  --color-border-medium:     #{$color-border-medium};
+  --color-border-strong:     #{$color-border-strong};
+  --color-status-success:    #{$color-status-success};
+  --color-status-warning:    #{$color-status-warning};
+  --color-status-danger:     #{$color-status-danger};
+
+  /* Spacing */
+  --space-2xs:               #{$space-2xs};
+  --space-xs:                #{$space-xs};
+  --space-s:                 #{$space-s};
+  --space-m:                 #{$space-m};
+  --space-xl:                #{$space-xl};
+  --space-2xl:               #{$space-2xl};
+  --control-description-gap: #{$control-description-gap};
+
+  /* Border Radius */
+  --radius-container:        #{$radius-container};
+  --radius-button:           #{$radius-button};
+  --radius-input:            #{$radius-input};
+  --radius-checkbox:         #{$radius-checkbox};
+
+  /* Shadows */
+  --shadow-input:            #{$shadow-input};
+  --shadow-box:              #{$shadow-box};
+
+  /* Typography */
+  --font-family:             #{$font-family};
+  --title-xl-size:           #{$title-xl-size};
+  --title-xl-weight:         #{$title-xl-weight};
+  --title-xl-line-height:    #{$title-xl-line-height};
+  --title-l-size:            #{$title-l-size};
+  --title-l-weight:          #{$title-l-weight};
+  --title-l-line-height:     #{$title-l-line-height};
+  --title-m-size:            #{$title-m-size};
+  --title-m-weight:          #{$title-m-weight};
+  --title-m-line-height:     #{$title-m-line-height};
+  --title-s-size:            #{$title-s-size};
+  --title-s-weight:          #{$title-s-weight};
+  --title-s-line-height:     #{$title-s-line-height};
+  --text-l-size:             #{$text-l-size};
+  --text-l-weight:           #{$text-l-weight};
+  --text-l-line-height:      #{$text-l-line-height};
+  --text-m-size:             #{$text-m-size};
+  --text-m-weight:           #{$text-m-weight};
+  --text-m-line-height:      #{$text-m-line-height};
+  --text-s-size:             #{$text-s-size};
+  --text-s-weight:           #{$text-s-weight};
+  --text-s-line-height:      #{$text-s-line-height};
+  --label-size:              #{$label-size};
+  --label-weight:            #{$label-weight};
+  --label-line-height:       #{$label-line-height};
+  --accent-size:             #{$accent-size};
+  --accent-weight:           #{$accent-weight};
+  --accent-line-height:      #{$accent-line-height};
+  --button-text-size:        #{$button-text-size};
+  --button-text-weight:      #{$button-text-weight};
+  --button-text-line-height: #{$button-text-line-height};
+
+}
+
+// ─── Typography Utilities ─────────────────────────────────────────────────────
+
+.text-title-xl {
+  font-size:   var(--title-xl-size);
+  font-weight: var(--title-xl-weight);
+  line-height: var(--title-xl-line-height);
+}
+
+.text-title-l {
+  font-size:   var(--title-l-size);
+  font-weight: var(--title-l-weight);
+  line-height: var(--title-l-line-height);
+}
+
+.text-title-m {
+  font-size:   var(--title-m-size);
+  font-weight: var(--title-m-weight);
+  line-height: var(--title-m-line-height);
+}
+
+.text-title-s {
+  font-size:   var(--title-s-size);
+  font-weight: var(--title-s-weight);
+  line-height: var(--title-s-line-height);
+}
+
+.text-l {
+  font-size:   var(--text-l-size);
+  font-weight: var(--text-l-weight);
+  line-height: var(--text-l-line-height);
+}
+
+.text-m {
+  font-size:   var(--text-m-size);
+  font-weight: var(--text-m-weight);
+  line-height: var(--text-m-line-height);
+}
+
+.text-s {
+  font-size:   var(--text-s-size);
+  font-weight: var(--text-s-weight);
+  line-height: var(--text-s-line-height);
+}
+
+.text-label {
+  font-size:   var(--label-size);
+  font-weight: var(--label-weight);
+  line-height: var(--label-line-height);
+}
+
+.text-accent {
+  font-size:   var(--accent-size);
+  font-weight: var(--accent-weight);
+  line-height: var(--accent-line-height);
+}
+
+.text-button {
+  font-size:   var(--button-text-size);
+  font-weight: var(--button-text-weight);
+  line-height: var(--button-text-line-height);
+}
+
+// ─── Old Tokens ───────────────────────────────────────────────────────────────
+
+$jstk-blue:        #2271b1;
+$jstk-blue-hover:  #135e96;
+$jstk-white:       #fff;
+$jstk-text:        #1d2327;
+$jstk-text-muted:  #646970;
+$jstk-border:      #dcdcde;
+$jstk-bg:          #f6f7f7;
+$jstk-card-bg:     #fff;
+$jstk-radius-sm:   4px;
+$jstk-radius-md:   8px;
+$jstk-radius-lg:   12px;
+$jstk-shadow:      0 1px 4px rgba(0, 0, 0, 0.08);
+$jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
+
+// ─── App Shell ────────────────────────────────────────────────────────────────
+
+.jstk-app {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: var(--font-family);
+	color: var(--color-text-body);
+	background: var(--color-bg-body);
+	margin-left: -20px;
+	padding: 0;
+}
+
+.jstk-dashboard-page {
+	margin: 0 !important;
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+
+.jstk-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--space-s) var(--space-2xl);
+	height: 65px;
+	background: #fff;
+	border-bottom: 1px solid var(--color-border-light);
+	position: sticky;
+	top: 32px;
+	z-index: 100;
+	gap: 24px;
+}
+
+.jstk-header__brand {
+	display: flex;
+	align-items: center;
+	gap: var(--space-xs);
+	text-decoration: none;
+	color: var(--color-text-body);
+
+	&:focus {
+		color: currentColor;
+		outline: none;
+		box-shadow: none;
+	}
+
+	.jstk-header__icon {
+		border-radius: var(--radius-button);
+		overflow: hidden;
+		display: flex;
+	}
+}
+
+.jstk-header__title {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: 0;
+	white-space: nowrap;
+}
+
+// ─── Navigation ───────────────────────────────────────────────────────────────
+
+.jstk-nav {
+	display: flex;
+	align-items: center;
+	gap: var(--space-s);
+}
+
+.jstk-nav__item {
+	display: inline-flex;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	padding: 10px;
+	border-radius: var(--radius-button);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--color-text-body);
+	text-decoration: none;
+	transition: background 0.15s, color 0.15s;
+	background: var(--color-bg-light);
+	min-width: 65px;
+
+	&:hover,
+	&:focus-visible {
+		background: var(--color-bg-body);
+		outline: none;
+	}
+
+	&:focus,
+	&:focus-visible {
+		outline: none;
+		box-shadow: none;
+	}
+
+	&--active {
+		background: var(--color-bg-body);
+	}
+}
+
+// ─── Main Content ─────────────────────────────────────────────────────────────
+
+.jstk-content {
+	flex: 1;
+	padding: 32px;
+}
+
+// ─── Page Header ──────────────────────────────────────────────────────────────
+
+.jstk-page__header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 28px;
+	flex-wrap: wrap;
+}
+
+.jstk-page__header-text {
+	flex: 1;
+}
+
+.jstk-page__title {
+	margin: 0 0 16px;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+.jstk-page__desc {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--color-text-muted);
+	line-height: 1.6;
+
+	a {
+		&:focus,
+		&:active {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}
+
+// ─── Badge ────────────────────────────────────────────────────────────────────
+
+.jstk-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 10px;
+	background: #e8f0fb;
+	color: $jstk-blue;
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 600;
+	white-space: nowrap;
+	align-self: center;
+}
+
+// ─── Loading State ────────────────────────────────────────────────────────────
+
+.jstk-loading {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 48px 0;
+	color: $jstk-text-muted;
+	font-size: 14px;
+}
+
+// ─── Empty State ──────────────────────────────────────────────────────────────
+
+.jstk-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 72px 24px;
+	border: 2px dashed $jstk-border;
+	border-radius: $jstk-radius-lg;
+	background: $jstk-white;
+}
+
+.jstk-empty__icon {
+	font-size: 48px;
+	line-height: 1;
+	margin-bottom: 20px;
+	opacity: 0.5;
+}
+
+.jstk-empty__title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	font-weight: 600;
+	color: $jstk-text;
+}
+
+.jstk-empty__desc {
+	margin: 0;
+	font-size: 14px;
+	color: $jstk-text-muted;
+	max-width: 380px;
+	line-height: 1.6;
+}
+
+// ─── Modals ───────────────────────────────────────────────────────────────────
+
+.jstk-modal {
+	max-height: auto;
+	.components-modal__content {
+		padding: 24px;
+	}
+}
+
+.jstk-modal__body {
+	margin: 0 0 20px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: $jstk-text;
+}
+
+.jstk-modal__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+// ─── Settings Tabs ────────────────────────────────────────────────────────────
+
+.jstk-settings-tabs {
+	.components-tab-panel__tabs-item {
+		outline: none !important;
+
+		&::before {
+			width: 100%;
+			top: 1.5px;
+			position: absolute;
+			border-radius: 0;
+			left: 0;
+			bottom: 1px;
+			right: 0;
+		}
+	}
+}
+
+// ─── Settings Sticky Footer ──────────────────────────────────────────────────
+
+.jstk-settings-footer {
+	position: sticky;
+	bottom: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 14px 28px;
+	background: $jstk-white;
+	border-top: 1px solid $jstk-border;
+	box-shadow: -4px 0px 4px 0px #0000000D;
+}
+
+// ─── Module Settings Page ────────────────────────────────────────────────────
+
+.jstk-module-page {
+	&__back {
+		margin-bottom: 12px;
+	}
+
+	&__content {
+		margin-top: 0;
+	}
+}
+
+// Tab bar — horizontal rule with left-aligned feature tabs and an optional
+// right-aligned Settings tab.
+.jstk-module-tab-bar {
+	display: flex;
+	align-items: flex-end;
+	border-bottom: 1px solid $jstk-border;
+	margin: 20px 0 0;
+
+	&__left {
+		display: flex;
+		gap: 4px;
+	}
+
+	&__right {
+		margin-left: auto;
+		display: flex;
+		gap: 4px;
+	}
+}
+
+.jstk-module-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 10px 16px;
+	background: none;
+	border: none;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -1px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	color: $jstk-text-muted;
+	line-height: 1.4;
+	transition: color 0.15s, border-color 0.15s;
+	white-space: nowrap;
+
+	&:hover:not( .is-active ) {
+		color: $jstk-text;
+	}
+
+	&.is-active {
+		color: $jstk-blue;
+		border-bottom-color: $jstk-blue;
+	}
+}
+
+.jstk-module-page__content {
+	padding-top: 24px;
+}
+
+.jstk-module-settings-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 24px;
+	background: $jstk-white;
+	border: 1px solid $jstk-border;
+	border-radius: 12px;
+
+	&__info {
+		flex: 1;
+	}
+
+	&__title-row {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 6px;
+	}
+
+	&__toggle {
+		flex-shrink: 0;
+		padding-top: 4px;
+	}
+}
+
+.jstk-module-settings-form {
+	margin-top: 20px;
+	background: $jstk-white;
+	border-radius: 12px;
+
+	h3 {
+		margin: 24px 0 8px;
+		font-size: 15px;
+		font-weight: 600;
+		color: $jstk-text;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.components-base-control {
+		margin-bottom: 16px;
+	}
+}
+
+.jstk-settings-description {
+	color: $jstk-text-muted;
+	font-size: 13px;
+	margin: 0 0 16px;
+}
+
+.jstk-settings-actions {
+	display: flex;
+	gap: 8px;
+	margin-top: 24px;
+	padding-top: 16px;
+	border-top: 1px solid $jstk-border;
+}
+
+// ─── Hide Footer Credits in WP Admin ─────────────────────────────────────────
+
+// ─── Stock Manager Table ─────────────────────────────────────────────────────
+
+.jstk-stock-wrap {
+	background: $jstk-white;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-lg;
+	overflow: hidden;
+}
+
+.jstk-stock-notice {
+	padding: 16px 20px 0;
+}
+
+.jstk-stock-toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 14px 20px;
+	border-bottom: 1px solid $jstk-border;
+	background: $jstk-bg;
+}
+
+.jstk-stock-filters {
+	display: flex;
+	gap: 4px;
+}
+
+.jstk-stock-filter-btn {
+	padding: 5px 14px;
+	border: 1px solid $jstk-border;
+	border-radius: 999px;
+	background: $jstk-white;
+	font-size: 13px;
+	font-weight: 500;
+	color: $jstk-text-muted;
+	cursor: pointer;
+	transition: background 0.12s, color 0.12s, border-color 0.12s;
+
+	&:hover:not( .is-active ) {
+		background: $jstk-bg;
+		color: $jstk-text;
+	}
+
+	&.is-active {
+		background: $jstk-blue;
+		border-color: $jstk-blue;
+		color: $jstk-white;
+	}
+}
+
+.jstk-stock-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+
+	thead tr {
+		background: $jstk-bg;
+	}
+
+	th {
+		padding: 10px 16px;
+		text-align: left;
+		font-weight: 600;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: $jstk-text-muted;
+		border-bottom: 1px solid $jstk-border;
+		white-space: nowrap;
+	}
+
+	td {
+		padding: 10px 16px;
+		vertical-align: middle;
+		border-bottom: 1px solid $jstk-border;
+		color: $jstk-text;
+	}
+
+	tbody tr {
+		transition: background 0.1s;
+
+		&:last-child td {
+			border-bottom: none;
+		}
+
+		&:hover {
+			background: $jstk-bg;
+		}
+
+		&.is-edited {
+			background: rgba( $jstk-blue, 0.04 );
+		}
+	}
+
+	&__col-qty {
+		width: 120px;
+	}
+
+	&__name {
+		font-weight: 500;
+
+		.jstk-stock-table__name-inner {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__type-badge {
+		padding: 2px 8px;
+		background: $jstk-bg;
+		border: 1px solid $jstk-border;
+		border-radius: 999px;
+		font-size: 11px;
+		font-weight: 500;
+		color: $jstk-text-muted;
+	}
+
+	&__sku {
+		color: $jstk-text-muted;
+		font-family: monospace;
+		font-size: 12px;
+	}
+
+	&__qty {
+		width: 110px;
+	}
+
+	&__unmanaged {
+		color: $jstk-text-muted;
+	}
+
+	&__empty {
+		text-align: center;
+		padding: 40px !important;
+		color: $jstk-text-muted;
+	}
+}
+
+.jstk-stock-qty-input {
+	width: 80px;
+	padding: 4px 8px;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-sm;
+	font-size: 13px;
+	color: $jstk-text;
+	background: $jstk-white;
+	transition: border-color 0.12s;
+
+	&:focus {
+		outline: none;
+		border-color: $jstk-blue;
+		box-shadow: 0 0 0 2px rgba( $jstk-blue, 0.18 );
+	}
+}
+
+.jstk-stock-status-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	color: $jstk-white;
+	background: var( --badge-color, #858586 );
+	white-space: nowrap;
+}
+
+.jstk-stock-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 20px;
+	border-top: 1px solid $jstk-border;
+	background: $jstk-bg;
+}
+
+.jstk-stock-count {
+	font-size: 13px;
+	color: $jstk-text-muted;
+}
+
+.jstk-stock-pagination {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.jstk-stock-page-indicator {
+	font-size: 13px;
+	color: $jstk-text-muted;
+	min-width: 40px;
+	text-align: center;
+}
+
+// ─── Hide Footer Credits in WP Admin ─────────────────────────────────────────
+#wpfooter {
+	display: none;
+}
+
+#wpbody-content {
+	padding-bottom: 0 !important;
+}

@@ -66,14 +66,14 @@ const QuickViewSettings = () => {
 
 	if ( loading || ! settings ) {
 		return (
-			<div className="jwp-stk-modules-loading">
+			<div className="jstk-loading">
 				<Spinner />
 			</div>
 		);
 	}
 
 	return (
-		<div className="jwp-stk-module-settings-form">
+		<div className="jstk-module-settings-form">
 			{ notice && (
 				<Notice
 					status={ notice.status }
@@ -156,7 +156,7 @@ const QuickViewSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 
-			<div className="jwp-stk-settings-actions">
+			<div className="jstk-settings-actions">
 				<Button
 					variant="primary"
 					onClick={ handleSave }

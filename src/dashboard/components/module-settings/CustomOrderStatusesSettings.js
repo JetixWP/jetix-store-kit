@@ -91,14 +91,14 @@ const CustomOrderStatusesSettings = () => {
 
 	if ( loading ) {
 		return (
-			<div className="jwp-stk-modules-loading">
+			<div className="jstk-loading">
 				<Spinner />
 			</div>
 		);
 	}
 
 	return (
-		<div className="jwp-stk-module-settings-form">
+		<div className="jstk-module-settings-form">
 			{ notice && (
 				<Notice
 					status={ notice.status }
@@ -109,7 +109,7 @@ const CustomOrderStatusesSettings = () => {
 				</Notice>
 			) }
 
-			<div className="jwp-stk-cos-builtin">
+			<div className="jstk-cos-builtin">
 				<h3>{ __( 'Built-in Statuses', 'jetix-store-toolkit' ) }</h3>
 				<p className="jwp-stk-settings-description">
 					{ __(
@@ -117,7 +117,7 @@ const CustomOrderStatusesSettings = () => {
 						'jetix-store-toolkit'
 					) }
 				</p>
-				<ul className="jwp-stk-cos-builtin-list">
+				<ul className="jstk-cos-builtin-list">
 					{ Object.entries( builtinStatuses ).map(
 						( [ key, label ] ) => (
 							<li key={ key }>
@@ -131,7 +131,7 @@ const CustomOrderStatusesSettings = () => {
 			<h3>{ __( 'Custom Statuses', 'jetix-store-toolkit' ) }</h3>
 
 			{ statuses.length === 0 && (
-				<p className="jwp-stk-settings-description">
+				<p className="jstk-settings-description">
 					{ __(
 						'No custom statuses yet. Click the button below to add one.',
 						'jetix-store-toolkit'
@@ -140,8 +140,8 @@ const CustomOrderStatusesSettings = () => {
 			) }
 
 			{ statuses.map( ( status, index ) => (
-				<div key={ index } className="jwp-stk-cos-status-row">
-					<div className="jwp-stk-cos-status-row__fields">
+				<div key={ index } className="jstk-cos-status-row">
+					<div className="jstk-cos-status-row__fields">
 						<TextControl
 							label={ __( 'Label', 'jetix-store-toolkit' ) }
 							value={ status.label }
@@ -163,9 +163,9 @@ const CustomOrderStatusesSettings = () => {
 							) }
 							__nextHasNoMarginBottom
 						/>
-						<div className="jwp-stk-cos-color-field">
+						<div className="jstk-cos-color-field">
 							<label>{ __( 'Color', 'jetix-store-toolkit' ) }</label>
-							<div className="jwp-stk-cos-color-input">
+							<div className="jstk-cos-color-input">
 								<ColorIndicator
 									colorValue={ status.color || '#787c82' }
 								/>
@@ -196,12 +196,12 @@ const CustomOrderStatusesSettings = () => {
 			<Button
 				variant="secondary"
 				onClick={ addStatus }
-				className="jwp-stk-cos-add-status"
+				className="jstk-cos-add-status"
 			>
 				{ __( '+ Add Custom Status', 'jetix-store-toolkit' ) }
 			</Button>
 
-			<div className="jwp-stk-settings-actions">
+			<div className="jstk-settings-actions">
 				<Button
 					variant="primary"
 					onClick={ handleSave }

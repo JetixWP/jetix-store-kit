@@ -90,14 +90,14 @@ const ProductTabManagerSettings = () => {
 
 	if ( loading || ! settings ) {
 		return (
-			<div className="jwp-stk-modules-loading">
+			<div className="jstk-loading">
 				<Spinner />
 			</div>
 		);
 	}
 
 	return (
-		<div className="jwp-stk-module-settings-form">
+		<div className="jstk-module-settings-form">
 			{ notice && (
 				<Notice
 					status={ notice.status }
@@ -109,15 +109,15 @@ const ProductTabManagerSettings = () => {
 			) }
 
 			<h3>{ __( 'Default Tabs', 'jetix-store-toolkit' ) }</h3>
-			<p className="jwp-stk-settings-description">
+			<p className="jstk-settings-description">
 				{ __(
 					'Toggle default WooCommerce product tabs on or off, and optionally rename them.',
 					'jetix-store-toolkit'
 				) }
 			</p>
 
-			<div className="jwp-stk-ptm-default-tabs">
-				<div className="jwp-stk-ptm-tab-row">
+			<div className="jstk-ptm-default-tabs">
+				<div className="jstk-ptm-tab-row">
 					<ToggleControl
 						label={ __( 'Description Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_description }
@@ -142,7 +142,7 @@ const ProductTabManagerSettings = () => {
 					) }
 				</div>
 
-				<div className="jwp-stk-ptm-tab-row">
+				<div className="jstk-ptm-tab-row">
 					<ToggleControl
 						label={ __( 'Additional Information Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_additional_info }
@@ -175,7 +175,7 @@ const ProductTabManagerSettings = () => {
 					) }
 				</div>
 
-				<div className="jwp-stk-ptm-tab-row">
+				<div className="jstk-ptm-tab-row">
 					<ToggleControl
 						label={ __( 'Reviews Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_reviews }
@@ -201,7 +201,7 @@ const ProductTabManagerSettings = () => {
 			<h3>{ __( 'Custom Tabs', 'jetix-store-toolkit' ) }</h3>
 
 			{ ( settings.custom_tabs || [] ).length === 0 && (
-				<p className="jwp-stk-settings-description">
+				<p className="jstk-settings-description">
 					{ __(
 						'No custom tabs yet. Add one below.',
 						'jetix-store-toolkit'
@@ -210,8 +210,8 @@ const ProductTabManagerSettings = () => {
 			) }
 
 			{ ( settings.custom_tabs || [] ).map( ( tab, index ) => (
-				<div key={ index } className="jwp-stk-ptm-custom-tab">
-					<div className="jwp-stk-ptm-custom-tab__header">
+				<div key={ index } className="jstk-ptm-custom-tab">
+					<div className="jstk-ptm-custom-tab__header">
 						<strong>
 							{ tab.title ||
 								__( 'Untitled Tab', 'jetix-store-toolkit' ) }
@@ -269,12 +269,12 @@ const ProductTabManagerSettings = () => {
 			<Button
 				variant="secondary"
 				onClick={ addCustomTab }
-				className="jwp-stk-ptm-add-tab"
+				className="jstk-ptm-add-tab"
 			>
 				{ __( '+ Add Custom Tab', 'jetix-store-toolkit' ) }
 			</Button>
 
-			<div className="jwp-stk-settings-actions">
+			<div className="jstk-settings-actions">
 				<Button
 					variant="primary"
 					onClick={ handleSave }

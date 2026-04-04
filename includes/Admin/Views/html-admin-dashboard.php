@@ -7,6 +7,6 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="wrap jwp-stk-dashboard-page">
+<div class="wrap jstk-dashboard-page">
 	<div id="jwp-stk-dashboard-app"></div>
 </div>

@@ -65,14 +65,14 @@ const StockManagerSettings = () => {
 
 	if ( loading || ! settings ) {
 		return (
-			<div className="jwp-stk-modules-loading">
+			<div className="jstk-loading">
 				<Spinner />
 			</div>
 		);
 	}
 
 	return (
-		<div className="jwp-stk-module-settings-form">
+		<div className="jstk-module-settings-form">
 			{ notice && (
 				<Notice
 					status={ notice.status }
@@ -83,7 +83,7 @@ const StockManagerSettings = () => {
 				</Notice>
 			) }
 
-			<p className="jwp-stk-settings-description">
+			<p className="jstk-settings-description">
 				{ __(
 					'The Stock Manager page is available under WooCommerce → Stock Manager when this module is active.',
 					'jetix-store-toolkit'
@@ -169,7 +169,7 @@ const StockManagerSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 
-			<div className="jwp-stk-settings-actions">
+			<div className="jstk-settings-actions">
 				<Button
 					variant="primary"
 					onClick={ handleSave }

@@ -1,50 +1,41 @@
 import { useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
-import DashboardPanel from './components/DashboardPanel';
-import ModulesPanel from './components/ModulesPanel';
+import { Button } from './components/ui';
+import Header from './components/Header';
+import Dashboard from './pages/Dashboard';
+import Modules from './pages/Modules';
 import ModuleSettingsPage from './components/ModuleSettingsPage';
-import SettingsPanel from './components/SettingsPanel';
+import Settings from './pages/Settings';
 
-const NAV_ITEMS = [
-	{ key: 'dashboard', label: __( 'Dashboard', 'jetix-store-toolkit' ), page: 'jetix-store-toolkit' },
-	{ key: 'modules', label: __( 'Modules', 'jetix-store-toolkit' ), page: 'jwp-stk-modules' },
-	{ key: 'settings', label: __( 'Global Settings', 'jetix-store-toolkit' ), page: 'jwp-stk-settings' },
-];
+const { currentPage: initialPage } = window.jwpStkDashboard || {};
 
-const App = () => {
-	const { currentPage, adminUrl, version } = window.jwpStkDashboard || {};
+export default function App() {
+	const [ currentPage, setCurrentPage ] = useState( initialPage || 'dashboard' );
+	const [ footerState, setFooterState ] = useState( null );
 	const [ activeModule, setActiveModule ] = useState( null );
 
-	return (
-		<div className="jwp-stk-dashboard">
-			<div className="jwp-stk-dashboard__header">
-				<div className="jwp-stk-dashboard__header-left">
-					<h1>{ __( 'Store Toolkit for WooCommerce', 'jetix-store-toolkit' ) }</h1>
-					<span className="jwp-stk-version">
-						v{ version || '0.1.0' }
-					</span>
-				</div>
-				<nav className="jwp-stk-dashboard__header-nav">
-					{ NAV_ITEMS.map( ( item ) => (
-						<a
-							key={ item.key }
-							href={ `${ adminUrl }admin.php?page=${ item.page }` }
-							className={ `jwp-stk-nav-tab ${
-								currentPage === item.key ? 'is-active' : ''
-							}` }
-						>
-							{ item.label }
-						</a>
-					) ) }
-				</nav>
-			</div>
+	function navigate( page ) {
+		setCurrentPage( page );
+		setActiveModule( null );
 
-			<div className="jwp-stk-dashboard__body">
-				{ currentPage === 'dashboard' && <DashboardPanel /> }
+		const slugMap = {
+			dashboard: 'jetix-store-toolkit',
+			modules: 'jwp-stk-modules',
+			settings: 'jwp-stk-settings',
+		};
+		const targetSlug = slugMap[ page ] || 'jetix-store-toolkit';
+		const url = new URL( window.location.href );
+		url.searchParams.set( 'page', targetSlug );
+		window.history.pushState( {}, '', url.toString() );
+	}
+
+	return (
+		<div className="jstk-app">
+			<Header currentPage={ currentPage } navigate={ navigate } />
+
+			<main className="jstk-content">
+				{ currentPage === 'dashboard' && <Dashboard navigate={ navigate } /> }
 				{ currentPage === 'modules' && ! activeModule && (
-					<ModulesPanel
-						onOpenModuleSettings={ setActiveModule }
-					/>
+					<Modules onOpenModuleSettings={ setActiveModule } />
 				) }
 				{ currentPage === 'modules' && activeModule && (
 					<ModuleSettingsPage
@@ -52,10 +43,28 @@ const App = () => {
 						onBack={ () => setActiveModule( null ) }
 					/>
 				) }
-				{ currentPage === 'settings' && <SettingsPanel /> }
-			</div>
+				{ currentPage === 'settings' && <Settings onFooterState={ setFooterState } /> }
+			</main>
+
+			{ currentPage === 'settings' && footerState && (
+				<div className="jstk-settings-footer">
+					<Button
+						variant="primary"
+						onClick={ footerState?.handleSave }
+						isBusy={ footerState?.saving }
+						disabled={ ! footerState?.dirty || footerState?.saving }
+					>
+						{ footerState?.saving ? 'Saving…' : 'Save Changes' }
+					</Button>
+					<Button
+						variant="tertiary"
+						onClick={ footerState?.handleDiscard }
+						disabled={ ! footerState?.dirty || footerState?.saving }
+					>
+						Discard
+					</Button>
+				</div>
+			) }
 		</div>
 	);
-};
-
-export default App;
+}
