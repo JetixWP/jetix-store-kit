@@ -390,7 +390,6 @@ class REST_API {
 	private function load_module_class( $slug ) {
 		$map = array(
 			'quick-view'            => 'QuickView',
-			'checkout-field-editor' => 'CheckoutFieldEditor',
 			'custom-order-statuses' => 'CustomOrderStatuses',
 			'stock-manager'         => 'StockManager',
 			'product-tab-manager'   => 'ProductTabManager',

@@ -1,6 +1,6 @@
 {
 	"name": "jetix-store-toolkit",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "Jetix Store Toolkit for WooCommerce — Modular all-in-one WooCommerce toolkit.",
 	"private": true,
 	"scripts": {

@@ -8,14 +8,12 @@ import {
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import QuickViewSettings from './module-settings/QuickViewSettings';
-import CheckoutFieldEditorSettings from './module-settings/CheckoutFieldEditorSettings';
 import CustomOrderStatusesSettings from './module-settings/CustomOrderStatusesSettings';
 import StockManagerSettings from './module-settings/StockManagerSettings';
 import ProductTabManagerSettings from './module-settings/ProductTabManagerSettings';
 
 const MODULE_SETTINGS_MAP = {
 	'quick-view': QuickViewSettings,
-	'checkout-field-editor': CheckoutFieldEditorSettings,
 	'custom-order-statuses': CustomOrderStatusesSettings,
 	'stock-manager': StockManagerSettings,
 	'product-tab-manager': ProductTabManagerSettings,

@@ -19,7 +19,7 @@ const App = () => {
 		<div className="jwp-stk-dashboard">
 			<div className="jwp-stk-dashboard__header">
 				<div className="jwp-stk-dashboard__header-left">
-					<h1>{ __( 'Jetix Store Toolkit for WooCommerce', 'jetix-store-toolkit' ) }</h1>
+					<h1>{ __( 'Store Toolkit for WooCommerce', 'jetix-store-toolkit' ) }</h1>
 					<span className="jwp-stk-version">
 						v{ version || '0.1.0' }
 					</span>

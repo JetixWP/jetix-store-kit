@@ -39,7 +39,7 @@ const DashboardPanel = () => {
 					</h2>
 					<p>
 						{ __(
-							'Your modular WooCommerce toolkit. Enable only the features your store needs — from Quick View and Cart Notices to Wishlists and Variation Swatches.',
+							'Your modular WooCommerce toolkit. Enable only the features your store needs — from Quick View and Store Manager to Wishlist',
 							'jetix-store-toolkit'
 						) }
 					</p>

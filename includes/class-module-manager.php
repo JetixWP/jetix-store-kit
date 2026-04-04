@@ -71,13 +71,6 @@ class Module_Manager {
 				'enabled'     => false,
 				'default'     => false,
 			),
-			'checkout-field-editor' => array(
-				'title'       => __( 'Checkout Field Editor', 'jetix-store-toolkit' ),
-				'description' => __( 'Add, remove, reorder, or customise every WooCommerce checkout field without code.', 'jetix-store-toolkit' ),
-				'tier'        => 'core',
-				'enabled'     => true,
-				'default'     => false,
-			),
 			'custom-order-statuses' => array(
 				'title'       => __( 'Custom Order Statuses', 'jetix-store-toolkit' ),
 				'description' => __( 'Create custom order statuses beyond WooCommerce defaults with colours, icons, and email triggers.', 'jetix-store-toolkit' ),

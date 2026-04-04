@@ -1,1 +1,1666 @@
-(()=>{"use strict";var t,e={771(t,e,s){const o=window.wp.element,a=window.wp.i18n,i=window.wp.components,l=window.wp.apiFetch;var n=s.n(l);const r=window.ReactJSXRuntime,c=()=>{const{adminUrl:t}=window.jwpStkDashboard||{},[e,s]=(0,o.useState)(null),[l,c]=(0,o.useState)(!0),d=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules"}),e=t.filter(t=>t.enabled),o=t.filter(t=>t.enabled&&t.active);s({total:e.length,active:o.length})}catch{s({total:0,active:0})}finally{c(!1)}},[]);return(0,o.useEffect)(()=>{d()},[d]),(0,r.jsx)("div",{className:"jwp-stk-dashboard-panel",children:(0,r.jsx)("div",{className:"jwp-stk-welcome-banner",children:(0,r.jsxs)("div",{className:"jwp-stk-welcome-banner__content",children:[(0,r.jsx)("h2",{children:(0,a.__)("Welcome to Jetix Store Toolkit for WooCommerce","jetix-store-toolkit")}),(0,r.jsx)("p",{children:(0,a.__)("Your modular WooCommerce toolkit. Enable only the features your store needs — from Quick View and Cart Notices to Wishlists and Variation Swatches.","jetix-store-toolkit")}),!l&&e&&(0,r.jsxs)("div",{className:"jwp-stk-welcome-stats",children:[(0,r.jsxs)("div",{className:"jwp-stk-stat",children:[(0,r.jsx)("span",{className:"jwp-stk-stat__number",children:e.active}),(0,r.jsx)("span",{className:"jwp-stk-stat__label",children:(0,a.__)("Active Modules","jetix-store-toolkit")})]}),(0,r.jsxs)("div",{className:"jwp-stk-stat",children:[(0,r.jsx)("span",{className:"jwp-stk-stat__number",children:e.total}),(0,r.jsx)("span",{className:"jwp-stk-stat__label",children:(0,a.__)("Available Modules","jetix-store-toolkit")})]})]}),l&&(0,r.jsx)(i.Spinner,{}),(0,r.jsxs)("div",{className:"jwp-stk-welcome-actions",children:[(0,r.jsx)("a",{href:`${t}admin.php?page=jwp-stk-modules`,className:"components-button is-primary",children:(0,a.__)("Manage Modules","jetix-store-toolkit")}),(0,r.jsx)("a",{href:`${t}admin.php?page=jwp-stk-settings`,className:"components-button is-secondary",children:(0,a.__)("Global Settings","jetix-store-toolkit")})]})]})})})},d={core:(0,a.__)("Core","jetix-store-toolkit"),growth:(0,a.__)("Growth","jetix-store-toolkit"),power:(0,a.__)("Power","jetix-store-toolkit")},_={core:(0,a.__)("Essential features every WooCommerce store needs.","jetix-store-toolkit"),growth:(0,a.__)("Conversion and engagement features to grow your store.","jetix-store-toolkit"),power:(0,a.__)("Advanced features for mature stores.","jetix-store-toolkit")},u=({onOpenModuleSettings:t})=>{const[e,s]=(0,o.useState)([]),[l,c]=(0,o.useState)(!0),[u,j]=(0,o.useState)({}),[m,h]=(0,o.useState)(null),x=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules"});s(t)}catch(t){h({status:"error",message:(0,a.__)("Failed to load modules.","jetix-store-toolkit")})}finally{c(!1)}},[]);(0,o.useEffect)(()=>{x()},[x]);const g=(0,o.useCallback)(async(t,e)=>{j(e=>({...e,[t]:!0})),h(null);try{await n()({path:"/jwp-stk/v1/modules/toggle",method:"POST",data:{module:t,active:e}}),s(s=>s.map(s=>s.slug===t?{...s,active:e}:s))}catch(t){h({status:"error",message:(0,a.__)("Failed to update module.","jetix-store-toolkit")})}finally{j(e=>({...e,[t]:!1}))}},[]);if(l)return(0,r.jsx)("div",{className:"jwp-stk-modules-loading",children:(0,r.jsx)(i.Spinner,{})});const k=e.filter(t=>t.enabled),p={core:[],growth:[],power:[]};k.forEach(t=>{p[t.tier]&&p[t.tier].push(t)});const w=Object.keys(p).filter(t=>p[t].length>0);return(0,r.jsxs)("div",{className:"jwp-stk-modules-panel",children:[m&&(0,r.jsx)(i.Notice,{status:m.status,isDismissible:!0,onDismiss:()=>h(null),children:m.message}),w.map(e=>(0,r.jsxs)("div",{className:`jwp-stk-module-tier jwp-stk-tier-${e}`,children:[(0,r.jsxs)("div",{className:"jwp-stk-tier-header",children:[(0,r.jsx)("h2",{children:(0,r.jsx)("span",{className:`jwp-stk-tier-badge jwp-stk-badge-${e}`,children:d[e]})}),(0,r.jsx)("p",{className:"jwp-stk-tier-description",children:_[e]})]}),(0,r.jsx)("div",{className:"jwp-stk-module-grid",children:p[e].map(e=>(0,r.jsxs)("div",{className:"jwp-stk-module-card "+(e.active?"is-active":""),children:[(0,r.jsxs)("div",{className:"jwp-stk-module-card__body",children:[(0,r.jsxs)("div",{className:"jwp-stk-module-card__title-row",children:[(0,r.jsx)("h3",{className:"jwp-stk-module-card__title",children:e.title}),e.active&&(0,r.jsx)("button",{type:"button",className:"jwp-stk-module-card__settings-link",onClick:()=>t(e.slug),children:(0,a.__)("Configure","jetix-store-toolkit")})]}),(0,r.jsx)("p",{className:"jwp-stk-module-card__description",children:e.description})]}),(0,r.jsx)("div",{className:"jwp-stk-module-card__footer",children:(0,r.jsx)(i.ToggleControl,{checked:e.active,onChange:t=>g(e.slug,t),disabled:u[e.slug]||!1,__nextHasNoMarginBottom:!0})})]},e.slug))})]},e))]})},j=[{name:"billing",title:(0,a.__)("Billing","jetix-store-toolkit")},{name:"shipping",title:(0,a.__)("Shipping","jetix-store-toolkit")},{name:"order",title:(0,a.__)("Additional","jetix-store-toolkit")}],m=[{value:"text",label:"Text"},{value:"textarea",label:"Textarea"},{value:"email",label:"Email"},{value:"tel",label:"Phone"},{value:"number",label:"Number"},{value:"select",label:"Select"},{value:"date",label:"Date"}],h={"quick-view":()=>{const[t,e]=(0,o.useState)(null),[s,l]=(0,o.useState)(!0),[c,d]=(0,o.useState)(!1),[_,u]=(0,o.useState)(null),j=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules/quick-view/settings"});e(t.settings)}catch{u({status:"error",message:(0,a.__)("Failed to load settings.","jetix-store-toolkit")})}finally{l(!1)}},[]);(0,o.useEffect)(()=>{j()},[j]);const m=(0,o.useCallback)(async()=>{d(!0),u(null);try{const s=await n()({path:"/jwp-stk/v1/modules/quick-view/settings",method:"POST",data:{settings:t}});e(s.settings),u({status:"success",message:(0,a.__)("Settings saved.","jetix-store-toolkit")})}catch{u({status:"error",message:(0,a.__)("Failed to save settings.","jetix-store-toolkit")})}finally{d(!1)}},[t]),h=(t,s)=>{e(e=>({...e,[t]:s}))};return s||!t?(0,r.jsx)("div",{className:"jwp-stk-modules-loading",children:(0,r.jsx)(i.Spinner,{})}):(0,r.jsxs)("div",{className:"jwp-stk-module-settings-form",children:[_&&(0,r.jsx)(i.Notice,{status:_.status,isDismissible:!0,onDismiss:()=>u(null),children:_.message}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Button Label","jetix-store-toolkit"),value:t.button_label||"",onChange:t=>h("button_label",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.SelectControl,{label:(0,a.__)("Button Position","jetix-store-toolkit"),value:t.button_position||"after_add_to_cart",options:[{value:"before_add_to_cart",label:(0,a.__)("Before Add to Cart","jetix-store-toolkit")},{value:"after_add_to_cart",label:(0,a.__)("After Add to Cart","jetix-store-toolkit")}],onChange:t=>h("button_position",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)("h3",{children:(0,a.__)("Modal Content","jetix-store-toolkit")}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Gallery","jetix-store-toolkit"),checked:!!t.show_gallery,onChange:t=>h("show_gallery",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Price","jetix-store-toolkit"),checked:!!t.show_price,onChange:t=>h("show_price",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Rating","jetix-store-toolkit"),checked:!!t.show_rating,onChange:t=>h("show_rating",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Short Description","jetix-store-toolkit"),checked:!!t.show_excerpt,onChange:t=>h("show_excerpt",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Add to Cart","jetix-store-toolkit"),checked:!!t.show_add_to_cart,onChange:t=>h("show_add_to_cart",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Product Meta","jetix-store-toolkit"),checked:!!t.show_meta,onChange:t=>h("show_meta",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)("div",{className:"jwp-stk-settings-actions",children:(0,r.jsx)(i.Button,{variant:"primary",onClick:m,isBusy:c,disabled:c,children:(0,a.__)("Save Settings","jetix-store-toolkit")})})]})},"checkout-field-editor":()=>{const[t,e]=(0,o.useState)(null),[s,l]=(0,o.useState)(null),[c,d]=(0,o.useState)(!0),[_,u]=(0,o.useState)(!1),[h,x]=(0,o.useState)(null),g=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules/checkout-field-editor/settings"});e(t.settings),l(t.default_fields||{})}catch{x({status:"error",message:(0,a.__)("Failed to load settings.","jetix-store-toolkit")})}finally{d(!1)}},[]);(0,o.useEffect)(()=>{g()},[g]);const k=(0,o.useCallback)(async()=>{u(!0),x(null);try{const s=await n()({path:"/jwp-stk/v1/modules/checkout-field-editor/settings",method:"POST",data:{settings:t}});e(s.settings),x({status:"success",message:(0,a.__)("Settings saved.","jetix-store-toolkit")})}catch{x({status:"error",message:(0,a.__)("Failed to save settings.","jetix-store-toolkit")})}finally{u(!1)}},[t]),p=(t,s,o,a)=>{e(e=>{const i={...e},l=[...i[t]||[]];return l[s]={...l[s],[o]:a},i[t]=l,i})};if(c||!t)return(0,r.jsx)("div",{className:"jwp-stk-modules-loading",children:(0,r.jsx)(i.Spinner,{})});return(0,r.jsxs)("div",{className:"jwp-stk-module-settings-form",children:[h&&(0,r.jsx)(i.Notice,{status:h.status,isDismissible:!0,onDismiss:()=>x(null),children:h.message}),(0,r.jsx)(i.TabPanel,{className:"jwp-stk-cfe-tabs",activeClass:"is-active",tabs:j,children:o=>(o=>{const l=(e=>{const o=t[e]||[],a=s[e]||{},i=o.map(t=>t.name),l=[...o];return Object.keys(a).forEach(t=>{i.includes(t)||l.push({name:t,label:a[t].label||t,required:a[t].required||!1,disabled:!1,custom:!1,placeholder:""})}),l})(o);return(0,r.jsxs)("div",{className:"jwp-stk-cfe-section",children:[0===l.length&&(0,r.jsx)("p",{className:"jwp-stk-cfe-empty",children:(0,a.__)("No fields configured.","jetix-store-toolkit")}),l.map((t,s)=>(0,r.jsxs)("div",{className:"jwp-stk-cfe-field-row",children:[(0,r.jsxs)("div",{className:"jwp-stk-cfe-field-row__header",children:[(0,r.jsx)("strong",{children:t.name}),t.custom&&(0,r.jsx)(i.Button,{isDestructive:!0,variant:"tertiary",size:"small",onClick:()=>((t,s)=>{e(e=>{const o={...e},a=[...o[t]||[]];return a.splice(s,1),o[t]=a,o})})(o,s),children:(0,a.__)("Remove","jetix-store-toolkit")})]}),(0,r.jsxs)("div",{className:"jwp-stk-cfe-field-row__controls",children:[(0,r.jsx)(i.TextControl,{label:(0,a.__)("Label","jetix-store-toolkit"),value:t.label||"",onChange:t=>p(o,s,"label",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Placeholder","jetix-store-toolkit"),value:t.placeholder||"",onChange:t=>p(o,s,"placeholder",t),__nextHasNoMarginBottom:!0}),t.custom&&(0,r.jsx)(i.SelectControl,{label:(0,a.__)("Type","jetix-store-toolkit"),value:t.type||"text",options:m,onChange:t=>p(o,s,"type",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Required","jetix-store-toolkit"),checked:!!t.required,onChange:t=>p(o,s,"required",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Disabled","jetix-store-toolkit"),checked:!!t.disabled,onChange:t=>p(o,s,"disabled",t),__nextHasNoMarginBottom:!0})]})]},t.name)),(0,r.jsx)(i.Button,{variant:"secondary",onClick:()=>(t=>{e(e=>{const s={...e},o=[...s[t]||[]];return o.push({name:t+"_custom_"+Date.now(),label:"",type:"text",required:!1,disabled:!1,custom:!0,placeholder:"",priority:100+o.length}),s[t]=o,s})})(o),className:"jwp-stk-cfe-add-field",children:(0,a.__)("+ Add Custom Field","jetix-store-toolkit")})]})})(o.name)}),(0,r.jsx)("div",{className:"jwp-stk-settings-actions",children:(0,r.jsx)(i.Button,{variant:"primary",onClick:k,isBusy:_,disabled:_,children:(0,a.__)("Save Settings","jetix-store-toolkit")})})]})},"custom-order-statuses":()=>{const[t,e]=(0,o.useState)([]),[s,l]=(0,o.useState)({}),[c,d]=(0,o.useState)(!0),[_,u]=(0,o.useState)(!1),[j,m]=(0,o.useState)(null),h=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules/custom-order-statuses/settings"});e(t.settings.statuses||[]),l(t.builtin_statuses||{})}catch{m({status:"error",message:(0,a.__)("Failed to load settings.","jetix-store-toolkit")})}finally{d(!1)}},[]);(0,o.useEffect)(()=>{h()},[h]);const x=(0,o.useCallback)(async()=>{u(!0),m(null);try{const s=await n()({path:"/jwp-stk/v1/modules/custom-order-statuses/settings",method:"POST",data:{settings:{statuses:t}}});e(s.settings.statuses||[]),m({status:"success",message:(0,a.__)("Settings saved. Reload the page to see new statuses.","jetix-store-toolkit")})}catch{m({status:"error",message:(0,a.__)("Failed to save settings.","jetix-store-toolkit")})}finally{u(!1)}},[t]),g=(t,s,o)=>{e(e=>{const a=[...e];return a[t]={...a[t],[s]:o},"label"!==s||a[t]._slugEdited||(a[t].slug=o.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").substring(0,17)),a})};return c?(0,r.jsx)("div",{className:"jwp-stk-modules-loading",children:(0,r.jsx)(i.Spinner,{})}):(0,r.jsxs)("div",{className:"jwp-stk-module-settings-form",children:[j&&(0,r.jsx)(i.Notice,{status:j.status,isDismissible:!0,onDismiss:()=>m(null),children:j.message}),(0,r.jsxs)("div",{className:"jwp-stk-cos-builtin",children:[(0,r.jsx)("h3",{children:(0,a.__)("Built-in Statuses","jetix-store-toolkit")}),(0,r.jsx)("p",{className:"jwp-stk-settings-description",children:(0,a.__)("These are the default WooCommerce order statuses. They cannot be removed.","jetix-store-toolkit")}),(0,r.jsx)("ul",{className:"jwp-stk-cos-builtin-list",children:Object.entries(s).map(([t,e])=>(0,r.jsxs)("li",{children:[(0,r.jsx)("code",{children:t})," — ",e]},t))})]}),(0,r.jsx)("h3",{children:(0,a.__)("Custom Statuses","jetix-store-toolkit")}),0===t.length&&(0,r.jsx)("p",{className:"jwp-stk-settings-description",children:(0,a.__)("No custom statuses yet. Click the button below to add one.","jetix-store-toolkit")}),t.map((t,s)=>(0,r.jsxs)("div",{className:"jwp-stk-cos-status-row",children:[(0,r.jsxs)("div",{className:"jwp-stk-cos-status-row__fields",children:[(0,r.jsx)(i.TextControl,{label:(0,a.__)("Label","jetix-store-toolkit"),value:t.label,onChange:t=>g(s,"label",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Slug","jetix-store-toolkit"),value:t.slug,onChange:t=>{g(s,"slug",t),g(s,"_slugEdited",!0)},help:(0,a.__)("Max 17 characters, lowercase letters, numbers, hyphens.","jetix-store-toolkit"),__nextHasNoMarginBottom:!0}),(0,r.jsxs)("div",{className:"jwp-stk-cos-color-field",children:[(0,r.jsx)("label",{children:(0,a.__)("Color","jetix-store-toolkit")}),(0,r.jsxs)("div",{className:"jwp-stk-cos-color-input",children:[(0,r.jsx)(i.ColorIndicator,{colorValue:t.color||"#787c82"}),(0,r.jsx)("input",{type:"color",value:t.color||"#787c82",onChange:t=>g(s,"color",t.target.value)})]})]})]}),(0,r.jsx)(i.Button,{isDestructive:!0,variant:"tertiary",onClick:()=>(t=>{e(e=>e.filter((e,s)=>s!==t))})(s),children:(0,a.__)("Remove","jetix-store-toolkit")})]},s)),(0,r.jsx)(i.Button,{variant:"secondary",onClick:()=>{e(t=>[...t,{slug:"",label:"",color:"#787c82"}])},className:"jwp-stk-cos-add-status",children:(0,a.__)("+ Add Custom Status","jetix-store-toolkit")}),(0,r.jsx)("div",{className:"jwp-stk-settings-actions",children:(0,r.jsx)(i.Button,{variant:"primary",onClick:x,isBusy:_,disabled:_,children:(0,a.__)("Save Settings","jetix-store-toolkit")})})]})},"stock-manager":()=>{const[t,e]=(0,o.useState)(null),[s,l]=(0,o.useState)(!0),[c,d]=(0,o.useState)(!1),[_,u]=(0,o.useState)(null),j=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules/stock-manager/settings"});e(t.settings)}catch{u({status:"error",message:(0,a.__)("Failed to load settings.","jetix-store-toolkit")})}finally{l(!1)}},[]);(0,o.useEffect)(()=>{j()},[j]);const m=(0,o.useCallback)(async()=>{d(!0),u(null);try{const s=await n()({path:"/jwp-stk/v1/modules/stock-manager/settings",method:"POST",data:{settings:t}});e(s.settings),u({status:"success",message:(0,a.__)("Settings saved.","jetix-store-toolkit")})}catch{u({status:"error",message:(0,a.__)("Failed to save settings.","jetix-store-toolkit")})}finally{d(!1)}},[t]),h=(t,s)=>{e(e=>({...e,[t]:s}))};return s||!t?(0,r.jsx)("div",{className:"jwp-stk-modules-loading",children:(0,r.jsx)(i.Spinner,{})}):(0,r.jsxs)("div",{className:"jwp-stk-module-settings-form",children:[_&&(0,r.jsx)(i.Notice,{status:_.status,isDismissible:!0,onDismiss:()=>u(null),children:_.message}),(0,r.jsx)("p",{className:"jwp-stk-settings-description",children:(0,a.__)("The Stock Manager page is available under WooCommerce → Stock Manager when this module is active.","jetix-store-toolkit")}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Products Per Page","jetix-store-toolkit"),type:"number",min:5,max:100,value:t.per_page||20,onChange:t=>h("per_page",parseInt(t,10)||20),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Low Stock Threshold","jetix-store-toolkit"),type:"number",min:0,value:t.low_stock_threshold||5,onChange:t=>h("low_stock_threshold",parseInt(t,10)||5),help:(0,a.__)("Products with stock at or below this number are flagged as low stock.","jetix-store-toolkit"),__nextHasNoMarginBottom:!0}),(0,r.jsx)("h3",{children:(0,a.__)("Display Columns","jetix-store-toolkit")}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show SKU","jetix-store-toolkit"),checked:!!t.show_sku,onChange:t=>h("show_sku",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Stock Status","jetix-store-toolkit"),checked:!!t.show_stock_status,onChange:t=>h("show_stock_status",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Manage Stock","jetix-store-toolkit"),checked:!!t.show_manage_stock,onChange:t=>h("show_manage_stock",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Stock Quantity","jetix-store-toolkit"),checked:!!t.show_stock_quantity,onChange:t=>h("show_stock_quantity",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Backorders","jetix-store-toolkit"),checked:!!t.show_backorders,onChange:t=>h("show_backorders",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Show Low Stock Filter","jetix-store-toolkit"),checked:!!t.show_low_stock,onChange:t=>h("show_low_stock",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)("div",{className:"jwp-stk-settings-actions",children:(0,r.jsx)(i.Button,{variant:"primary",onClick:m,isBusy:c,disabled:c,children:(0,a.__)("Save Settings","jetix-store-toolkit")})})]})},"product-tab-manager":()=>{const[t,e]=(0,o.useState)(null),[s,l]=(0,o.useState)(!0),[c,d]=(0,o.useState)(!1),[_,u]=(0,o.useState)(null),j=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/modules/product-tab-manager/settings"});e(t.settings)}catch{u({status:"error",message:(0,a.__)("Failed to load settings.","jetix-store-toolkit")})}finally{l(!1)}},[]);(0,o.useEffect)(()=>{j()},[j]);const m=(0,o.useCallback)(async()=>{d(!0),u(null);try{const s=await n()({path:"/jwp-stk/v1/modules/product-tab-manager/settings",method:"POST",data:{settings:t}});e(s.settings),u({status:"success",message:(0,a.__)("Settings saved.","jetix-store-toolkit")})}catch{u({status:"error",message:(0,a.__)("Failed to save settings.","jetix-store-toolkit")})}finally{d(!1)}},[t]),h=(t,s)=>{e(e=>({...e,[t]:s}))},x=(t,s,o)=>{e(e=>{const a=[...e.custom_tabs||[]];return a[t]={...a[t],[s]:o},{...e,custom_tabs:a}})};return s||!t?(0,r.jsx)("div",{className:"jwp-stk-modules-loading",children:(0,r.jsx)(i.Spinner,{})}):(0,r.jsxs)("div",{className:"jwp-stk-module-settings-form",children:[_&&(0,r.jsx)(i.Notice,{status:_.status,isDismissible:!0,onDismiss:()=>u(null),children:_.message}),(0,r.jsx)("h3",{children:(0,a.__)("Default Tabs","jetix-store-toolkit")}),(0,r.jsx)("p",{className:"jwp-stk-settings-description",children:(0,a.__)("Toggle default WooCommerce product tabs on or off, and optionally rename them.","jetix-store-toolkit")}),(0,r.jsxs)("div",{className:"jwp-stk-ptm-default-tabs",children:[(0,r.jsxs)("div",{className:"jwp-stk-ptm-tab-row",children:[(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Description Tab","jetix-store-toolkit"),checked:!t.disable_description,onChange:t=>h("disable_description",!t),__nextHasNoMarginBottom:!0}),!t.disable_description&&(0,r.jsx)(i.TextControl,{label:(0,a.__)("Custom Title","jetix-store-toolkit"),placeholder:(0,a.__)("Description","jetix-store-toolkit"),value:t.description_title||"",onChange:t=>h("description_title",t),__nextHasNoMarginBottom:!0})]}),(0,r.jsxs)("div",{className:"jwp-stk-ptm-tab-row",children:[(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Additional Information Tab","jetix-store-toolkit"),checked:!t.disable_additional_info,onChange:t=>h("disable_additional_info",!t),__nextHasNoMarginBottom:!0}),!t.disable_additional_info&&(0,r.jsx)(i.TextControl,{label:(0,a.__)("Custom Title","jetix-store-toolkit"),placeholder:(0,a.__)("Additional information","jetix-store-toolkit"),value:t.additional_information_title||"",onChange:t=>h("additional_information_title",t),__nextHasNoMarginBottom:!0})]}),(0,r.jsxs)("div",{className:"jwp-stk-ptm-tab-row",children:[(0,r.jsx)(i.ToggleControl,{label:(0,a.__)("Reviews Tab","jetix-store-toolkit"),checked:!t.disable_reviews,onChange:t=>h("disable_reviews",!t),__nextHasNoMarginBottom:!0}),!t.disable_reviews&&(0,r.jsx)(i.TextControl,{label:(0,a.__)("Custom Title","jetix-store-toolkit"),placeholder:(0,a.__)("Reviews","jetix-store-toolkit"),value:t.reviews_title||"",onChange:t=>h("reviews_title",t),__nextHasNoMarginBottom:!0})]})]}),(0,r.jsx)("h3",{children:(0,a.__)("Custom Tabs","jetix-store-toolkit")}),0===(t.custom_tabs||[]).length&&(0,r.jsx)("p",{className:"jwp-stk-settings-description",children:(0,a.__)("No custom tabs yet. Add one below.","jetix-store-toolkit")}),(t.custom_tabs||[]).map((t,s)=>(0,r.jsxs)("div",{className:"jwp-stk-ptm-custom-tab",children:[(0,r.jsxs)("div",{className:"jwp-stk-ptm-custom-tab__header",children:[(0,r.jsx)("strong",{children:t.title||(0,a.__)("Untitled Tab","jetix-store-toolkit")}),(0,r.jsx)(i.Button,{isDestructive:!0,variant:"tertiary",size:"small",onClick:()=>(t=>{e(e=>{const s=[...e.custom_tabs||[]];return s.splice(t,1),{...e,custom_tabs:s}})})(s),children:(0,a.__)("Remove","jetix-store-toolkit")})]}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Tab Title","jetix-store-toolkit"),value:t.title||"",onChange:t=>x(s,"title",t),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.TextareaControl,{label:(0,a.__)("Tab Content","jetix-store-toolkit"),value:t.content||"",onChange:t=>x(s,"content",t),rows:4,help:(0,a.__)("HTML is allowed. Content will be auto-wrapped in paragraphs.","jetix-store-toolkit"),__nextHasNoMarginBottom:!0}),(0,r.jsx)(i.TextControl,{label:(0,a.__)("Priority","jetix-store-toolkit"),type:"number",value:t.priority||50,onChange:t=>x(s,"priority",parseInt(t,10)||50),help:(0,a.__)("Lower number = appears first. Default WC tabs: Description 10, Additional Info 20, Reviews 30.","jetix-store-toolkit"),__nextHasNoMarginBottom:!0})]},s)),(0,r.jsx)(i.Button,{variant:"secondary",onClick:()=>{e(t=>{const e=[...t.custom_tabs||[]];return e.push({title:"",content:"",priority:50+e.length}),{...t,custom_tabs:e}})},className:"jwp-stk-ptm-add-tab",children:(0,a.__)("+ Add Custom Tab","jetix-store-toolkit")}),(0,r.jsx)("div",{className:"jwp-stk-settings-actions",children:(0,r.jsx)(i.Button,{variant:"primary",onClick:m,isBusy:c,disabled:c,children:(0,a.__)("Save Settings","jetix-store-toolkit")})})]})}},x=({moduleSlug:t,onBack:e})=>{const[s,l]=(0,o.useState)(null),[c,d]=(0,o.useState)(!0),[_,u]=(0,o.useState)(!1),[j,m]=(0,o.useState)(null),x=(0,o.useCallback)(async()=>{try{const e=(await n()({path:"/jwp-stk/v1/modules"})).find(e=>e.slug===t);l(e||null)}catch{m({status:"error",message:(0,a.__)("Failed to load module.","jetix-store-toolkit")})}finally{d(!1)}},[t]);(0,o.useEffect)(()=>{x()},[x]);const g=(0,o.useCallback)(async e=>{u(!0),m(null);try{await n()({path:"/jwp-stk/v1/modules/toggle",method:"POST",data:{module:t,active:e}}),l(t=>({...t,active:e}))}catch{m({status:"error",message:(0,a.__)("Failed to update module.","jetix-store-toolkit")})}finally{u(!1)}},[t]);if(c)return(0,r.jsx)("div",{className:"jwp-stk-module-settings-loading",children:(0,r.jsx)(i.Spinner,{})});if(!s)return(0,r.jsxs)("div",{className:"jwp-stk-module-settings-not-found",children:[(0,r.jsx)("p",{children:(0,a.__)("Module not found.","jetix-store-toolkit")}),(0,r.jsx)(i.Button,{variant:"secondary",onClick:e,children:(0,a.__)("← Back to Modules","jetix-store-toolkit")})]});const k=h[t]||null;return(0,r.jsxs)("div",{className:"jwp-stk-module-settings-page",children:[j&&(0,r.jsx)(i.Notice,{status:j.status,isDismissible:!0,onDismiss:()=>m(null),children:j.message}),(0,r.jsxs)("div",{className:"jwp-stk-module-settings__header",children:[(0,r.jsx)(i.Button,{variant:"tertiary",onClick:e,className:"jwp-stk-back-button",children:(0,a.__)("← Back to Modules","jetix-store-toolkit")}),(0,r.jsxs)("div",{className:"jwp-stk-module-settings__title-row",children:[(0,r.jsx)("h2",{children:s.title}),(0,r.jsx)("span",{className:`jwp-stk-tier-badge jwp-stk-badge-${s.tier}`,children:s.tier}),(0,r.jsx)("div",{className:"jwp-stk-module-settings__toggle",children:(0,r.jsx)(i.ToggleControl,{label:s.active?(0,a.__)("Active","jetix-store-toolkit"):(0,a.__)("Inactive","jetix-store-toolkit"),checked:s.active,onChange:g,disabled:_,__nextHasNoMarginBottom:!0})})]}),(0,r.jsx)("p",{className:"jwp-stk-module-settings__description",children:s.description})]}),(0,r.jsx)("div",{className:"jwp-stk-module-settings__body",children:k?(0,r.jsx)(k,{}):(0,r.jsx)("div",{className:"jwp-stk-module-settings-placeholder",children:(0,r.jsx)("p",{children:(0,a.__)("No configuration available for this module.","jetix-store-toolkit")})})})]})},g=()=>{const[t,e]=(0,o.useState)(null),[s,l]=(0,o.useState)(!0),[c,d]=(0,o.useState)(!1),[_,u]=(0,o.useState)(null),[j,m]=(0,o.useState)("auto"),h=(0,o.useCallback)(async()=>{try{const t=await n()({path:"/jwp-stk/v1/settings"});e(t),m(t.theme_compatibility_engine||"auto")}catch(t){u({status:"error",message:(0,a.__)("Failed to load settings.","jetix-store-toolkit")})}finally{l(!1)}},[]);(0,o.useEffect)(()=>{h()},[h]);const x=(0,o.useCallback)(async()=>{d(!0),u(null);try{await n()({path:"/jwp-stk/v1/settings",method:"POST",data:{settings:{"theme-compatibility-engine":j}}}),u({status:"success",message:(0,a.__)("Settings saved.","jetix-store-toolkit")})}catch(t){u({status:"error",message:(0,a.__)("Failed to save settings.","jetix-store-toolkit")})}finally{d(!1)}},[j]);if(s)return(0,r.jsx)("div",{className:"jwp-stk-settings-loading",children:(0,r.jsx)(i.Spinner,{})});const g=t?.available_theme_engines?Object.entries(t.available_theme_engines).map(([t,e])=>({value:t,label:e})):[];return(0,r.jsxs)("div",{className:"jwp-stk-settings-panel",children:[_&&(0,r.jsx)(i.Notice,{status:_.status,isDismissible:!0,onDismiss:()=>u(null),children:_.message}),(0,r.jsxs)("div",{className:"jwp-stk-settings-section",children:[(0,r.jsx)("h2",{children:(0,a.__)("Theme Compatibility","jetix-store-toolkit")}),(0,r.jsx)("p",{className:"jwp-stk-settings-description",children:(0,a.__)('The theme compatibility engine loads additional styles and scripts to ensure Jetix Store Toolkit for WooCommerce features display correctly with your theme. "Auto" will detect your theme automatically.',"jetix-store-toolkit")}),(0,r.jsx)(i.SelectControl,{label:(0,a.__)("Theme Compatibility Engine","jetix-store-toolkit"),value:j,options:g,onChange:m,__nextHasNoMarginBottom:!0}),t?.active_theme_engine&&(0,r.jsxs)("p",{className:"jwp-stk-active-engine-info",children:[(0,a.__)("Active engine:","jetix-store-toolkit")," ",(0,r.jsx)("strong",{children:t.active_theme_engine}),t?.automatic_theme_engine&&(0,r.jsxs)(r.Fragment,{children:[" — ",(0,a.__)("Auto-detected:","jetix-store-toolkit")," ",(0,r.jsx)("strong",{children:t.automatic_theme_engine})]})]})]}),(0,r.jsx)("div",{className:"jwp-stk-settings-actions",children:(0,r.jsx)(i.Button,{variant:"primary",onClick:x,isBusy:c,disabled:c,children:(0,a.__)("Save Settings","jetix-store-toolkit")})})]})},k=[{key:"dashboard",label:(0,a.__)("Dashboard","jetix-store-toolkit"),page:"jetix-store-toolkit"},{key:"modules",label:(0,a.__)("Modules","jetix-store-toolkit"),page:"jwp-stk-modules"},{key:"settings",label:(0,a.__)("Global Settings","jetix-store-toolkit"),page:"jwp-stk-settings"}],p=()=>{const{currentPage:t,adminUrl:e,version:s}=window.jwpStkDashboard||{},[i,l]=(0,o.useState)(null);return(0,r.jsxs)("div",{className:"jwp-stk-dashboard",children:[(0,r.jsxs)("div",{className:"jwp-stk-dashboard__header",children:[(0,r.jsxs)("div",{className:"jwp-stk-dashboard__header-left",children:[(0,r.jsx)("h1",{children:(0,a.__)("Jetix Store Toolkit for WooCommerce","jetix-store-toolkit")}),(0,r.jsxs)("span",{className:"jwp-stk-version",children:["v",s||"0.1.0"]})]}),(0,r.jsx)("nav",{className:"jwp-stk-dashboard__header-nav",children:k.map(s=>(0,r.jsx)("a",{href:`${e}admin.php?page=${s.page}`,className:"jwp-stk-nav-tab "+(t===s.key?"is-active":""),children:s.label},s.key))})]}),(0,r.jsxs)("div",{className:"jwp-stk-dashboard__body",children:["dashboard"===t&&(0,r.jsx)(c,{}),"modules"===t&&!i&&(0,r.jsx)(u,{onOpenModuleSettings:l}),"modules"===t&&i&&(0,r.jsx)(x,{moduleSlug:i,onBack:()=>l(null)}),"settings"===t&&(0,r.jsx)(g,{})]})]})},w=document.getElementById("jwp-stk-dashboard-app");w&&(0,o.createRoot)(w).render((0,r.jsx)(p,{}))}},s={};function o(t){var a=s[t];if(void 0!==a)return a.exports;var i=s[t]={exports:{}};return e[t](i,i.exports,o),i.exports}o.m=e,t=[],o.O=(e,s,a,i)=>{if(!s){var l=1/0;for(d=0;d<t.length;d++){for(var[s,a,i]=t[d],n=!0,r=0;r<s.length;r++)(!1&i||l>=i)&&Object.keys(o.O).every(t=>o.O[t](s[r]))?s.splice(r--,1):(n=!1,i<l&&(l=i));if(n){t.splice(d--,1);var c=a();void 0!==c&&(e=c)}}return e}i=i||0;for(var d=t.length;d>0&&t[d-1][2]>i;d--)t[d]=t[d-1];t[d]=[s,a,i]},o.n=t=>{var e=t&&t.__esModule?()=>t.default:()=>t;return o.d(e,{a:e}),e},o.d=(t,e)=>{for(var s in e)o.o(e,s)&&!o.o(t,s)&&Object.defineProperty(t,s,{enumerable:!0,get:e[s]})},o.o=(t,e)=>Object.prototype.hasOwnProperty.call(t,e),(()=>{var t={57:0,350:0};o.O.j=e=>0===t[e];var e=(e,s)=>{var a,i,[l,n,r]=s,c=0;if(l.some(e=>0!==t[e])){for(a in n)o.o(n,a)&&(o.m[a]=n[a]);if(r)var d=r(o)}for(e&&e(s);c<l.length;c++)i=l[c],o.o(t,i)&&t[i]&&t[i][0](),t[i]=0;return o.O(d)},s=globalThis.webpackChunkjetix_store_toolkit=globalThis.webpackChunkjetix_store_toolkit||[];s.forEach(e.bind(null,0)),s.push=e.bind(null,s.push.bind(s))})();var a=o.O(void 0,[350],()=>o(771));a=o.O(a)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/dashboard/App.js"
+/*!******************************!*\
+  !*** ./src/dashboard/App.js ***!
+  \******************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_DashboardPanel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/DashboardPanel */ "./src/dashboard/components/DashboardPanel.js");
+/* harmony import */ var _components_ModulesPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ModulesPanel */ "./src/dashboard/components/ModulesPanel.js");
+/* harmony import */ var _components_ModuleSettingsPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ModuleSettingsPage */ "./src/dashboard/components/ModuleSettingsPage.js");
+/* harmony import */ var _components_SettingsPanel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/SettingsPanel */ "./src/dashboard/components/SettingsPanel.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__);
+
+
+
+
+
+
+
+const NAV_ITEMS = [{
+  key: 'dashboard',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Dashboard', 'jetix-store-toolkit'),
+  page: 'jetix-store-toolkit'
+}, {
+  key: 'modules',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Modules', 'jetix-store-toolkit'),
+  page: 'jwp-stk-modules'
+}, {
+  key: 'settings',
+  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Global Settings', 'jetix-store-toolkit'),
+  page: 'jwp-stk-settings'
+}];
+const App = () => {
+  const {
+    currentPage,
+    adminUrl,
+    version
+  } = window.jwpStkDashboard || {};
+  const [activeModule, setActiveModule] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    className: "jwp-stk-dashboard",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "jwp-stk-dashboard__header",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        className: "jwp-stk-dashboard__header-left",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Store Toolkit for WooCommerce', 'jetix-store-toolkit')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
+          className: "jwp-stk-version",
+          children: ["v", version || '0.1.0']
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("nav", {
+        className: "jwp-stk-dashboard__header-nav",
+        children: NAV_ITEMS.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
+          href: `${adminUrl}admin.php?page=${item.page}`,
+          className: `jwp-stk-nav-tab ${currentPage === item.key ? 'is-active' : ''}`,
+          children: item.label
+        }, item.key))
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      className: "jwp-stk-dashboard__body",
+      children: [currentPage === 'dashboard' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_DashboardPanel__WEBPACK_IMPORTED_MODULE_2__["default"], {}), currentPage === 'modules' && !activeModule && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ModulesPanel__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onOpenModuleSettings: setActiveModule
+      }), currentPage === 'modules' && activeModule && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_ModuleSettingsPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        moduleSlug: activeModule,
+        onBack: () => setActiveModule(null)
+      }), currentPage === 'settings' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_SettingsPanel__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ },
+
+/***/ "./src/dashboard/components/DashboardPanel.js"
+/*!****************************************************!*\
+  !*** ./src/dashboard/components/DashboardPanel.js ***!
+  \****************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const DashboardPanel = () => {
+  const {
+    adminUrl
+  } = window.jwpStkDashboard || {};
+  const [stats, setStats] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const fetchStats = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const modules = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules'
+      });
+      const enabled = modules.filter(m => m.enabled);
+      const active = modules.filter(m => m.enabled && m.active);
+      setStats({
+        total: enabled.length,
+        active: active.length
+      });
+    } catch {
+      setStats({
+        total: 0,
+        active: 0
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchStats();
+  }, [fetchStats]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    className: "jwp-stk-dashboard-panel",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-welcome-banner",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-welcome-banner__content",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Welcome to Jetix Store Toolkit for WooCommerce', 'jetix-store-toolkit')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Your modular WooCommerce toolkit. Enable only the features your store needs — from Quick View and Store Manager to Wishlist', 'jetix-store-toolkit')
+        }), !loading && stats && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "jwp-stk-welcome-stats",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "jwp-stk-stat",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "jwp-stk-stat__number",
+              children: stats.active
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "jwp-stk-stat__label",
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Active Modules', 'jetix-store-toolkit')
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "jwp-stk-stat",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "jwp-stk-stat__number",
+              children: stats.total
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "jwp-stk-stat__label",
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Available Modules', 'jetix-store-toolkit')
+            })]
+          })]
+        }), loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "jwp-stk-welcome-actions",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+            href: `${adminUrl}admin.php?page=jwp-stk-modules`,
+            className: "components-button is-primary",
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Manage Modules', 'jetix-store-toolkit')
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+            href: `${adminUrl}admin.php?page=jwp-stk-settings`,
+            className: "components-button is-secondary",
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Global Settings', 'jetix-store-toolkit')
+          })]
+        })]
+      })
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DashboardPanel);
+
+/***/ },
+
+/***/ "./src/dashboard/components/ModuleSettingsPage.js"
+/*!********************************************************!*\
+  !*** ./src/dashboard/components/ModuleSettingsPage.js ***!
+  \********************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _module_settings_QuickViewSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./module-settings/QuickViewSettings */ "./src/dashboard/components/module-settings/QuickViewSettings.js");
+/* harmony import */ var _module_settings_CustomOrderStatusesSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./module-settings/CustomOrderStatusesSettings */ "./src/dashboard/components/module-settings/CustomOrderStatusesSettings.js");
+/* harmony import */ var _module_settings_StockManagerSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./module-settings/StockManagerSettings */ "./src/dashboard/components/module-settings/StockManagerSettings.js");
+/* harmony import */ var _module_settings_ProductTabManagerSettings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./module-settings/ProductTabManagerSettings */ "./src/dashboard/components/module-settings/ProductTabManagerSettings.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
+
+
+
+
+
+
+const MODULE_SETTINGS_MAP = {
+  'quick-view': _module_settings_QuickViewSettings__WEBPACK_IMPORTED_MODULE_4__["default"],
+  'custom-order-statuses': _module_settings_CustomOrderStatusesSettings__WEBPACK_IMPORTED_MODULE_5__["default"],
+  'stock-manager': _module_settings_StockManagerSettings__WEBPACK_IMPORTED_MODULE_6__["default"],
+  'product-tab-manager': _module_settings_ProductTabManagerSettings__WEBPACK_IMPORTED_MODULE_7__["default"]
+};
+const ModuleSettingsPage = ({
+  moduleSlug,
+  onBack
+}) => {
+  const [module, setModule] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [toggling, setToggling] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchModule = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const modules = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules'
+      });
+      const found = modules.find(m => m.slug === moduleSlug);
+      setModule(found || null);
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load module.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [moduleSlug]);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchModule();
+  }, [fetchModule]);
+  const handleToggle = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async active => {
+    setToggling(true);
+    setNotice(null);
+    try {
+      await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/toggle',
+        method: 'POST',
+        data: {
+          module: moduleSlug,
+          active
+        }
+      });
+      setModule(prev => ({
+        ...prev,
+        active
+      }));
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to update module.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setToggling(false);
+    }
+  }, [moduleSlug]);
+  if (loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "jwp-stk-module-settings-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+  if (!module) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "jwp-stk-module-settings-not-found",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Module not found.', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "secondary",
+        onClick: onBack,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('\u2190 Back to Modules', 'jetix-store-toolkit')
+      })]
+    });
+  }
+  const SettingsComponent = MODULE_SETTINGS_MAP[moduleSlug] || null;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    className: "jwp-stk-module-settings-page",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      className: "jwp-stk-module-settings__header",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "tertiary",
+        onClick: onBack,
+        className: "jwp-stk-back-button",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('\u2190 Back to Modules', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "jwp-stk-module-settings__title-row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
+          children: module.title
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+          className: `jwp-stk-tier-badge jwp-stk-badge-${module.tier}`,
+          children: module.tier
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          className: "jwp-stk-module-settings__toggle",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+            label: module.active ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Active', 'jetix-store-toolkit') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Inactive', 'jetix-store-toolkit'),
+            checked: module.active,
+            onChange: handleToggle,
+            disabled: toggling,
+            __nextHasNoMarginBottom: true
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+        className: "jwp-stk-module-settings__description",
+        children: module.description
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      className: "jwp-stk-module-settings__body",
+      children: SettingsComponent ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(SettingsComponent, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        className: "jwp-stk-module-settings-placeholder",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('No configuration available for this module.', 'jetix-store-toolkit')
+        })
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModuleSettingsPage);
+
+/***/ },
+
+/***/ "./src/dashboard/components/ModulesPanel.js"
+/*!**************************************************!*\
+  !*** ./src/dashboard/components/ModulesPanel.js ***!
+  \**************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const TIER_LABELS = {
+  core: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Core', 'jetix-store-toolkit'),
+  growth: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Growth', 'jetix-store-toolkit'),
+  power: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Power', 'jetix-store-toolkit')
+};
+const TIER_DESCRIPTIONS = {
+  core: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Essential features every WooCommerce store needs.', 'jetix-store-toolkit'),
+  growth: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Conversion and engagement features to grow your store.', 'jetix-store-toolkit'),
+  power: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Advanced features for mature stores.', 'jetix-store-toolkit')
+};
+const ModulesPanel = ({
+  onOpenModuleSettings
+}) => {
+  const [modules, setModules] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [toggling, setToggling] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)({});
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchModules = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules'
+      });
+      setModules(data);
+    } catch (err) {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load modules.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchModules();
+  }, [fetchModules]);
+  const handleToggle = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async (slug, active) => {
+    setToggling(prev => ({
+      ...prev,
+      [slug]: true
+    }));
+    setNotice(null);
+    try {
+      await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/toggle',
+        method: 'POST',
+        data: {
+          module: slug,
+          active
+        }
+      });
+      setModules(prev => prev.map(m => m.slug === slug ? {
+        ...m,
+        active
+      } : m));
+    } catch (err) {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to update module.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setToggling(prev => ({
+        ...prev,
+        [slug]: false
+      }));
+    }
+  }, []);
+  if (loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-modules-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+
+  // Only show enabled modules, grouped by tier.
+  const enabledModules = modules.filter(m => m.enabled);
+  const grouped = {
+    core: [],
+    growth: [],
+    power: []
+  };
+  enabledModules.forEach(mod => {
+    if (grouped[mod.tier]) {
+      grouped[mod.tier].push(mod);
+    }
+  });
+
+  // Only render tiers that have modules.
+  const activeTiers = Object.keys(grouped).filter(tier => grouped[tier].length > 0);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "jwp-stk-modules-panel",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), activeTiers.map(tier => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: `jwp-stk-module-tier jwp-stk-tier-${tier}`,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-tier-header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+            className: `jwp-stk-tier-badge jwp-stk-badge-${tier}`,
+            children: TIER_LABELS[tier]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "jwp-stk-tier-description",
+          children: TIER_DESCRIPTIONS[tier]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "jwp-stk-module-grid",
+        children: grouped[tier].map(mod => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: `jwp-stk-module-card ${mod.active ? 'is-active' : ''}`,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "jwp-stk-module-card__body",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "jwp-stk-module-card__title-row",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+                className: "jwp-stk-module-card__title",
+                children: mod.title
+              }), mod.active && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                type: "button",
+                className: "jwp-stk-module-card__settings-link",
+                onClick: () => onOpenModuleSettings(mod.slug),
+                children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Configure', 'jetix-store-toolkit')
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "jwp-stk-module-card__description",
+              children: mod.description
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "jwp-stk-module-card__footer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+              checked: mod.active,
+              onChange: val => handleToggle(mod.slug, val),
+              disabled: toggling[mod.slug] || false,
+              __nextHasNoMarginBottom: true
+            })
+          })]
+        }, mod.slug))
+      })]
+    }, tier))]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModulesPanel);
+
+/***/ },
+
+/***/ "./src/dashboard/components/SettingsPanel.js"
+/*!***************************************************!*\
+  !*** ./src/dashboard/components/SettingsPanel.js ***!
+  \***************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const SettingsPanel = () => {
+  const [settings, setSettings] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [saving, setSaving] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [themeEngine, setThemeEngine] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('auto');
+  const fetchSettings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/settings'
+      });
+      setSettings(data);
+      setThemeEngine(data.theme_compatibility_engine || 'auto');
+    } catch (err) {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+  const handleSave = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    setSaving(true);
+    setNotice(null);
+    try {
+      await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/settings',
+        method: 'POST',
+        data: {
+          settings: {
+            'theme-compatibility-engine': themeEngine
+          }
+        }
+      });
+      setNotice({
+        status: 'success',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings saved.', 'jetix-store-toolkit')
+      });
+    } catch (err) {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to save settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setSaving(false);
+    }
+  }, [themeEngine]);
+  if (loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-settings-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+
+  // Build options for SelectControl.
+  const engineOptions = settings?.available_theme_engines ? Object.entries(settings.available_theme_engines).map(([value, label]) => ({
+    value,
+    label
+  })) : [];
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "jwp-stk-settings-panel",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "jwp-stk-settings-section",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Theme Compatibility', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        className: "jwp-stk-settings-description",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('The theme compatibility engine loads additional styles and scripts to ensure Jetix Store Toolkit for WooCommerce features display correctly with your theme. "Auto" will detect your theme automatically.', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Theme Compatibility Engine', 'jetix-store-toolkit'),
+        value: themeEngine,
+        options: engineOptions,
+        onChange: setThemeEngine,
+        __nextHasNoMarginBottom: true
+      }), settings?.active_theme_engine && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+        className: "jwp-stk-active-engine-info",
+        children: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Active engine:', 'jetix-store-toolkit'), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+          children: settings.active_theme_engine
+        }), settings?.automatic_theme_engine && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [' — ', (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Auto-detected:', 'jetix-store-toolkit'), ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+            children: settings.automatic_theme_engine
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-settings-actions",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "primary",
+        onClick: handleSave,
+        isBusy: saving,
+        disabled: saving,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Save Settings', 'jetix-store-toolkit')
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsPanel);
+
+/***/ },
+
+/***/ "./src/dashboard/components/module-settings/CustomOrderStatusesSettings.js"
+/*!*********************************************************************************!*\
+  !*** ./src/dashboard/components/module-settings/CustomOrderStatusesSettings.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const CustomOrderStatusesSettings = () => {
+  const [statuses, setStatuses] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [builtinStatuses, setBuiltinStatuses] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)({});
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [saving, setSaving] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchSettings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/custom-order-statuses/settings'
+      });
+      setStatuses(data.settings.statuses || []);
+      setBuiltinStatuses(data.builtin_statuses || {});
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+  const handleSave = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    setSaving(true);
+    setNotice(null);
+    try {
+      const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/custom-order-statuses/settings',
+        method: 'POST',
+        data: {
+          settings: {
+            statuses
+          }
+        }
+      });
+      setStatuses(res.settings.statuses || []);
+      setNotice({
+        status: 'success',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings saved. Reload the page to see new statuses.', 'jetix-store-toolkit')
+      });
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to save settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setSaving(false);
+    }
+  }, [statuses]);
+  const addStatus = () => {
+    setStatuses(prev => [...prev, {
+      slug: '',
+      label: '',
+      color: '#787c82'
+    }]);
+  };
+  const updateStatus = (index, key, value) => {
+    setStatuses(prev => {
+      const updated = [...prev];
+      updated[index] = {
+        ...updated[index],
+        [key]: value
+      };
+
+      // Auto-generate slug from label.
+      if (key === 'label' && !updated[index]._slugEdited) {
+        updated[index].slug = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').substring(0, 17);
+      }
+      return updated;
+    });
+  };
+  const removeStatus = index => {
+    setStatuses(prev => prev.filter((_, i) => i !== index));
+  };
+  if (loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-modules-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "jwp-stk-module-settings-form",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "jwp-stk-cos-builtin",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Built-in Statuses', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        className: "jwp-stk-settings-description",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('These are the default WooCommerce order statuses. They cannot be removed.', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+        className: "jwp-stk-cos-builtin-list",
+        children: Object.entries(builtinStatuses).map(([key, label]) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("code", {
+            children: key
+          }), " \u2014 ", label]
+        }, key))
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Statuses', 'jetix-store-toolkit')
+    }), statuses.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      className: "jwp-stk-settings-description",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('No custom statuses yet. Click the button below to add one.', 'jetix-store-toolkit')
+    }), statuses.map((status, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "jwp-stk-cos-status-row",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-cos-status-row__fields",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Label', 'jetix-store-toolkit'),
+          value: status.label,
+          onChange: val => updateStatus(index, 'label', val),
+          __nextHasNoMarginBottom: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Slug', 'jetix-store-toolkit'),
+          value: status.slug,
+          onChange: val => {
+            updateStatus(index, 'slug', val);
+            updateStatus(index, '_slugEdited', true);
+          },
+          help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Max 17 characters, lowercase letters, numbers, hyphens.', 'jetix-store-toolkit'),
+          __nextHasNoMarginBottom: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "jwp-stk-cos-color-field",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Color', 'jetix-store-toolkit')
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "jwp-stk-cos-color-input",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ColorIndicator, {
+              colorValue: status.color || '#787c82'
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              type: "color",
+              value: status.color || '#787c82',
+              onChange: e => updateStatus(index, 'color', e.target.value)
+            })]
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        isDestructive: true,
+        variant: "tertiary",
+        onClick: () => removeStatus(index),
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Remove', 'jetix-store-toolkit')
+      })]
+    }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      variant: "secondary",
+      onClick: addStatus,
+      className: "jwp-stk-cos-add-status",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('+ Add Custom Status', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-settings-actions",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "primary",
+        onClick: handleSave,
+        isBusy: saving,
+        disabled: saving,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Save Settings', 'jetix-store-toolkit')
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomOrderStatusesSettings);
+
+/***/ },
+
+/***/ "./src/dashboard/components/module-settings/ProductTabManagerSettings.js"
+/*!*******************************************************************************!*\
+  !*** ./src/dashboard/components/module-settings/ProductTabManagerSettings.js ***!
+  \*******************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const ProductTabManagerSettings = () => {
+  const [settings, setSettings] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [saving, setSaving] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchSettings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/product-tab-manager/settings'
+      });
+      setSettings(data.settings);
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+  const handleSave = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    setSaving(true);
+    setNotice(null);
+    try {
+      const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/product-tab-manager/settings',
+        method: 'POST',
+        data: {
+          settings
+        }
+      });
+      setSettings(res.settings);
+      setNotice({
+        status: 'success',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings saved.', 'jetix-store-toolkit')
+      });
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to save settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setSaving(false);
+    }
+  }, [settings]);
+  const updateSetting = (key, value) => {
+    setSettings(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+  const addCustomTab = () => {
+    setSettings(prev => {
+      const tabs = [...(prev.custom_tabs || [])];
+      tabs.push({
+        title: '',
+        content: '',
+        priority: 50 + tabs.length
+      });
+      return {
+        ...prev,
+        custom_tabs: tabs
+      };
+    });
+  };
+  const updateTab = (index, key, value) => {
+    setSettings(prev => {
+      const tabs = [...(prev.custom_tabs || [])];
+      tabs[index] = {
+        ...tabs[index],
+        [key]: value
+      };
+      return {
+        ...prev,
+        custom_tabs: tabs
+      };
+    });
+  };
+  const removeTab = index => {
+    setSettings(prev => {
+      const tabs = [...(prev.custom_tabs || [])];
+      tabs.splice(index, 1);
+      return {
+        ...prev,
+        custom_tabs: tabs
+      };
+    });
+  };
+  if (loading || !settings) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-modules-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "jwp-stk-module-settings-form",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Default Tabs', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      className: "jwp-stk-settings-description",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Toggle default WooCommerce product tabs on or off, and optionally rename them.', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "jwp-stk-ptm-default-tabs",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-ptm-tab-row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Description Tab', 'jetix-store-toolkit'),
+          checked: !settings.disable_description,
+          onChange: val => updateSetting('disable_description', !val),
+          __nextHasNoMarginBottom: true
+        }), !settings.disable_description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Title', 'jetix-store-toolkit'),
+          placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Description', 'jetix-store-toolkit'),
+          value: settings.description_title || '',
+          onChange: val => updateSetting('description_title', val),
+          __nextHasNoMarginBottom: true
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-ptm-tab-row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Additional Information Tab', 'jetix-store-toolkit'),
+          checked: !settings.disable_additional_info,
+          onChange: val => updateSetting('disable_additional_info', !val),
+          __nextHasNoMarginBottom: true
+        }), !settings.disable_additional_info && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Title', 'jetix-store-toolkit'),
+          placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Additional information', 'jetix-store-toolkit'),
+          value: settings.additional_information_title || '',
+          onChange: val => updateSetting('additional_information_title', val),
+          __nextHasNoMarginBottom: true
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-ptm-tab-row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Reviews Tab', 'jetix-store-toolkit'),
+          checked: !settings.disable_reviews,
+          onChange: val => updateSetting('disable_reviews', !val),
+          __nextHasNoMarginBottom: true
+        }), !settings.disable_reviews && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Title', 'jetix-store-toolkit'),
+          placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Reviews', 'jetix-store-toolkit'),
+          value: settings.reviews_title || '',
+          onChange: val => updateSetting('reviews_title', val),
+          __nextHasNoMarginBottom: true
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Tabs', 'jetix-store-toolkit')
+    }), (settings.custom_tabs || []).length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      className: "jwp-stk-settings-description",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('No custom tabs yet. Add one below.', 'jetix-store-toolkit')
+    }), (settings.custom_tabs || []).map((tab, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "jwp-stk-ptm-custom-tab",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "jwp-stk-ptm-custom-tab__header",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+          children: tab.title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Untitled Tab', 'jetix-store-toolkit')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          isDestructive: true,
+          variant: "tertiary",
+          size: "small",
+          onClick: () => removeTab(index),
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Remove', 'jetix-store-toolkit')
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tab Title', 'jetix-store-toolkit'),
+        value: tab.title || '',
+        onChange: val => updateTab(index, 'title', val),
+        __nextHasNoMarginBottom: true
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tab Content', 'jetix-store-toolkit'),
+        value: tab.content || '',
+        onChange: val => updateTab(index, 'content', val),
+        rows: 4,
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('HTML is allowed. Content will be auto-wrapped in paragraphs.', 'jetix-store-toolkit'),
+        __nextHasNoMarginBottom: true
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Priority', 'jetix-store-toolkit'),
+        type: "number",
+        value: tab.priority || 50,
+        onChange: val => updateTab(index, 'priority', parseInt(val, 10) || 50),
+        help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Lower number = appears first. Default WC tabs: Description 10, Additional Info 20, Reviews 30.', 'jetix-store-toolkit'),
+        __nextHasNoMarginBottom: true
+      })]
+    }, index)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+      variant: "secondary",
+      onClick: addCustomTab,
+      className: "jwp-stk-ptm-add-tab",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('+ Add Custom Tab', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-settings-actions",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "primary",
+        onClick: handleSave,
+        isBusy: saving,
+        disabled: saving,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Save Settings', 'jetix-store-toolkit')
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductTabManagerSettings);
+
+/***/ },
+
+/***/ "./src/dashboard/components/module-settings/QuickViewSettings.js"
+/*!***********************************************************************!*\
+  !*** ./src/dashboard/components/module-settings/QuickViewSettings.js ***!
+  \***********************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const QuickViewSettings = () => {
+  const [settings, setSettings] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [saving, setSaving] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchSettings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/quick-view/settings'
+      });
+      setSettings(data.settings);
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+  const handleSave = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    setSaving(true);
+    setNotice(null);
+    try {
+      const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/quick-view/settings',
+        method: 'POST',
+        data: {
+          settings
+        }
+      });
+      setSettings(res.settings);
+      setNotice({
+        status: 'success',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings saved.', 'jetix-store-toolkit')
+      });
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to save settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setSaving(false);
+    }
+  }, [settings]);
+  const updateSetting = (key, value) => {
+    setSettings(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+  if (loading || !settings) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-modules-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "jwp-stk-module-settings-form",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Button Label', 'jetix-store-toolkit'),
+      value: settings.button_label || '',
+      onChange: val => updateSetting('button_label', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Button Position', 'jetix-store-toolkit'),
+      value: settings.button_position || 'after_add_to_cart',
+      options: [{
+        value: 'before_add_to_cart',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Before Add to Cart', 'jetix-store-toolkit')
+      }, {
+        value: 'after_add_to_cart',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('After Add to Cart', 'jetix-store-toolkit')
+      }],
+      onChange: val => updateSetting('button_position', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Modal Content', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Gallery', 'jetix-store-toolkit'),
+      checked: !!settings.show_gallery,
+      onChange: val => updateSetting('show_gallery', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Price', 'jetix-store-toolkit'),
+      checked: !!settings.show_price,
+      onChange: val => updateSetting('show_price', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Rating', 'jetix-store-toolkit'),
+      checked: !!settings.show_rating,
+      onChange: val => updateSetting('show_rating', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Short Description', 'jetix-store-toolkit'),
+      checked: !!settings.show_excerpt,
+      onChange: val => updateSetting('show_excerpt', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Add to Cart', 'jetix-store-toolkit'),
+      checked: !!settings.show_add_to_cart,
+      onChange: val => updateSetting('show_add_to_cart', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Product Meta', 'jetix-store-toolkit'),
+      checked: !!settings.show_meta,
+      onChange: val => updateSetting('show_meta', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-settings-actions",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "primary",
+        onClick: handleSave,
+        isBusy: saving,
+        disabled: saving,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Save Settings', 'jetix-store-toolkit')
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuickViewSettings);
+
+/***/ },
+
+/***/ "./src/dashboard/components/module-settings/StockManagerSettings.js"
+/*!**************************************************************************!*\
+  !*** ./src/dashboard/components/module-settings/StockManagerSettings.js ***!
+  \**************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+const StockManagerSettings = () => {
+  const [settings, setSettings] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [saving, setSaving] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchSettings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/stock-manager/settings'
+      });
+      setSettings(data.settings);
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to load settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+  const handleSave = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    setSaving(true);
+    setNotice(null);
+    try {
+      const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
+        path: '/jwp-stk/v1/modules/stock-manager/settings',
+        method: 'POST',
+        data: {
+          settings
+        }
+      });
+      setSettings(res.settings);
+      setNotice({
+        status: 'success',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings saved.', 'jetix-store-toolkit')
+      });
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Failed to save settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setSaving(false);
+    }
+  }, [settings]);
+  const updateSetting = (key, value) => {
+    setSettings(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+  if (loading || !settings) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-modules-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "jwp-stk-module-settings-form",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      className: "jwp-stk-settings-description",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('The Stock Manager page is available under WooCommerce → Stock Manager when this module is active.', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Products Per Page', 'jetix-store-toolkit'),
+      type: "number",
+      min: 5,
+      max: 100,
+      value: settings.per_page || 20,
+      onChange: val => updateSetting('per_page', parseInt(val, 10) || 20),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Low Stock Threshold', 'jetix-store-toolkit'),
+      type: "number",
+      min: 0,
+      value: settings.low_stock_threshold || 5,
+      onChange: val => updateSetting('low_stock_threshold', parseInt(val, 10) || 5),
+      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Products with stock at or below this number are flagged as low stock.', 'jetix-store-toolkit'),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Display Columns', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show SKU', 'jetix-store-toolkit'),
+      checked: !!settings.show_sku,
+      onChange: val => updateSetting('show_sku', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Stock Status', 'jetix-store-toolkit'),
+      checked: !!settings.show_stock_status,
+      onChange: val => updateSetting('show_stock_status', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Manage Stock', 'jetix-store-toolkit'),
+      checked: !!settings.show_manage_stock,
+      onChange: val => updateSetting('show_manage_stock', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Stock Quantity', 'jetix-store-toolkit'),
+      checked: !!settings.show_stock_quantity,
+      onChange: val => updateSetting('show_stock_quantity', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Backorders', 'jetix-store-toolkit'),
+      checked: !!settings.show_backorders,
+      onChange: val => updateSetting('show_backorders', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.ToggleControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Show Low Stock Filter', 'jetix-store-toolkit'),
+      checked: !!settings.show_low_stock,
+      onChange: val => updateSetting('show_low_stock', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "jwp-stk-settings-actions",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "primary",
+        onClick: handleSave,
+        isBusy: saving,
+        disabled: saving,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Save Settings', 'jetix-store-toolkit')
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StockManagerSettings);
+
+/***/ },
+
+/***/ "./src/dashboard/index.js"
+/*!********************************!*\
+  !*** ./src/dashboard/index.js ***!
+  \********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App */ "./src/dashboard/App.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ "./src/dashboard/style.css");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+const container = document.getElementById('jwp-stk-dashboard-app');
+if (container) {
+  const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(container);
+  root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_App__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
+}
+
+/***/ },
+
+/***/ "./src/dashboard/style.css"
+/*!*********************************!*\
+  !*** ./src/dashboard/style.css ***!
+  \*********************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ },
+
+/***/ "react/jsx-runtime"
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+(module) {
+
+module.exports = window["ReactJSXRuntime"];
+
+/***/ },
+
+/***/ "@wordpress/api-fetch"
+/*!**********************************!*\
+  !*** external ["wp","apiFetch"] ***!
+  \**********************************/
+(module) {
+
+module.exports = window["wp"]["apiFetch"];
+
+/***/ },
+
+/***/ "@wordpress/components"
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+(module) {
+
+module.exports = window["wp"]["components"];
+
+/***/ },
+
+/***/ "@wordpress/element"
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+(module) {
+
+module.exports = window["wp"]["element"];
+
+/***/ },
+
+/***/ "@wordpress/i18n"
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+(module) {
+
+module.exports = window["wp"]["i18n"];
+
+/***/ }
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		if (!(moduleId in __webpack_modules__)) {
+/******/ 			delete __webpack_module_cache__[moduleId];
+/******/ 			var e = new Error("Cannot find module '" + moduleId + "'");
+/******/ 			e.code = 'MODULE_NOT_FOUND';
+/******/ 			throw e;
+/******/ 		}
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"index": 0,
+/******/ 			"./style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkjetix_store_toolkit"] = globalThis["webpackChunkjetix_store_toolkit"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["./style-index"], () => (__webpack_require__("./src/dashboard/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map

@@ -444,51 +444,6 @@
 	margin-top: 24px;
 }
 
-/* ─── Checkout Field Editor ─── */
-.jwp-stk-cfe-fields-list {
-	margin-bottom: 16px;
-}
-
-.jwp-stk-cfe-field-row {
-	background: #f9f9f9;
-	border: 1px solid #e0e0e0;
-	border-radius: 4px;
-	padding: 12px 16px;
-	margin-bottom: 8px;
-}
-
-.jwp-stk-cfe-field-row__header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 8px;
-}
-
-.jwp-stk-cfe-field-row__header strong {
-	font-size: 13px;
-	color: #1d2327;
-}
-
-.jwp-stk-cfe-field-row__controls {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 12px;
-}
-
-.jwp-stk-cfe-field-row__controls .components-base-control {
-	margin-bottom: 0;
-}
-
-.jwp-stk-cfe-field-row__toggles {
-	display: flex;
-	gap: 24px;
-	margin-top: 8px;
-}
-
-.jwp-stk-cfe-field-row__toggles .components-base-control {
-	margin-bottom: 0;
-}
-
 /* ─── Custom Order Statuses ─── */
 .jwp-stk-cos-builtin-list {
 	list-style: none;

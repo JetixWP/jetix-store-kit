@@ -1,10 +1,10 @@
-=== Jetix Store Toolkit for WooCommerce ===
-Contributors: jetixwp
+=== Store Toolkit for WooCommerce by Jetix - All in one WooCommerce Plugin ===
+Contributors: jetixwp, lushkant
 Tags: woocommerce, quick view, checkout fields, order status, stock manager
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 0.4.0
+Stable tag: 0.5.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,6 @@ Jetix Store Toolkit for WooCommerce is a lightweight, modular toolkit that bundl
 = Core Modules =
 
 * **Quick View** — Let customers preview products in a lightbox modal directly from the shop page without leaving the archive.
-* **Checkout Field Editor** — Customize, reorder, or hide billing, shipping and order note fields at checkout without writing code.
 * **Custom Order Statuses** — Create custom order statuses with labels and colours that appear in admin and order emails.
 * **Stock Manager** — Manage stock quantities, statuses and backorder settings for all products from a single admin screen.
 * **Product Tab Manager** — Disable, rename or reorder default WooCommerce product tabs, and add unlimited custom tabs with your own content.
@@ -58,8 +57,7 @@ Yes. Jetix Store Toolkit for WooCommerce declares full compatibility with WooCom
 
 1. Modules dashboard — toggle modules on and off.
 2. Quick View lightbox on the shop page.
-3. Checkout Field Editor settings.
-4. Stock Manager admin screen.
+3. Stock Manager admin screen.
 
 == Changelog ==
 

@@ -59,7 +59,6 @@ final class Plugin {
 	 */
 	private static $module_map = array(
 		'quick-view'            => 'QuickView',
-		'checkout-field-editor' => 'CheckoutFieldEditor',
 		'custom-order-statuses' => 'CustomOrderStatuses',
 		'stock-manager'         => 'StockManager',
 		'product-tab-manager'   => 'ProductTabManager',

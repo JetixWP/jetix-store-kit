@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Jetix Store Toolkit for WooCommerce
+ * Plugin Name: Store Toolkit for WooCommerce
  * Plugin URI:  https://github.com/jetixWP/jetix-store-toolkit
- * Description: Modular all-in-one WooCommerce toolkit — enable only what your store needs. Quick View, Cart Notices, Checkout Fields, Wishlist, Swatches and more.
- * Version:     0.4.0
+ * Description: Modular all-in-one WooCommerce toolkit — enable only what your store needs. Quick View, Cart Notices, Checkout Fields, Wishlist and more.
+ * Version:     0.5.0
  * Author:      JetixWP
  * Author URI:  https://jetixwp.com
  * License:     GPL-2.0-or-later
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'JWP_STK_VERSION', '0.4.0' );
+define( 'JWP_STK_VERSION', '0.5.0' );
 define( 'JWP_STK_PLUGIN_FILE', __FILE__ );
 define( 'JWP_STK_PLUGIN_URL', plugin_dir_url( JWP_STK_PLUGIN_FILE ) );
 define( 'JWP_STK_PLUGIN_DIR', plugin_dir_path( JWP_STK_PLUGIN_FILE ) );
