@@ -70,6 +70,14 @@ const PLANNED_MODULES = [
 		),
 		tier: 'power',
 	},
+	{
+		title: __( 'Gift Vouchers', 'jetix-store-toolkit' ),
+		description: __(
+			'Create and sell digital gift vouchers redeemable at checkout.',
+			'jetix-store-toolkit'
+		),
+		tier: 'power',
+	},
 ];
 
 function RoadmapCard( { module } ) {
