@@ -714,9 +714,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ModuleCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ModuleCard */ "./src/dashboard/components/modules/ModuleCard.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ModuleCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ModuleCard */ "./src/dashboard/components/modules/ModuleCard.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
 /**
  * Modules grid — renders loading, empty, or the module card list.
  *
@@ -726,7 +728,95 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const TIER_ORDER = ['core', 'growth', 'power'];
+const UPCOMING_MODULES = [{
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Checkout Field Editor', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add, remove, reorder, or customise every WooCommerce checkout field without code.', 'jetix-store-toolkit'),
+  tier: 'core'
+}, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Wishlist', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Let customers save products for later and share their wishlist.', 'jetix-store-toolkit'),
+  tier: 'growth'
+}, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Product Bundles', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Bundle products together at a fixed or discounted price.', 'jetix-store-toolkit'),
+  tier: 'growth'
+}, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Points & Rewards', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Award points for purchases, reviews, and referrals. Let customers redeem points as cart discounts.', 'jetix-store-toolkit'),
+  tier: 'power'
+}];
+const PLANNED_MODULES = [{
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Cart Notices', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Show targeted messages in the cart — upsell thresholds, free shipping bars, limited-time alerts.', 'jetix-store-toolkit'),
+  tier: 'core'
+}, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Instant Product Search', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Live search with product thumbnails, prices, and direct links as the user types.', 'jetix-store-toolkit'),
+  tier: 'growth'
+}, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Orders & Customers Export', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Export orders and customers to CSV with custom column selection and date filters.', 'jetix-store-toolkit'),
+  tier: 'power'
+}];
+function RoadmapCard({
+  module
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("article", {
+    className: "jstk-module-card jstk-roadmap-card",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "jstk-module-card__body",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "jstk-roadmap-card__tier-row",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+          className: `jstk-tier-badge jstk-tier-badge--${module.tier}`,
+          children: module.tier.charAt(0).toUpperCase() + module.tier.slice(1)
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+        className: "jstk-module-card__name",
+        title: module.title,
+        children: module.title
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "jstk-module-card__meta",
+        children: module.description
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("footer", {
+      className: "jstk-module-card__footer jstk-roadmap-card__footer",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "jstk-roadmap-card__status-label",
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Coming Soon', 'jetix-store-toolkit')
+      })
+    })]
+  });
+}
+function RoadmapSection({
+  title,
+  description,
+  modules
+}) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "jstk-roadmap-section",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "jstk-roadmap-section__header",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+        className: "jstk-roadmap-section__title",
+        children: title
+      }), description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "jstk-roadmap-section__desc",
+        children: description
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+      className: "jstk-modules-grid",
+      role: "list",
+      children: modules.map(mod => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(RoadmapCard, {
+          module: mod
+        })
+      }, mod.title))
+    })]
+  });
+}
 function ModulesGrid({
   modules,
   loading,
@@ -735,25 +825,25 @@ function ModulesGrid({
   onConfigure
 }) {
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "jstk-loading",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Spinner, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.Spinner, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         children: "Loading modules\u2026"
       })]
     });
   }
   const enabledModules = modules.filter(m => m.enabled);
   if (enabledModules.length === 0) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "jstk-empty",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "jstk-empty__icon",
         "aria-hidden": "true",
         children: "\uD83D\uDCE6"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
         className: "jstk-empty__title",
         children: "No modules available"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         className: "jstk-empty__desc",
         children: "There are no modules available at this time."
       })]
@@ -770,21 +860,21 @@ function ModulesGrid({
     grouped[tier].push(mod);
   });
   const activeTiers = TIER_ORDER.filter(t => grouped[t]?.length > 0);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "jstk-modules-tiers",
-    children: activeTiers.map(tier => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [activeTiers.map(tier => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "jstk-modules-tier",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "jstk-modules-tier__header",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           className: `jstk-tier-badge jstk-tier-badge--${tier}`,
           children: tier.charAt(0).toUpperCase() + tier.slice(1)
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
         className: "jstk-modules-grid",
         role: "list",
-        children: grouped[tier].map(mod => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ModuleCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        children: grouped[tier].map(mod => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ModuleCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
             module: mod,
             toggling: toggling[mod.slug] || false,
             onToggle: active => onToggle(mod.slug, active),
@@ -792,7 +882,18 @@ function ModulesGrid({
           })
         }, mod.slug))
       })]
-    }, tier))
+    }, tier)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "jstk-roadmap",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(RoadmapSection, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Upcoming Modules', 'jetix-store-toolkit'),
+        description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('These modules are actively being built and will become available in upcoming releases.', 'jetix-store-toolkit'),
+        modules: UPCOMING_MODULES
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(RoadmapSection, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Planned', 'jetix-store-toolkit'),
+        description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('On our roadmap — coming further down the line.', 'jetix-store-toolkit'),
+        modules: PLANNED_MODULES
+      })]
+    })]
   });
 }
 

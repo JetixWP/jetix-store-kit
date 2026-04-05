@@ -649,6 +649,45 @@
     position: static;
   }
 }
+.jstk-roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border-light);
+}
+.jstk-roadmap-section__header {
+  margin-bottom: var(--space-m);
+}
+.jstk-roadmap-section__title {
+  margin: 0 0 var(--space-xs);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+.jstk-roadmap-section__desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+.jstk-roadmap-card {
+  opacity: 0.8;
+  pointer-events: none;
+  filter: grayscale(0.3);
+}
+.jstk-roadmap-card__tier-row {
+  margin-bottom: var(--space-xs);
+}
+.jstk-roadmap-card__footer {
+  justify-content: flex-end;
+}
+.jstk-roadmap-card__status-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
 .jstk-module-tab-bar {
   display: flex;
   align-items: flex-end;
