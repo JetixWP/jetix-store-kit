@@ -78,6 +78,40 @@ export default function Dashboard( { navigate } ) {
 					Global Settings
 				</Button>
 			</div>
+
+			<div className="jstk-dashboard-banner">
+				<div className="jstk-dashboard-banner__body">
+					<h3 className="jstk-dashboard-banner__title">
+						{ '👋' } Thank you for using our plugin!
+					</h3>
+					<p className="jstk-dashboard-banner__text">
+						We are currently looking for your feedback to improve it further for most use cases. If you have something to suggest, or love what we are building — we would love to hear from you. Check out our other plugins too!
+					</p>
+					<p className="jstk-dashboard-banner__note">
+						<em>You are not just any supporter but truly the builders of our small but mighty product agency.</em>
+						{ ' — ' }<strong>Krishna Kant Chourasiya</strong>, <em>Founder &amp; Lead Developer at JetixWP</em>
+					</p>
+				</div>
+				<div className="jstk-dashboard-banner__actions">
+					<a
+						href="https://jetixwp.com/plugins"
+						className="jstk-settings-sidebar__plugin-btn"
+						target="_blank"
+						rel="noreferrer"
+					>
+						View All Plugins
+					</a>
+					<a
+						href="https://jetixwp.com/contact"
+						className="jstk-settings-sidebar__plugin-btn secondary"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Submit a Request
+					</a>
+				</div>
+			</div>
 		</div>
 	);
 }
+
