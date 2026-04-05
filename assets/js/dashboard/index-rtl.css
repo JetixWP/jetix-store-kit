@@ -96,11 +96,11 @@
   border: 1px solid transparent;
 }
 .jstk-btn--tertiary:hover:not(:disabled) {
-  background: #dce8f7;
-  color: #135e96;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
 }
 .jstk-btn--tertiary:active:not(:disabled) {
-  background: #c9d9ef;
+  background: var(--color-accent-light);
 }
 .jstk-btn--destructive {
   background: #C97070;
@@ -576,13 +576,18 @@
 .jstk-settings-sidebar__widget-text a:hover {
   text-decoration: underline;
 }
+.jstk-settings-sidebar__widget-actions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-direction: column;
+}
 .jstk-settings-sidebar__plugin-btn {
   display: block;
   width: 100%;
   padding: var(--space-s) var(--space-m);
   border-radius: var(--radius-button);
   background: var(--color-accent);
-  color: #fff;
+  color: #fff !important;
   font-size: var(--text-m-size);
   font-weight: 600;
   text-align: center;
@@ -592,9 +597,21 @@
   transition: opacity 0.15s;
   margin-bottom: var(--space-l);
 }
+.jstk-settings-sidebar__plugin-btn:focus, .jstk-settings-sidebar__plugin-btn:focus-visible {
+  box-shadow: none;
+  outline: none;
+  color: inherit;
+}
 .jstk-settings-sidebar__plugin-btn:hover {
   opacity: 0.88;
-  color: #fff;
+}
+.jstk-settings-sidebar__plugin-btn.secondary {
+  background: transparent;
+  color: var(--color-accent) !important;
+  border: 1px solid var(--color-accent);
+}
+.jstk-settings-sidebar__plugin-btn.secondary:hover {
+  background: var(--color-accent-light);
 }
 .jstk-settings-sidebar__widget-note {
   font-size: 12px;
@@ -638,6 +655,7 @@
 :root {
   /* Colors */
   --color-accent: #008710;
+  --color-accent-light: rgba(0, 135, 16, 0.1);
   --color-text-body: #262626;
   --color-text-muted: #858586;
   --color-bg-body: #f0f0f1;
@@ -1102,7 +1120,7 @@
   border-radius: 12px;
 }
 .jstk-module-settings-form h3 {
-  margin: 24px 0 18px;
+  margin-bottom: 0;
   font-size: 15px;
   font-weight: 600;
   color: #1d2327;
@@ -1112,6 +1130,12 @@
 }
 .jstk-module-settings-form .components-base-control {
   margin-bottom: var(--space-m);
+}
+.jstk-module-settings-form .jstk-module-settings-extras {
+  margin-top: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .jstk-settings-description {
   color: #646970;
@@ -1133,6 +1157,15 @@
 }
 .components-button.is-primary:focus {
   box-shadow: 0 0 0 2px rgba(var(--color-accent), 0.18) !important;
+}
+.components-button.is-tertiary {
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
+}
+.components-button.is-tertiary:hover {
+  background-color: var(--color-accent-light) !important;
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
 }
 .jstk-cos-top-actions {
   margin-bottom: 20px;

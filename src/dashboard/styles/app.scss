@@ -14,6 +14,7 @@
 
 // Colors
 $color-accent:              #008710;
+$color-accent-light:        rgba(0, 135, 16, 0.1);
 $color-text-body:           #262626;
 $color-text-muted:          #858586;
 $color-bg-body:             #f0f0f1;
@@ -105,6 +106,7 @@ $button-text-line-height:   1;
 
   /* Colors */
   --color-accent:            #{$color-accent};
+	--color-accent-light:      #{$color-accent-light};
   --color-text-body:         #{$color-text-body};
   --color-text-muted:        #{$color-text-muted};
   --color-bg-body:           #{$color-bg-body};
@@ -692,7 +694,7 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	border-radius: 12px;
 
 	h3 {
-		margin: 24px 0 18px;
+		margin-bottom: 0;
 		font-size: 15px;
 		font-weight: 600;
 		color: $jstk-text;
@@ -704,6 +706,13 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 
 	.components-base-control {
 		margin-bottom: var(--space-m);
+	}
+
+	.jstk-module-settings-extras {
+		margin-top: var(--space-2xl);
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
 	}
 }
 
@@ -730,6 +739,17 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 
 	&:focus {
 		box-shadow: 0 0 0 2px rgba( var(--color-accent), 0.18 ) !important;
+	}
+}
+
+.components-button.is-tertiary {
+	border-color: var(--color-accent) !important;
+	color: var(--color-accent) !important;
+
+	&:hover {
+		background-color: var(--color-accent-light) !important;
+		border-color: var(--color-accent) !important;
+		color: var(--color-accent) !important;
 	}
 }
 

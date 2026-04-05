@@ -110,45 +110,46 @@ const QuickViewSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 
-			<h3>{ __( 'Modal Content', 'jetix-store-toolkit' ) }</h3>
 
-<Toggle
-			label={ __( 'Show Gallery', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_gallery }
-			onChange={ ( val ) => updateSetting( 'show_gallery', val ) }
-		/>
+			<div className="jstk-module-settings-extras">
+				<h3>{ __( 'Modal Content', 'jetix-store-toolkit' ) }</h3>
+				<Toggle
+					label={ __( 'Show Gallery', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_gallery }
+					onChange={ ( val ) => updateSetting( 'show_gallery', val ) }
+				/>
+				<Toggle
+					label={ __( 'Show Price', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_price }
+					onChange={ ( val ) => updateSetting( 'show_price', val ) }
+				/>
 
-		<Toggle
-			label={ __( 'Show Price', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_price }
-			onChange={ ( val ) => updateSetting( 'show_price', val ) }
-		/>
+				<Toggle
+					label={ __( 'Show Rating', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_rating }
+					onChange={ ( val ) => updateSetting( 'show_rating', val ) }
+				/>
 
-		<Toggle
-			label={ __( 'Show Rating', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_rating }
-			onChange={ ( val ) => updateSetting( 'show_rating', val ) }
-		/>
+				<Toggle
+					label={ __( 'Show Short Description', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_excerpt }
+					onChange={ ( val ) => updateSetting( 'show_excerpt', val ) }
+				/>
 
-		<Toggle
-			label={ __( 'Show Short Description', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_excerpt }
-			onChange={ ( val ) => updateSetting( 'show_excerpt', val ) }
-		/>
+				<Toggle
+					label={ __( 'Show Add to Cart', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_add_to_cart }
+					onChange={ ( val ) =>
+						updateSetting( 'show_add_to_cart', val )
+					}
+				/>
 
-		<Toggle
-			label={ __( 'Show Add to Cart', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_add_to_cart }
-			onChange={ ( val ) =>
-				updateSetting( 'show_add_to_cart', val )
-			}
-		/>
-
-		<Toggle
-			label={ __( 'Show Product Meta', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_meta }
-			onChange={ ( val ) => updateSetting( 'show_meta', val ) }
-			/>
+				<Toggle
+					label={ __( 'Show Product Meta', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_meta }
+					onChange={ ( val ) => updateSetting( 'show_meta', val ) }
+					/>
+			</div>
 
 			<div className="jstk-settings-actions">
 				<Button

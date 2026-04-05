@@ -64,7 +64,7 @@ class Register {
 			'jetix-store-toolkit',
 			array( $this, 'render_dashboard' ),
 			$menu_icon,
-			58
+			57
 		);
 
 		// Dashboard — first submenu replaces parent link.

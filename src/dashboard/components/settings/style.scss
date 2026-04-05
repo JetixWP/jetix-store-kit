@@ -192,13 +192,19 @@
 	}
 }
 
+.jstk-settings-sidebar__widget-actions {
+	display: flex;
+	gap: var(--space-xs);
+	flex-direction: column;
+}
+
 .jstk-settings-sidebar__plugin-btn {
 	display: block;
 	width: 100%;
 	padding: var(--space-s) var(--space-m);
 	border-radius: var(--radius-button);
 	background: var(--color-accent);
-	color: #fff;
+	color: #fff !important;
 	font-size: var(--text-m-size);
 	font-weight: 600;
 	text-align: center;
@@ -208,9 +214,25 @@
 	transition: opacity 0.15s;
 	margin-bottom: var(--space-l);
 
+	&:focus,
+	&:focus-visible {
+		box-shadow: none;
+		outline: none;
+		color: inherit;
+	}
+
 	&:hover {
 		opacity: 0.88;
-		color: #fff;
+	}
+
+	&.secondary {
+		background: transparent;
+		color: var(--color-accent) !important;
+		border: 1px solid var(--color-accent);
+
+		&:hover {
+			background: var(--color-accent-light);
+		}
 	}
 }
 

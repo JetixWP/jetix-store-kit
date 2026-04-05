@@ -1403,32 +1403,35 @@ const QuickViewSettings = () => {
       }],
       onChange: val => updateSetting('button_position', val),
       __nextHasNoMarginBottom: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
-      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Modal Content', 'jetix-store-toolkit')
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Gallery', 'jetix-store-toolkit'),
-      checked: !!settings.show_gallery,
-      onChange: val => updateSetting('show_gallery', val)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Price', 'jetix-store-toolkit'),
-      checked: !!settings.show_price,
-      onChange: val => updateSetting('show_price', val)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Rating', 'jetix-store-toolkit'),
-      checked: !!settings.show_rating,
-      onChange: val => updateSetting('show_rating', val)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Short Description', 'jetix-store-toolkit'),
-      checked: !!settings.show_excerpt,
-      onChange: val => updateSetting('show_excerpt', val)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Add to Cart', 'jetix-store-toolkit'),
-      checked: !!settings.show_add_to_cart,
-      onChange: val => updateSetting('show_add_to_cart', val)
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Product Meta', 'jetix-store-toolkit'),
-      checked: !!settings.show_meta,
-      onChange: val => updateSetting('show_meta', val)
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "jstk-module-settings-extras",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Modal Content', 'jetix-store-toolkit')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Gallery', 'jetix-store-toolkit'),
+        checked: !!settings.show_gallery,
+        onChange: val => updateSetting('show_gallery', val)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Price', 'jetix-store-toolkit'),
+        checked: !!settings.show_price,
+        onChange: val => updateSetting('show_price', val)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Rating', 'jetix-store-toolkit'),
+        checked: !!settings.show_rating,
+        onChange: val => updateSetting('show_rating', val)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Short Description', 'jetix-store-toolkit'),
+        checked: !!settings.show_excerpt,
+        onChange: val => updateSetting('show_excerpt', val)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Add to Cart', 'jetix-store-toolkit'),
+        checked: !!settings.show_add_to_cart,
+        onChange: val => updateSetting('show_add_to_cart', val)
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.Toggle, {
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Show Product Meta', 'jetix-store-toolkit'),
+        checked: !!settings.show_meta,
+        onChange: val => updateSetting('show_meta', val)
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "jstk-settings-actions",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
@@ -2202,37 +2205,10 @@ __webpack_require__.r(__webpack_exports__);
  * @package Jetix_Store_Toolkit
  */
 
-const LINKS = [{
-  label: 'Website',
-  href: 'https://jetixwp.com'
-}, {
-  label: 'Feature Request',
-  href: 'https://jetixwp.com/contact'
-}];
 function SettingsSidebar() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("aside", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("aside", {
     className: "jstk-settings-sidebar",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-      className: "jstk-settings-sidebar__widget",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
-        className: "jstk-settings-sidebar__widget-title",
-        children: "Stay in the loop"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("ul", {
-        className: "jstk-settings-sidebar__links",
-        children: LINKS.map(({
-          label,
-          href
-        }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-            href: href,
-            className: "jstk-settings-sidebar__link",
-            target: "_blank",
-            rel: "noreferrer",
-            children: label
-          })
-        }, label))
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
       className: "jstk-settings-sidebar__widget jstk-settings-sidebar__widget--feedback",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h3", {
         className: "jstk-settings-sidebar__widget-title",
@@ -2246,23 +2222,32 @@ function SettingsSidebar() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
         className: "jstk-settings-sidebar__widget-text",
         children: "If you like this plugin, you will absolutely love our other plugins. Check them out here:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-        href: "https://jetixwp.com/plugins",
-        className: "jstk-settings-sidebar__plugin-btn",
-        target: "_blank",
-        rel: "noreferrer",
-        children: "View All Plugins"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        className: "jstk-settings-sidebar__widget-actions",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+          href: "https://jetixwp.com/plugins",
+          className: "jstk-settings-sidebar__plugin-btn",
+          target: "_blank",
+          rel: "noreferrer",
+          children: "View All Plugins"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+          href: "https://jetixwp.com/contact",
+          className: "jstk-settings-sidebar__plugin-btn secondary",
+          target: "_blank",
+          rel: "noreferrer",
+          children: "Submit a feature request"
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
         className: "jstk-settings-sidebar__widget-note",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("em", {
-          children: "Thank you for using our Free Shipping addon for WooCommerce again, you are not just any supporter but truly the founders of our small but mighty product agency."
+          children: "Thank you for using our Store Toolkit for WooCommerce again, you are not just any supporter but truly the building blocks of our small but mighty product agency."
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("strong", {
           children: "Krishna Kant Chourasiya"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("em", {
           children: "Founder and Lead Developer at JetixWP"
         })]
       })]
-    })]
+    })
   });
 }
 
