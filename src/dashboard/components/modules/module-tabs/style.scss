@@ -1,0 +1,222 @@
+/**
+ * Module tabs (settings/operational tab components) styles.
+ *
+ * @package Jetix_Store_Toolkit
+ */
+
+@use '../../../styles/tokens' as *;
+
+// ─── Shared Accordion (used by COS and PTM) ───────────────────────────────────
+
+.jstk-cos-top-actions {
+	margin-bottom: 20px;
+}
+
+.jstk-cos-empty-msg {
+	margin-top: 0;
+}
+
+.jstk-cos-add-form {
+	padding: 20px;
+	margin-bottom: 20px;
+	background: $jstk-bg;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-md;
+
+	&__title {
+		margin: 0 0 16px;
+		font-size: 13px;
+		font-weight: 600;
+		color: $jstk-text;
+	}
+
+	&__actions {
+		display: flex;
+		gap: 8px;
+		margin-top: 16px;
+	}
+}
+
+.jstk-cos-fields {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+	align-items: end;
+}
+
+.jstk-cos-text-fields {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: start;
+
+	& > * {
+		margin-bottom: 0 !important;
+	}
+}
+
+// ─── Accordion ────────────────────────────────────────────────────────────────
+
+.jstk-cos-status-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 8px;
+}
+
+.jstk-cos-accordion {
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-md;
+	overflow: hidden;
+	background: $jstk-white;
+	transition: box-shadow 0.15s;
+
+	&.is-open {
+		box-shadow: 0 2px 8px rgba( 0, 0, 0, 0.06 );
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 12px 16px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		gap: 12px;
+
+		&:hover {
+			background: $jstk-bg;
+		}
+	}
+
+	&__header-left {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex: 1;
+		min-width: 0;
+	}
+
+	&__header-right {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-shrink: 0;
+	}
+
+	&__color-dot {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border: 1px solid rgba( 0, 0, 0, 0.1 );
+		flex-shrink: 0;
+	}
+
+	&__label {
+		font-size: 13px;
+		font-weight: 500;
+		color: $jstk-text;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__slug {
+		font-size: 11px;
+		color: $jstk-text-muted;
+		background: $jstk-bg;
+		padding: 2px 6px;
+		border-radius: $jstk-radius-sm;
+		border: 1px solid $jstk-border;
+		white-space: nowrap;
+	}
+
+	&__chevron {
+		font-size: 10px;
+		color: $jstk-text-muted;
+	}
+
+	&__body {
+		padding: 16px;
+		border-top: 1px solid $jstk-border;
+		background: $jstk-bg;
+	}
+}
+
+// ─── Custom Order Statuses ────────────────────────────────────────────────────
+
+.jstk-cos-default-statuses {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.jstk-cos-default-row {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+
+	&__key {
+		font-size: 11px;
+		color: $jstk-text-muted;
+	}
+}
+
+// ─── Product Tab Manager ──────────────────────────────────────────────────────
+
+.jstk-ptm-default-tabs {
+	display: flex;
+	flex-direction: column;
+
+	.jstk-ptm-tab-row {
+			.jstk-toggle {
+				margin-bottom: var(--space-m);
+
+				.jstk-toggle__label {
+					font-weight: 500;
+				}
+			}
+	}
+
+}
+
+.jstk-ptm-accordion__priority {
+	font-size: 11px;
+	color: $jstk-text-muted;
+	background: $jstk-bg;
+	padding: 2px 6px;
+	border-radius: $jstk-radius-sm;
+	border: 1px solid $jstk-border;
+	white-space: nowrap;
+}
+
+// ─── Product Tab Manager – Content Type ──────────────────────────────────────
+
+.jstk-ptm-content-type-selector {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.jstk-ptm-content-type-description {
+	margin: 0;
+	font-size: 12px;
+	color: $jstk-text-muted;
+	line-height: 1.5;
+}
+
+.jstk-ptm-dynamic-notice {
+	margin: 0;
+	padding: 10px 14px;
+	font-size: 12px;
+	color: $jstk-text-muted;
+	background: $jstk-bg;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-sm;
+	line-height: 1.5;
+}

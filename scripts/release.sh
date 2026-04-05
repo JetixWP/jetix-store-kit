@@ -27,6 +27,13 @@ echo "==> Installing dependencies..."
 cd "$PLUGIN_DIR"
 npm ci --ignore-scripts 2>/dev/null || npm install --ignore-scripts 2>/dev/null
 
+if command -v composer &> /dev/null; then
+	echo "==> Installing PHP dependencies (production)..."
+	composer install --no-dev --optimize-autoloader --quiet
+else
+	echo "==> Composer not found, skipping PHP dependencies."
+fi
+
 echo "==> Compiling assets..."
 npm run build
 
@@ -41,24 +48,38 @@ else
 	echo "==> WP-CLI not found, skipping .pot generation."
 fi
 
-# 3. Copy plugin files (exclude dev-only files).
+# 3. Copy plugin files — include/exclude lists are defined in package.json["release"].
 echo "==> Copying plugin files..."
 
-# Directories to include.
-rsync -a --exclude="*.map" "$PLUGIN_DIR/assets/" "$DEST_DIR/assets/"
-rsync -a "$PLUGIN_DIR/includes/" "$DEST_DIR/includes/"
+# Read include and exclude arrays from package.json (mapfile requires bash 4+, use while read for macOS compat).
+INCLUDE=()
+while IFS= read -r line; do
+        INCLUDE+=("$line")
+done < <(node -e "const r=require('./package.json').release||{}; (r.include||[]).forEach(e=>console.log(e))")
 
-# Root files to include.
-for file in jetix-store-toolkit.php uninstall.php readme.txt; do
-	if [ -f "$PLUGIN_DIR/$file" ]; then
-		cp "$file" "$DEST_DIR/$file"
-	fi
+EXCLUDE=()
+while IFS= read -r line; do
+        EXCLUDE+=("$line")
+done < <(node -e "const r=require('./package.json').release||{}; (r.exclude||[]).forEach(e=>console.log(e))")
+
+# Build rsync --exclude flags.
+EXCLUDE_FLAGS=()
+for pattern in "${EXCLUDE[@]}"; do
+        EXCLUDE_FLAGS+=("--exclude=$pattern")
 done
 
-# Include languages dir if it exists.
-if [ -d "$PLUGIN_DIR/languages" ]; then
-	rsync -a "$PLUGIN_DIR/languages/" "$DEST_DIR/languages/"
-fi
+# Copy each included file or directory (skip if it doesn't exist).
+for entry in "${INCLUDE[@]}"; do
+		src="$PLUGIN_DIR/$entry"
+		if [ -d "$src" ]; then
+						mkdir -p "$DEST_DIR/$entry"
+						rsync -a "${EXCLUDE_FLAGS[@]}" "$src/" "$DEST_DIR/$entry/"
+		elif [ -f "$src" ]; then
+						cp "$src" "$DEST_DIR/$entry"
+		else
+						echo "    (skipping '$entry' — not found)"
+		fi
+done
 
 # 4. Create the zip.
 echo "==> Creating zip archive..."

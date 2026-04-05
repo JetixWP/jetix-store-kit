@@ -1,0 +1,189 @@
+/**
+ * Pages — shared page-level styles.
+ *
+ * @package Jetix_Store_Toolkit
+ */
+
+@use '../styles/tokens' as *;
+
+// ─── Page Header ──────────────────────────────────────────────────────────────
+
+.jstk-page__header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 28px;
+	flex-wrap: wrap;
+}
+
+.jstk-page__header-text {
+	flex: 1;
+}
+
+.jstk-page__title {
+	margin: 0 0 16px;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.jstk-page__desc {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--color-text-muted);
+	line-height: 1.6;
+
+	a {
+		&:focus,
+		&:active {
+			outline: none;
+			box-shadow: none;
+		}
+	}
+}
+
+// ─── Badge ────────────────────────────────────────────────────────────────────
+
+.jstk-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 4px 10px;
+	background: #e8f0fb;
+	color: var(--color-accent);
+	border-radius: 999px;
+	font-size: 13px;
+	font-weight: 600;
+	white-space: nowrap;
+	align-self: center;
+}
+
+// ─── Loading State ────────────────────────────────────────────────────────────
+
+.jstk-loading {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 48px 0;
+	color: $jstk-text-muted;
+	font-size: 14px;
+}
+
+// ─── Empty State ──────────────────────────────────────────────────────────────
+
+.jstk-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 72px 24px;
+	border: 2px dashed $jstk-border;
+	border-radius: $jstk-radius-lg;
+	background: $jstk-white;
+}
+
+.jstk-empty__icon {
+	font-size: 48px;
+	line-height: 1;
+	margin-bottom: 20px;
+	opacity: 0.5;
+}
+
+.jstk-empty__title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	font-weight: 600;
+	color: $jstk-text;
+}
+
+.jstk-empty__desc {
+	margin: 0;
+	font-size: 14px;
+	color: $jstk-text-muted;
+	max-width: 380px;
+	line-height: 1.6;
+}
+
+// ─── Modals ───────────────────────────────────────────────────────────────────
+
+.jstk-modal {
+	max-height: auto;
+	.components-modal__content {
+		padding: 24px;
+	}
+}
+
+.jstk-modal__body {
+	margin: 0 0 20px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: $jstk-text;
+}
+
+.jstk-modal__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+}
+
+// ─── Settings Sticky Footer ───────────────────────────────────────────────────
+
+.jstk-settings-footer {
+	position: sticky;
+	bottom: 0;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 14px 28px;
+	background: $jstk-white;
+	border-top: 1px solid $jstk-border;
+	box-shadow: -4px 0px 4px 0px #0000000D;
+}
+// ─── Dashboard Banner ─────────────────────────────────────────────────────────
+
+.jstk-dashboard-banner {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2xl);
+        margin-top: var(--space-2xl);
+        padding: var(--space-2xl);
+        background: var(--color-bg-ultra-light);
+        border: 1px solid var(--color-border-light);
+        border-radius: var(--radius-container);
+}
+
+.jstk-dashboard-banner__body {
+        flex: 1;
+        min-width: 0;
+}
+
+.jstk-dashboard-banner__title {
+        margin: 0 0 var(--space-s);
+        font-size: 18px;
+        font-weight: 590;
+        color: var(--color-text-body);
+}
+
+.jstk-dashboard-banner__text {
+        margin: 0 0 var(--space-s);
+        font-size: var(--text-m-size);
+        color: var(--color-text-muted);
+        line-height: 1.6;
+}
+
+.jstk-dashboard-banner__note {
+        margin: 0;
+        font-size: 12px;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+}
+
+.jstk-dashboard-banner__actions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        flex-shrink: 0;
+        width: 180px;
+}

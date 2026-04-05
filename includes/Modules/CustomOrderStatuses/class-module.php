@@ -35,7 +35,8 @@ class Module extends Base_Module {
 	 */
 	public function get_defaults() {
 		return array(
-			'statuses' => array(),
+			'statuses'       => array(),
+			'builtin_labels' => array(),
 		);
 	}
 
@@ -108,6 +109,17 @@ class Module extends Base_Module {
 	 * @return array
 	 */
 	public function add_to_wc_statuses( $statuses ) {
+		// Apply custom labels to built-in statuses.
+		$settings       = $this->get_settings();
+		$builtin_labels = isset( $settings['builtin_labels'] ) ? $settings['builtin_labels'] : array();
+
+		foreach ( $builtin_labels as $key => $label ) {
+			if ( isset( $statuses[ $key ] ) && ! empty( $label ) ) {
+				$statuses[ $key ] = sanitize_text_field( $label );
+			}
+		}
+
+		// Add custom statuses.
 		$custom = $this->get_custom_statuses();
 
 		foreach ( $custom as $status ) {
@@ -210,6 +222,10 @@ class Module extends Base_Module {
 			return $this->sanitize_statuses( $value );
 		}
 
+		if ( 'builtin_labels' === $key && is_array( $value ) ) {
+			return $this->sanitize_builtin_labels( $value );
+		}
+
 		return parent::sanitize_setting( $key, $value );
 	}
 
@@ -219,6 +235,20 @@ class Module extends Base_Module {
 	 * @param array $statuses Statuses data.
 	 * @return array
 	 */
+	private function sanitize_builtin_labels( $labels ) {
+		$clean = array();
+
+		foreach ( $labels as $key => $label ) {
+			$clean_key = sanitize_key( $key );
+
+			if ( $clean_key ) {
+				$clean[ $clean_key ] = sanitize_text_field( $label );
+			}
+		}
+
+		return $clean;
+	}
+
 	private function sanitize_statuses( $statuses ) {
 		$clean = array();
 

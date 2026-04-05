@@ -1,6 +1,6 @@
 {
 	"name": "jetix-store-toolkit",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "Jetix Store Toolkit for WooCommerce — Modular all-in-one WooCommerce toolkit.",
 	"private": true,
 	"scripts": {
@@ -8,6 +8,7 @@
 		"start": "wp-scripts start --webpack-src-dir=src/dashboard --output-path=assets/js/dashboard",
 		"make-pot": "wp i18n make-pot . languages/jetix-store-toolkit.pot --slug=jetix-store-toolkit --domain=jetix-store-toolkit --exclude=node_modules,build,action-plan --merge",
 		"release": "bash scripts/release.sh",
+		"release-github": "bash scripts/release-github.sh",
 		"lint:js": "wp-scripts lint-js src/",
 		"lint:css": "wp-scripts lint-style src/"
 	},
@@ -19,5 +20,21 @@
 		"@wordpress/components": "^29.0.0",
 		"@wordpress/element": "^6.0.0",
 		"@wordpress/i18n": "^5.0.0"
+	},
+	"release": {
+		"include": [
+			"assets",
+			"includes",
+			"languages",
+			"vendor",
+			"jetix-store-toolkit.php",
+			"uninstall.php",
+			"readme.txt"
+		],
+		"exclude": [
+			"*.map",
+			".DS_Store",
+			"node_modules"
+		]
 	}
 }

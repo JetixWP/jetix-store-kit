@@ -1,0 +1,17 @@
+/**
+ * UI component styles — central forwarder.
+ *
+ * @package Jetix_Store_Toolkit
+ */
+
+@forward '../components/Header/style';
+@forward '../components/ui/Button/style';
+@forward '../components/ui/Checkbox/style';
+@forward '../components/ui/ColorPicker/style';
+@forward '../components/ui/Notice/style';
+@forward '../components/ui/Toggle/style';
+@forward '../components/modules/style';
+@forward '../components/modules/module-tabs/style';
+@forward '../components/modules/module-views/style';
+@forward '../components/settings/style';
+@forward '../pages/style';

@@ -1,0 +1,249 @@
+/**
+ * Module views (operational/data table components) styles.
+ *
+ * @package Jetix_Store_Toolkit
+ */
+
+@use '../../../styles/tokens' as *;
+
+// ─── Stock Manager ────────────────────────────────────────────────────────────
+
+.jstk-stock-wrap {
+	background: $jstk-white;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-lg;
+	overflow: hidden;
+}
+
+.jstk-stock-notice {
+	padding: 16px 20px 0;
+}
+
+.jstk-stock-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 20px;
+	border-bottom: 1px solid $jstk-border;
+	background: $jstk-bg;
+	flex-wrap: wrap;
+
+	.jstk-stock-filters {
+		flex: 1 1 auto;
+	}
+}
+
+.jstk-stock-filters {
+	display: flex;
+	gap: 4px;
+}
+
+.jstk-stock-filter-btn {
+	padding: 5px 14px;
+	border: 1px solid $jstk-border;
+	border-radius: 999px;
+	background: $jstk-white;
+	font-size: 13px;
+	font-weight: 500;
+	color: $jstk-text-muted;
+	cursor: pointer;
+	transition: background 0.12s, color 0.12s, border-color 0.12s;
+
+	&:hover:not( .is-active ) {
+		background: $jstk-bg;
+		color: $jstk-text;
+	}
+
+	&.is-active {
+		background: var( --color-accent );
+		border-color: var( --color-accent );
+		color: $jstk-white;
+	}
+}
+
+.jstk-stock-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+
+	thead tr {
+		background: $jstk-bg;
+	}
+
+	th {
+		padding: 10px 16px;
+		text-align: left;
+		font-weight: 600;
+		font-size: 12px;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: $jstk-text-muted;
+		border-bottom: 1px solid $jstk-border;
+		white-space: nowrap;
+	}
+
+	td {
+		padding: 10px 16px;
+		vertical-align: middle;
+		border-bottom: 1px solid $jstk-border;
+		color: $jstk-text;
+	}
+
+	tbody tr {
+		transition: background 0.1s;
+
+		&:last-child td {
+			border-bottom: none;
+		}
+
+		&:hover {
+			background: $jstk-bg;
+		}
+
+		&.is-edited {
+			background: rgba( var( --color-accent ), 0.04 );
+		}
+	}
+
+	&__col-qty {
+		width: 120px;
+	}
+
+	&__name {
+		font-weight: 500;
+
+		.jstk-stock-table__name-inner {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			flex-wrap: wrap;
+		}
+	}
+
+	&__type-badge {
+		padding: 2px 8px;
+		background: $jstk-bg;
+		border: 1px solid $jstk-border;
+		border-radius: 999px;
+		font-size: 11px;
+		font-weight: 500;
+		color: $jstk-text-muted;
+	}
+
+	&__sku {
+		color: $jstk-text-muted;
+		font-family: monospace;
+		font-size: 12px;
+	}
+
+	&__qty {
+		width: 110px;
+	}
+
+	&__unmanaged {
+		color: $jstk-text-muted;
+	}
+
+	&__empty {
+		text-align: center;
+		padding: 40px !important;
+		color: $jstk-text-muted;
+	}
+}
+
+.jstk-stock-qty-input {
+	width: 80px;
+	padding: 4px 8px;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-sm;
+	font-size: 13px;
+	color: $jstk-text;
+	background: $jstk-white;
+	transition: border-color 0.12s;
+
+	&:focus {
+		outline: none;
+		border-color: var( --color-accent );
+		box-shadow: 0 0 0 2px rgba( var( --color-accent ), 0.18 );
+	}
+}
+
+.jstk-stock-search-input {
+	padding: 5px 10px;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-sm;
+	font-size: 13px;
+	color: $jstk-text;
+	background: $jstk-white;
+	min-width: 180px;
+	transition: border-color 0.12s;
+
+	&:focus {
+		outline: none;
+		border-color: var( --color-accent );
+		box-shadow: 0 0 0 2px rgba( var( --color-accent ), 0.18 );
+	}
+}
+
+.jstk-stock-select {
+	padding: 4px 8px;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-sm;
+	font-size: 13px;
+	color: $jstk-text;
+	background: $jstk-white;
+	cursor: pointer;
+	transition: border-color 0.12s;
+
+	&:focus {
+		outline: none;
+		border-color: var( --color-accent );
+		box-shadow: 0 0 0 2px rgba( var( --color-accent ), 0.18 );
+	}
+}
+
+.jstk-stock-checkbox {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	accent-color: var( --color-accent );
+}
+
+.jstk-stock-status-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	color: $jstk-white;
+	background: var( --badge-color, #858586 );
+	white-space: nowrap;
+}
+
+.jstk-stock-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 20px;
+	border-top: 1px solid $jstk-border;
+	background: $jstk-bg;
+}
+
+.jstk-stock-count {
+	font-size: 13px;
+	color: $jstk-text-muted;
+}
+
+.jstk-stock-pagination {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.jstk-stock-page-indicator {
+	font-size: 13px;
+	color: $jstk-text-muted;
+	min-width: 40px;
+	text-align: center;
+}

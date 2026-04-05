@@ -35,15 +35,38 @@ class Module extends Base_Module {
 	 */
 	public function get_defaults() {
 		return array(
-			'button_label'     => __( 'Quick View', 'jetix-store-toolkit' ),
-			'button_position'  => 'after_add_to_cart',
-			'show_gallery'     => true,
-			'show_price'       => true,
-			'show_rating'      => true,
-			'show_excerpt'     => true,
-			'show_add_to_cart' => true,
-			'show_meta'        => true,
+			'button_label'      => __( 'Quick View', 'jetix-store-toolkit' ),
+			'button_position'   => 'after_add_to_cart',
+			'button_align'      => 'left',
+			'button_style'      => 'filled',
+			'button_size'       => 'normal',
+			'button_bg_color'   => '',
+			'button_text_color' => '',
+			'show_gallery'      => true,
+			'show_price'        => true,
+			'show_rating'       => true,
+			'show_excerpt'      => true,
+			'show_add_to_cart'  => true,
+			'show_meta'         => true,
 		);
+	}
+
+	/**
+	 * Sanitize a setting value.
+	 *
+	 * @param string $key   Setting key.
+	 * @param mixed  $value Setting value.
+	 * @return mixed
+	 */
+	public function sanitize_setting( $key, $value ) {
+		if ( in_array( $key, array( 'button_bg_color', 'button_text_color' ), true ) ) {
+			if ( '' === $value || null === $value ) {
+				return '';
+			}
+			$sanitized = sanitize_hex_color( $value );
+			return $sanitized ? $sanitized : '';
+		}
+		return parent::sanitize_setting( $key, $value );
 	}
 
 	/**
@@ -130,10 +153,41 @@ class Module extends Base_Module {
 			return;
 		}
 
-		$label = $this->get_setting( 'button_label' );
+		$label      = $this->get_setting( 'button_label' );
+		$align      = $this->get_setting( 'button_align' );
+		$style      = $this->get_setting( 'button_style' );
+		$size       = $this->get_setting( 'button_size' );
+		$bg_color   = $this->get_setting( 'button_bg_color' );
+		$text_color = $this->get_setting( 'button_text_color' );
+
+		$allowed_aligns = array( 'left', 'center', 'right', 'full' );
+		$allowed_styles = array( 'filled', 'outline' );
+		$allowed_sizes  = array( 'small', 'normal', 'large' );
+
+		$align = in_array( $align, $allowed_aligns, true ) ? $align : 'left';
+		$style = in_array( $style, $allowed_styles, true ) ? $style : 'filled';
+		$size  = in_array( $size, $allowed_sizes, true ) ? $size : 'normal';
+
+		$btn_classes = array(
+			'jwp-stk-quick-view-btn',
+			'button',
+			'jwp-stk-qv-btn--' . $style,
+			'jwp-stk-qv-btn--' . $size,
+		);
+
+		$inline_style = '';
+		if ( ! empty( $bg_color ) ) {
+			$inline_style .= sprintf( 'background-color:%s;border-color:%s;', sanitize_hex_color( $bg_color ), sanitize_hex_color( $bg_color ) );
+		}
+		if ( ! empty( $text_color ) ) {
+			$inline_style .= sprintf( 'color:%s;', sanitize_hex_color( $text_color ) );
+		}
 
 		printf(
-			'<button type="button" class="jwp-stk-quick-view-btn button" data-product-id="%d">%s</button>',
+			'<div class="jwp-stk-qv-btn-wrap jwp-stk-qv-btn-wrap--%s"><button type="button" class="%s"%s data-product-id="%d">%s</button></div>',
+			esc_attr( $align ),
+			esc_attr( implode( ' ', $btn_classes ) ),
+			$inline_style ? ' style="' . esc_attr( $inline_style ) . '"' : '',
 			esc_attr( $product->get_id() ),
 			esc_html( $label )
 		);

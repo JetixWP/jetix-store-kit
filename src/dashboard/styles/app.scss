@@ -1,0 +1,180 @@
+/**
+ * Jetix Store Toolkit — Admin Panel Styles
+ *
+ * App-level styles: tokens, CSS custom properties, typography utilities,
+ * app shell. Feature styles live in their respective component directories.
+ *
+ * @package Jetix_Store_Toolkit
+ */
+
+@use 'sass:color';
+@use './tokens' as *;
+@use './ui';
+
+// ─── CSS Custom Properties ────────────────────────────────────────────────────
+
+:root {
+
+  /* Colors */
+  --color-accent:            #{$color-accent};
+	--color-accent-light:      #{$color-accent-light};
+	--color-power:            #{$color-power};
+  --color-text-body:         #{$color-text-body};
+  --color-text-muted:        #{$color-text-muted};
+  --color-bg-body:           #{$color-bg-body};
+  --color-bg-light:          #{$color-bg-light};
+  --color-bg-ultra-light:    #{$color-bg-ultra-light};
+  --color-border-light:      #{$color-border-light};
+  --color-border-medium:     #{$color-border-medium};
+  --color-border-strong:     #{$color-border-strong};
+  --color-status-success:    #{$color-status-success};
+  --color-status-warning:    #{$color-status-warning};
+  --color-status-danger:     #{$color-status-danger};
+
+  /* Spacing */
+  --space-2xs:               #{$space-2xs};
+  --space-xs:                #{$space-xs};
+  --space-s:                 #{$space-s};
+  --space-m:                 #{$space-m};
+  --space-xl:                #{$space-xl};
+  --space-2xl:               #{$space-2xl};
+  --control-description-gap: #{$control-description-gap};
+
+  /* Border Radius */
+  --radius-container:        #{$radius-container};
+  --radius-button:           #{$radius-button};
+  --radius-input:            #{$radius-input};
+  --radius-checkbox:         #{$radius-checkbox};
+
+  /* Shadows */
+  --shadow-input:            #{$shadow-input};
+  --shadow-box:              #{$shadow-box};
+
+  /* Typography */
+  --font-family:             #{$font-family};
+  --title-xl-size:           #{$title-xl-size};
+  --title-xl-weight:         #{$title-xl-weight};
+  --title-xl-line-height:    #{$title-xl-line-height};
+  --title-l-size:            #{$title-l-size};
+  --title-l-weight:          #{$title-l-weight};
+  --title-l-line-height:     #{$title-l-line-height};
+  --title-m-size:            #{$title-m-size};
+  --title-m-weight:          #{$title-m-weight};
+  --title-m-line-height:     #{$title-m-line-height};
+  --title-s-size:            #{$title-s-size};
+  --title-s-weight:          #{$title-s-weight};
+  --title-s-line-height:     #{$title-s-line-height};
+  --text-l-size:             #{$text-l-size};
+  --text-l-weight:           #{$text-l-weight};
+  --text-l-line-height:      #{$text-l-line-height};
+  --text-m-size:             #{$text-m-size};
+  --text-m-weight:           #{$text-m-weight};
+  --text-m-line-height:      #{$text-m-line-height};
+  --text-s-size:             #{$text-s-size};
+  --text-s-weight:           #{$text-s-weight};
+  --text-s-line-height:      #{$text-s-line-height};
+  --label-size:              #{$label-size};
+  --label-weight:            #{$label-weight};
+  --label-line-height:       #{$label-line-height};
+  --accent-size:             #{$accent-size};
+  --accent-weight:           #{$accent-weight};
+  --accent-line-height:      #{$accent-line-height};
+  --button-text-size:        #{$button-text-size};
+  --button-text-weight:      #{$button-text-weight};
+  --button-text-line-height: #{$button-text-line-height};
+
+}
+
+// ─── Typography Utilities ─────────────────────────────────────────────────────
+
+.text-title-xl {
+  font-size:   var(--title-xl-size);
+  font-weight: var(--title-xl-weight);
+  line-height: var(--title-xl-line-height);
+}
+
+.text-title-l {
+  font-size:   var(--title-l-size);
+  font-weight: var(--title-l-weight);
+  line-height: var(--title-l-line-height);
+}
+
+.text-title-m {
+  font-size:   var(--title-m-size);
+  font-weight: var(--title-m-weight);
+  line-height: var(--title-m-line-height);
+}
+
+.text-title-s {
+  font-size:   var(--title-s-size);
+  font-weight: var(--title-s-weight);
+  line-height: var(--title-s-line-height);
+}
+
+.text-l {
+  font-size:   var(--text-l-size);
+  font-weight: var(--text-l-weight);
+  line-height: var(--text-l-line-height);
+}
+
+.text-m {
+  font-size:   var(--text-m-size);
+  font-weight: var(--text-m-weight);
+  line-height: var(--text-m-line-height);
+}
+
+.text-s {
+  font-size:   var(--text-s-size);
+  font-weight: var(--text-s-weight);
+  line-height: var(--text-s-line-height);
+}
+
+.text-label {
+  font-size:   var(--label-size);
+  font-weight: var(--label-weight);
+  line-height: var(--label-line-height);
+}
+
+.text-accent {
+  font-size:   var(--accent-size);
+  font-weight: var(--accent-weight);
+  line-height: var(--accent-line-height);
+}
+
+.text-button {
+  font-size:   var(--button-text-size);
+  font-weight: var(--button-text-weight);
+  line-height: var(--button-text-line-height);
+}
+
+// ─── App Shell ────────────────────────────────────────────────────────────────
+
+.jstk-app {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: var(--font-family);
+	color: var(--color-text-body);
+	background: var(--color-bg-body);
+	margin-left: -20px;
+	padding: 0;
+}
+
+.jstk-dashboard-page {
+	margin: 0 !important;
+}
+
+.jstk-content {
+	flex: 1;
+	padding: 32px;
+}
+
+// ─── WordPress Admin Overrides ────────────────────────────────────────────────
+
+#wpfooter {
+	display: none;
+}
+
+#wpbody-content {
+	padding-bottom: 0 !important;
+}

@@ -58,7 +58,7 @@ class Module_Manager {
 		$this->modules = array(
 			// Core modules — enabled by default.
 			'quick-view'            => array(
-				'title'       => __( 'Quick View', 'jetix-store-toolkit' ),
+				'title'       => __( 'Product Quick View', 'jetix-store-toolkit' ),
 				'description' => __( 'Let shoppers preview product details in a modal without leaving the shop page.', 'jetix-store-toolkit' ),
 				'tier'        => 'core',
 				'enabled'     => true,
@@ -71,16 +71,9 @@ class Module_Manager {
 				'enabled'     => false,
 				'default'     => false,
 			),
-			'checkout-field-editor' => array(
-				'title'       => __( 'Checkout Field Editor', 'jetix-store-toolkit' ),
-				'description' => __( 'Add, remove, reorder, or customise every WooCommerce checkout field without code.', 'jetix-store-toolkit' ),
-				'tier'        => 'core',
-				'enabled'     => true,
-				'default'     => false,
-			),
 			'custom-order-statuses' => array(
 				'title'       => __( 'Custom Order Statuses', 'jetix-store-toolkit' ),
-				'description' => __( 'Create custom order statuses beyond WooCommerce defaults with colours, icons, and email triggers.', 'jetix-store-toolkit' ),
+				'description' => __( 'Create custom order statuses beyond WooCommerce defaults.', 'jetix-store-toolkit' ),
 				'tier'        => 'core',
 				'enabled'     => true,
 				'default'     => false,
