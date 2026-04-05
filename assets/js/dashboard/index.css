@@ -500,7 +500,7 @@
   background: var(--color-accent);
 }
 .jstk-tier-badge--power {
-  background: var(--color-accent);
+  background: var(--color-power);
 }
 .jstk-modules-grid {
   list-style: none;
@@ -763,6 +763,18 @@
 }
 .jstk-module-settings-form .components-base-control {
   margin-bottom: var(--space-m);
+}
+.jstk-module-settings-form .jstk-qv-color-row {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: var(--space-m);
+}
+.jstk-module-settings-form .jstk-qv-color-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .jstk-module-settings-form .jstk-module-settings-extras {
   margin-top: var(--space-2xl);
@@ -1591,6 +1603,7 @@
   /* Colors */
   --color-accent: #008710;
   --color-accent-light: rgba(0, 135, 16, 0.1);
+  --color-power: #6A0DAD;
   --color-text-body: #262626;
   --color-text-muted: #858586;
   --color-bg-body: #f0f0f1;

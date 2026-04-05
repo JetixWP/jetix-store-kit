@@ -16,7 +16,13 @@ export default function SettingsSection( { title, description, headerExtra, chil
 						</div>
 					) }
 					{ description && (
-						<p className="jstk-settings-section__description">{ description }</p>
+						<>
+							{ ( Array.isArray( description ) ? description : [ description ] ).map(
+								( line, i ) => (
+									<p key={ i } className="jstk-settings-section__description">{ line }</p>
+								)
+							) }
+						</>
 					) }
 				</div>
 			) }

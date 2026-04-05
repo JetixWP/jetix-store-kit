@@ -9,9 +9,8 @@ import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import SettingsSection from '../SettingsSection';
 
-export default function GeneralTab( { settings, updateSetting } ) {
+export default function GeneralTab( { settings, savedSettings, updateSetting } ) {
 	const [ themeEngines, setThemeEngines ] = useState( [] );
-	const [ activeEngine, setActiveEngine ] = useState( '' );
 	const [ autoEngine, setAutoEngine ] = useState( '' );
 
 	useEffect( () => {
@@ -24,9 +23,6 @@ export default function GeneralTab( { settings, updateSetting } ) {
 						)
 					);
 				}
-				if ( data?.active_theme_engine ) {
-					setActiveEngine( data.active_theme_engine );
-				}
 				if ( data?.automatic_theme_engine ) {
 					setAutoEngine( data.automatic_theme_engine );
 				}
@@ -34,10 +30,19 @@ export default function GeneralTab( { settings, updateSetting } ) {
 			.catch( () => {} );
 	}, [] );
 
+	const savedEngine = ( savedSettings ?? settings ).theme_compatibility_engine || 'auto';
+	const isAuto = savedEngine === 'auto';
+	const activeEngine = isAuto
+		? autoEngine
+		: ( themeEngines.find( ( e ) => e.value === savedEngine )?.label ?? savedEngine );
+
 	return (
 		<SettingsSection
 			title="Theme Compatibility"
-			description="The theme compatibility engine loads additional styles and scripts to ensure Store Toolkit features display correctly with your theme. &ldquo;Auto&rdquo; will detect your theme automatically."
+			 description={ [
+					'The theme compatibility engine loads additional styles and scripts to ensure Store Toolkit features display correctly with your theme. \u201cAuto\u201d will detect your theme automatically from our list of supported themes.',
+					'If you experience display issues with any module, submit a support request and we can investigate adding compatibility for your theme.',
+				] }
 		>
 			<SelectControl
 				label="Theme Compatibility Engine"
@@ -49,7 +54,7 @@ export default function GeneralTab( { settings, updateSetting } ) {
 			{ activeEngine && (
 				<p style={ { fontSize: '13px', color: '#50575e', margin: '0' } }>
 					Active engine: <strong>{ activeEngine }</strong>
-					{ autoEngine && (
+					{ isAuto && autoEngine && (
 						<>{ ' — ' }Auto-detected: <strong>{ autoEngine }</strong></>
 					) }
 				</p>

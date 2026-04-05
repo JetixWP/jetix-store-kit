@@ -1,5 +1,27 @@
 /* Quick View Module — Frontend Styles */
 
+/* ─── Quick View Button Wrapper ─── */
+.jwp-stk-qv-btn-wrap {
+	display: block;
+	width: 100%;
+}
+
+.jwp-stk-qv-btn-wrap--left {
+	text-align: left;
+}
+
+.jwp-stk-qv-btn-wrap--center {
+	text-align: center;
+}
+
+.jwp-stk-qv-btn-wrap--right {
+	text-align: right;
+}
+
+.jwp-stk-qv-btn-wrap--full .jwp-stk-quick-view-btn {
+	width: 100%;
+}
+
 /* ─── Quick View Button ─── */
 .jwp-stk-quick-view-btn {
 	display: inline-block;
@@ -7,6 +29,23 @@
 	font-size: 13px;
 	font-weight: 500;
 	cursor: pointer;
+}
+
+/* Size variants */
+.jwp-stk-qv-btn--small {
+	font-size: 11px;
+	padding: 4px 10px;
+}
+
+.jwp-stk-qv-btn--large {
+	font-size: 15px;
+	padding: 10px 22px;
+}
+
+/* Style variants */
+.jwp-stk-qv-btn--outline {
+	background-color: transparent !important;
+	border: 2px solid currentColor;
 }
 
 /* ─── Modal Overlay ─── */
@@ -55,8 +94,7 @@
 	width: 32px;
 	height: 32px;
 	border: none;
-	border-radius: 50%;
-	background: #f0f0f0;
+	background: transparent !important;
 	cursor: pointer;
 	font-size: 18px;
 	line-height: 1;

@@ -369,6 +369,20 @@
 		margin-bottom: var(--space-m);
 	}
 
+	.jstk-qv-color-row {
+		display: flex;
+		gap: var(--space-xl);
+		flex-wrap: wrap;
+		align-items: flex-start;
+		margin-bottom: var(--space-m);
+	}
+
+	.jstk-qv-color-field {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
 	.jstk-module-settings-extras {
 		margin-top: var(--space-2xl);
 		display: flex;

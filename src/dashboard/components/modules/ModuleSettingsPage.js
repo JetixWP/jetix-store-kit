@@ -15,6 +15,7 @@ import productTabManagerChangelog from '../../changelogs/product-tab-manager.jso
 
 // Settings components.
 import QuickViewSettings from './module-tabs/QuickViewSettings';
+import QuickViewButtonSettings from './module-tabs/QuickViewButtonSettings';
 import CustomOrderStatusesSettings from './module-tabs/CustomOrderStatusesSettings';
 import CustomOrderStatusesDefaultStatuses from './module-tabs/CustomOrderStatusesDefaultStatuses';
 import StockManagerSettings from './module-tabs/StockManagerSettings';
@@ -58,8 +59,19 @@ const MODULE_VIEWS = {
 	},
 	'quick-view': {
 		changelog: quickViewChangelog,
-		operationalTabs: [],
-		SettingsComponent: QuickViewSettings,
+		operationalTabs: [
+			{
+				name: 'button',
+				title: __( 'Customize Button', 'jetix-store-toolkit' ),
+				Component: QuickViewButtonSettings,
+			},
+			{
+				name: 'settings',
+				title: __( 'Settings', 'jetix-store-toolkit' ),
+				Component: QuickViewSettings,
+			},
+		],
+		SettingsComponent: null,
 	},
 	'product-tab-manager': {
 		changelog: productTabManagerChangelog,

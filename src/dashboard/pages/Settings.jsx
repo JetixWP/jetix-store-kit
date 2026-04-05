@@ -138,6 +138,7 @@ export default function Settings( { onFooterState } ) {
 								{ tab.name === 'general' && (
 									<GeneralTab
 										settings={ settings }
+										savedSettings={ saved }
 										updateSetting={ updateSetting }
 									/>
 								) }

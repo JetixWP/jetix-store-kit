@@ -397,13 +397,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _changelogs_quick_view_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../changelogs/quick-view.json */ "./src/dashboard/changelogs/quick-view.json");
 /* harmony import */ var _changelogs_product_tab_manager_json__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../changelogs/product-tab-manager.json */ "./src/dashboard/changelogs/product-tab-manager.json");
 /* harmony import */ var _module_tabs_QuickViewSettings__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./module-tabs/QuickViewSettings */ "./src/dashboard/components/modules/module-tabs/QuickViewSettings.js");
-/* harmony import */ var _module_tabs_CustomOrderStatusesSettings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./module-tabs/CustomOrderStatusesSettings */ "./src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js");
-/* harmony import */ var _module_tabs_CustomOrderStatusesDefaultStatuses__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./module-tabs/CustomOrderStatusesDefaultStatuses */ "./src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js");
-/* harmony import */ var _module_tabs_StockManagerSettings__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./module-tabs/StockManagerSettings */ "./src/dashboard/components/modules/module-tabs/StockManagerSettings.js");
-/* harmony import */ var _module_tabs_ProductTabManagerSettings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./module-tabs/ProductTabManagerSettings */ "./src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js");
-/* harmony import */ var _module_tabs_ProductTabManagerDefaultTabs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./module-tabs/ProductTabManagerDefaultTabs */ "./src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _module_tabs_QuickViewButtonSettings__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./module-tabs/QuickViewButtonSettings */ "./src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js");
+/* harmony import */ var _module_tabs_CustomOrderStatusesSettings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./module-tabs/CustomOrderStatusesSettings */ "./src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js");
+/* harmony import */ var _module_tabs_CustomOrderStatusesDefaultStatuses__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./module-tabs/CustomOrderStatusesDefaultStatuses */ "./src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js");
+/* harmony import */ var _module_tabs_StockManagerSettings__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./module-tabs/StockManagerSettings */ "./src/dashboard/components/modules/module-tabs/StockManagerSettings.js");
+/* harmony import */ var _module_tabs_ProductTabManagerSettings__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./module-tabs/ProductTabManagerSettings */ "./src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js");
+/* harmony import */ var _module_tabs_ProductTabManagerDefaultTabs__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./module-tabs/ProductTabManagerDefaultTabs */ "./src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__);
 
 
 
@@ -427,6 +428,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /**
  * Per-module tab definition.
  *
@@ -443,36 +445,44 @@ const MODULE_VIEWS = {
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Stock Manager', 'jetix-store-toolkit'),
       Component: _module_views_StockManagerTable__WEBPACK_IMPORTED_MODULE_5__["default"]
     }],
-    SettingsComponent: _module_tabs_StockManagerSettings__WEBPACK_IMPORTED_MODULE_13__["default"]
+    SettingsComponent: _module_tabs_StockManagerSettings__WEBPACK_IMPORTED_MODULE_14__["default"]
   },
   'custom-order-statuses': {
     changelog: _changelogs_custom_order_statuses_json__WEBPACK_IMPORTED_MODULE_7__,
     operationalTabs: [{
       name: 'custom-statuses',
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Statuses', 'jetix-store-toolkit'),
-      Component: _module_tabs_CustomOrderStatusesSettings__WEBPACK_IMPORTED_MODULE_11__["default"]
+      Component: _module_tabs_CustomOrderStatusesSettings__WEBPACK_IMPORTED_MODULE_12__["default"]
     }, {
       name: 'default-statuses',
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Default Statuses', 'jetix-store-toolkit'),
-      Component: _module_tabs_CustomOrderStatusesDefaultStatuses__WEBPACK_IMPORTED_MODULE_12__["default"]
+      Component: _module_tabs_CustomOrderStatusesDefaultStatuses__WEBPACK_IMPORTED_MODULE_13__["default"]
     }],
     SettingsComponent: null
   },
   'quick-view': {
     changelog: _changelogs_quick_view_json__WEBPACK_IMPORTED_MODULE_8__,
-    operationalTabs: [],
-    SettingsComponent: _module_tabs_QuickViewSettings__WEBPACK_IMPORTED_MODULE_10__["default"]
+    operationalTabs: [{
+      name: 'button',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Customize Button', 'jetix-store-toolkit'),
+      Component: _module_tabs_QuickViewButtonSettings__WEBPACK_IMPORTED_MODULE_11__["default"]
+    }, {
+      name: 'settings',
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Settings', 'jetix-store-toolkit'),
+      Component: _module_tabs_QuickViewSettings__WEBPACK_IMPORTED_MODULE_10__["default"]
+    }],
+    SettingsComponent: null
   },
   'product-tab-manager': {
     changelog: _changelogs_product_tab_manager_json__WEBPACK_IMPORTED_MODULE_9__,
     operationalTabs: [{
       name: 'custom-tabs',
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Custom Tabs', 'jetix-store-toolkit'),
-      Component: _module_tabs_ProductTabManagerSettings__WEBPACK_IMPORTED_MODULE_14__["default"]
+      Component: _module_tabs_ProductTabManagerSettings__WEBPACK_IMPORTED_MODULE_15__["default"]
     }, {
       name: 'default-tabs',
       title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Default Tabs', 'jetix-store-toolkit'),
-      Component: _module_tabs_ProductTabManagerDefaultTabs__WEBPACK_IMPORTED_MODULE_15__["default"]
+      Component: _module_tabs_ProductTabManagerDefaultTabs__WEBPACK_IMPORTED_MODULE_16__["default"]
     }],
     SettingsComponent: null
   }
@@ -567,17 +577,17 @@ const ModuleSettingsPage = ({
     }
   }, [moduleSlug]);
   if (loading) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
       className: "jstk-loading",
       style: {
         justifyContent: 'center',
         minHeight: '200px'
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
     });
   }
   if (!module) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
       style: {
         display: 'flex',
         flexDirection: 'column',
@@ -586,56 +596,56 @@ const ModuleSettingsPage = ({
         minHeight: '200px',
         gap: '16px'
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("p", {
         children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Module not found.', 'jetix-store-toolkit')
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_4__.Button, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_4__.Button, {
         variant: "secondary",
         onClick: onBack,
         children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('← Back to Modules', 'jetix-store-toolkit')
       })]
     });
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
     className: "jstk-page jstk-module-page",
-    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
       status: notice.status,
       isDismissible: true,
       onDismiss: () => setNotice(null),
       children: notice.message
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("aside", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("aside", {
       className: "jstk-module-page__sidebar",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
         className: "jstk-module-page__back",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_4__.Button, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_4__.Button, {
           variant: "tertiary",
           onClick: onBack,
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('← Back to Modules', 'jetix-store-toolkit')
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
         className: "jstk-module-settings-header",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
           className: "jstk-module-settings-header__info",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "jstk-module-settings-header__title-row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
                 className: `jstk-tier-badge jstk-tier-badge--${module.tier}`,
                 children: module.tier
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h2", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h2", {
               className: "jstk-page__title",
               style: {
                 marginBottom: 0
               },
               children: module.title
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("p", {
             className: "jstk-page__desc",
             children: module.description
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
           className: "jstk-module-settings-header__toggle",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_4__.Toggle, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_4__.Toggle, {
             id: `module-detail-toggle-${module.slug}`,
             label: module.active ? 'Active' : 'Inactive',
             checked: module.active,
@@ -643,39 +653,39 @@ const ModuleSettingsPage = ({
             disabled: toggling
           })
         })]
-      }), latestChangelog && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+      }), latestChangelog && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
         className: "jstk-module-page__changelog",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("h4", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("h4", {
           className: "jstk-module-page__changelog-title",
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Latest Module Changes', 'jetix-store-toolkit')
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
           className: "jstk-module-page__changelog-meta",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("span", {
             className: "jstk-version-tag",
             children: ["v", latestChangelog.version]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("span", {
             className: "jstk-module-page__changelog-date",
             children: latestChangelog.date
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("ul", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("ul", {
           className: "jstk-module-page__changelog-notes",
-          children: latestChangelog.notes.map((note, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("li", {
+          children: latestChangelog.notes.map((note, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("li", {
             children: note
           }, i))
         })]
       })]
-    }), tabs.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+    }), tabs.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
       className: "jstk-module-page__content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TabPanel, {
         className: "jstk-settings-tabs",
         tabs: tabs,
         children: tab => {
           const Component = tabMap[tab.name];
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
             className: "jstk-settings-tab-content",
-            children: Component ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)(Component, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+            children: Component ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(Component, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
               className: "jstk-empty",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("p", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("p", {
                 className: "jstk-empty__desc",
                 children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('No content available.', 'jetix-store-toolkit')
               })
@@ -683,14 +693,14 @@ const ModuleSettingsPage = ({
           });
         }
       })
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
       className: "jstk-module-page__content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
         className: "jstk-empty",
         style: {
           padding: '48px 24px'
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_16__.jsx)("p", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("p", {
           className: "jstk-empty__desc",
           children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('No configuration available for this module.', 'jetix-store-toolkit')
         })
@@ -758,6 +768,10 @@ const PLANNED_MODULES = [{
 }, {
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Orders & Customers Export', 'jetix-store-toolkit'),
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Export orders and customers to CSV with custom column selection and date filters.', 'jetix-store-toolkit'),
+  tier: 'power'
+}, {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Gift Vouchers', 'jetix-store-toolkit'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Create and sell digital gift vouchers redeemable at checkout.', 'jetix-store-toolkit'),
   tier: 'power'
 }];
 function RoadmapCard({
@@ -1817,6 +1831,214 @@ const ProductTabManagerSettings = () => {
 
 /***/ },
 
+/***/ "./src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js"
+/*!*********************************************************************************!*\
+  !*** ./src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js ***!
+  \*********************************************************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../ui */ "./src/dashboard/components/ui/index.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
+
+
+const QuickViewButtonSettings = () => {
+  const [settings, setSettings] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [loading, setLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+  const [saving, setSaving] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [notice, setNotice] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const fetchSettings = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    try {
+      const data = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
+        path: '/jwp-stk/v1/modules/quick-view/settings'
+      });
+      setSettings(data.settings);
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Failed to load settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    fetchSettings();
+  }, [fetchSettings]);
+  const handleSave = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useCallback)(async () => {
+    setSaving(true);
+    setNotice(null);
+    try {
+      const res = await _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
+        path: '/jwp-stk/v1/modules/quick-view/settings',
+        method: 'POST',
+        data: {
+          settings
+        }
+      });
+      setSettings(res.settings);
+      setNotice({
+        status: 'success',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Settings saved.', 'jetix-store-toolkit')
+      });
+    } catch {
+      setNotice({
+        status: 'error',
+        message: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Failed to save settings.', 'jetix-store-toolkit')
+      });
+    } finally {
+      setSaving(false);
+    }
+  }, [settings]);
+  const updateSetting = (key, value) => {
+    setSettings(prev => ({
+      ...prev,
+      [key]: value
+    }));
+  };
+  if (loading || !settings) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "jstk-loading",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, {})
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    className: "jstk-module-settings-form",
+    children: [notice && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Notice, {
+      status: notice.status,
+      isDismissible: true,
+      onDismiss: () => setNotice(null),
+      children: notice.message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+      className: "jstk-settings-description",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Customise the Quick View trigger button appearance and placement.', 'jetix-store-toolkit')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Label', 'jetix-store-toolkit'),
+      value: settings.button_label || '',
+      onChange: val => updateSetting('button_label', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Position', 'jetix-store-toolkit'),
+      value: settings.button_position || 'after_add_to_cart',
+      options: [{
+        value: 'before_add_to_cart',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Before Add to Cart', 'jetix-store-toolkit')
+      }, {
+        value: 'after_add_to_cart',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('After Add to Cart', 'jetix-store-toolkit')
+      }],
+      onChange: val => updateSetting('button_position', val),
+      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Controls where the button appears relative to the Add to Cart button on product cards.', 'jetix-store-toolkit'),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Alignment', 'jetix-store-toolkit'),
+      value: settings.button_align || 'left',
+      options: [{
+        value: 'left',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Left', 'jetix-store-toolkit')
+      }, {
+        value: 'center',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Center', 'jetix-store-toolkit')
+      }, {
+        value: 'right',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Right', 'jetix-store-toolkit')
+      }, {
+        value: 'full',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Full Width', 'jetix-store-toolkit')
+      }],
+      onChange: val => updateSetting('button_align', val),
+      help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('The button is wrapped in a full-width block element so it respects this alignment within the product card.', 'jetix-store-toolkit'),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Style', 'jetix-store-toolkit'),
+      value: settings.button_style || 'filled',
+      options: [{
+        value: 'filled',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Filled', 'jetix-store-toolkit')
+      }, {
+        value: 'outline',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Outline', 'jetix-store-toolkit')
+      }],
+      onChange: val => updateSetting('button_style', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Size', 'jetix-store-toolkit'),
+      value: settings.button_size || 'normal',
+      options: [{
+        value: 'small',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Small', 'jetix-store-toolkit')
+      }, {
+        value: 'normal',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Normal', 'jetix-store-toolkit')
+      }, {
+        value: 'large',
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Large', 'jetix-store-toolkit')
+      }],
+      onChange: val => updateSetting('button_size', val),
+      __nextHasNoMarginBottom: true
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "jstk-qv-color-row",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "jstk-qv-color-field",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+          id: "qv-btn-bg-color",
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Background Color', 'jetix-store-toolkit'),
+          value: settings.button_bg_color || '#333333',
+          onChange: val => updateSetting('button_bg_color', val)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          variant: "tertiary",
+          isSmall: true,
+          disabled: !settings.button_bg_color,
+          onClick: () => updateSetting('button_bg_color', ''),
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Restore default', 'jetix-store-toolkit')
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "jstk-qv-color-field",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ui__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
+          id: "qv-btn-text-color",
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Text Color', 'jetix-store-toolkit'),
+          value: settings.button_text_color || '#ffffff',
+          onChange: val => updateSetting('button_text_color', val)
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+          variant: "tertiary",
+          isSmall: true,
+          disabled: !settings.button_text_color,
+          onClick: () => updateSetting('button_text_color', ''),
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Restore default', 'jetix-store-toolkit')
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "jstk-settings-actions",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        variant: "primary",
+        onClick: handleSave,
+        isBusy: saving,
+        disabled: saving,
+        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Save Settings', 'jetix-store-toolkit')
+      })
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (QuickViewButtonSettings);
+
+/***/ },
+
 /***/ "./src/dashboard/components/modules/module-tabs/QuickViewSettings.js"
 /*!***************************************************************************!*\
   !*** ./src/dashboard/components/modules/module-tabs/QuickViewSettings.js ***!
@@ -1911,23 +2133,6 @@ const QuickViewSettings = () => {
       isDismissible: true,
       onDismiss: () => setNotice(null),
       children: notice.message
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Label', 'jetix-store-toolkit'),
-      value: settings.button_label || '',
-      onChange: val => updateSetting('button_label', val),
-      __nextHasNoMarginBottom: true
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.SelectControl, {
-      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Button Position', 'jetix-store-toolkit'),
-      value: settings.button_position || 'after_add_to_cart',
-      options: [{
-        value: 'before_add_to_cart',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Before Add to Cart', 'jetix-store-toolkit')
-      }, {
-        value: 'after_add_to_cart',
-        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('After Add to Cart', 'jetix-store-toolkit')
-      }],
-      onChange: val => updateSetting('button_position', val),
-      __nextHasNoMarginBottom: true
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "jstk-module-settings-extras",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
@@ -2525,9 +2730,11 @@ function SettingsSection({
           className: "jstk-settings-section__title",
           children: title
         }), headerExtra]
-      }), description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        className: "jstk-settings-section__description",
-        children: description
+      }), description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: (Array.isArray(description) ? description : [description]).map((line, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+          className: "jstk-settings-section__description",
+          children: line
+        }, i))
       })]
     }), children && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       className: "jstk-settings-section__body",
@@ -2652,10 +2859,10 @@ __webpack_require__.r(__webpack_exports__);
 
 function GeneralTab({
   settings,
+  savedSettings,
   updateSetting
 }) {
   const [themeEngines, setThemeEngines] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-  const [activeEngine, setActiveEngine] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)('');
   const [autoEngine, setAutoEngine] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)('');
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
@@ -2667,17 +2874,17 @@ function GeneralTab({
           label
         })));
       }
-      if (data?.active_theme_engine) {
-        setActiveEngine(data.active_theme_engine);
-      }
       if (data?.automatic_theme_engine) {
         setAutoEngine(data.automatic_theme_engine);
       }
     }).catch(() => {});
   }, []);
+  const savedEngine = (savedSettings ?? settings).theme_compatibility_engine || 'auto';
+  const isAuto = savedEngine === 'auto';
+  const activeEngine = isAuto ? autoEngine : themeEngines.find(e => e.value === savedEngine)?.label ?? savedEngine;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_SettingsSection__WEBPACK_IMPORTED_MODULE_3__["default"], {
     title: "Theme Compatibility",
-    description: "The theme compatibility engine loads additional styles and scripts to ensure Store Toolkit features display correctly with your theme. \u201CAuto\u201D will detect your theme automatically.",
+    description: ['The theme compatibility engine loads additional styles and scripts to ensure Store Toolkit features display correctly with your theme. \u201cAuto\u201d will detect your theme automatically from our list of supported themes.', 'If you experience display issues with any module, submit a support request and we can investigate adding compatibility for your theme.'],
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_0__.SelectControl, {
       label: "Theme Compatibility Engine",
       value: settings.theme_compatibility_engine || 'auto',
@@ -2692,7 +2899,7 @@ function GeneralTab({
       },
       children: ["Active engine: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
         children: activeEngine
-      }), autoEngine && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+      }), isAuto && autoEngine && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
         children: [' — ', "Auto-detected: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
           children: autoEngine
         })]
@@ -3453,6 +3660,7 @@ function Settings({
             className: "jstk-settings-tab-content",
             children: tab.name === 'general' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_settings_tabs__WEBPACK_IMPORTED_MODULE_5__.GeneralTab, {
               settings: settings,
+              savedSettings: saved,
               updateSetting: updateSetting
             })
           })

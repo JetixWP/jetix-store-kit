@@ -1,7 +1,5 @@
 import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
-	TextControl,
-	SelectControl,
 	Button,
 	Spinner,
 	Notice,
@@ -83,33 +81,6 @@ const QuickViewSettings = () => {
 					{ notice.message }
 				</Notice>
 			) }
-
-			<TextControl
-				label={ __( 'Button Label', 'jetix-store-toolkit' ) }
-				value={ settings.button_label || '' }
-				onChange={ ( val ) => updateSetting( 'button_label', val ) }
-				__nextHasNoMarginBottom
-			/>
-
-			<SelectControl
-				label={ __( 'Button Position', 'jetix-store-toolkit' ) }
-				value={ settings.button_position || 'after_add_to_cart' }
-				options={ [
-					{
-						value: 'before_add_to_cart',
-						label: __( 'Before Add to Cart', 'jetix-store-toolkit' ),
-					},
-					{
-						value: 'after_add_to_cart',
-						label: __( 'After Add to Cart', 'jetix-store-toolkit' ),
-					},
-				] }
-				onChange={ ( val ) =>
-					updateSetting( 'button_position', val )
-				}
-				__nextHasNoMarginBottom
-			/>
-
 
 			<div className="jstk-module-settings-extras">
 				<h3>{ __( 'Modal Content', 'jetix-store-toolkit' ) }</h3>
