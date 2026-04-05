@@ -194,3 +194,29 @@
 	border: 1px solid $jstk-border;
 	white-space: nowrap;
 }
+
+// ─── Product Tab Manager – Content Type ──────────────────────────────────────
+
+.jstk-ptm-content-type-selector {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.jstk-ptm-content-type-description {
+	margin: 0;
+	font-size: 12px;
+	color: $jstk-text-muted;
+	line-height: 1.5;
+}
+
+.jstk-ptm-dynamic-notice {
+	margin: 0;
+	padding: 10px 14px;
+	font-size: 12px;
+	color: $jstk-text-muted;
+	background: $jstk-bg;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-sm;
+	line-height: 1.5;
+}

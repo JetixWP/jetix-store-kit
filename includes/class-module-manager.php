@@ -58,7 +58,7 @@ class Module_Manager {
 		$this->modules = array(
 			// Core modules — enabled by default.
 			'quick-view'            => array(
-				'title'       => __( 'Quick View', 'jetix-store-toolkit' ),
+				'title'       => __( 'Product Quick View', 'jetix-store-toolkit' ),
 				'description' => __( 'Let shoppers preview product details in a modal without leaving the shop page.', 'jetix-store-toolkit' ),
 				'tier'        => 'core',
 				'enabled'     => true,

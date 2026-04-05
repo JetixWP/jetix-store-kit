@@ -1430,7 +1430,14 @@ __webpack_require__.r(__webpack_exports__);
 const EMPTY_TAB = {
   title: '',
   content: '',
+  content_type: 'static',
+  id: '',
   priority: 50
+};
+const generateTabId = title => {
+  const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '').substring(0, 15);
+  const rand = Math.random().toString(36).substring(2, 7);
+  return `${slug}_${rand}`;
 };
 const ProductTabManagerSettings = () => {
   const [tabs, setTabs] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
@@ -1495,8 +1502,10 @@ const ProductTabManagerSettings = () => {
   };
   const handleAddTab = () => {
     if (!newTab.title) return;
+    const id = newTab.id || generateTabId(newTab.title);
     setTabs(prev => [...prev, {
-      ...newTab
+      ...newTab,
+      id
     }]);
     setNewTab(EMPTY_TAB);
     setShowAddForm(false);
@@ -1557,13 +1566,34 @@ const ProductTabManagerSettings = () => {
           value: newTab.title,
           onChange: val => handleNewTabChange('title', val),
           __nextHasNoMarginBottom: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "jstk-ptm-content-type-selector",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content Type', 'jetix-store-toolkit'),
+            selected: newTab.content_type,
+            options: [{
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Static Content', 'jetix-store-toolkit'),
+              value: 'static'
+            }, {
+              label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Dynamic Content', 'jetix-store-toolkit'),
+              value: 'dynamic'
+            }],
+            onChange: val => handleNewTabChange('content_type', val),
+            __nextHasNoMarginBottom: true
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            className: "jstk-ptm-content-type-description",
+            children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Static Content displays the same content for all products. Dynamic Content lets you set unique content per product — an editor field will appear below the Product Description on each product\'s edit screen.', 'jetix-store-toolkit')
+          })]
+        }), newTab.content_type === 'static' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tab Content', 'jetix-store-toolkit'),
           value: newTab.content,
           onChange: val => handleNewTabChange('content', val),
           rows: 4,
           help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('HTML is allowed.', 'jetix-store-toolkit'),
           __nextHasNoMarginBottom: true
+        }), newTab.content_type === 'dynamic' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+          className: "jstk-ptm-dynamic-notice",
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Per-product content will be editable directly on the product edit screen, below the Product Description.', 'jetix-store-toolkit')
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
           label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Priority', 'jetix-store-toolkit'),
           type: "number",
@@ -1631,13 +1661,34 @@ const ProductTabManagerSettings = () => {
               value: tab.title,
               onChange: val => updateTab(index, 'title', val),
               __nextHasNoMarginBottom: true
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "jstk-ptm-content-type-selector",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.RadioControl, {
+                label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Content Type', 'jetix-store-toolkit'),
+                selected: tab.content_type || 'static',
+                options: [{
+                  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Static Content', 'jetix-store-toolkit'),
+                  value: 'static'
+                }, {
+                  label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Dynamic Content', 'jetix-store-toolkit'),
+                  value: 'dynamic'
+                }],
+                onChange: val => updateTab(index, 'content_type', val),
+                __nextHasNoMarginBottom: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                className: "jstk-ptm-content-type-description",
+                children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Static Content displays the same content for all products. Dynamic Content lets you set unique content per product — an editor field will appear below the Product Description on each product\'s edit screen.', 'jetix-store-toolkit')
+              })]
+            }), (tab.content_type || 'static') === 'static' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextareaControl, {
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Tab Content', 'jetix-store-toolkit'),
               value: tab.content,
               onChange: val => updateTab(index, 'content', val),
               rows: 4,
               help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('HTML is allowed.', 'jetix-store-toolkit'),
               __nextHasNoMarginBottom: true
+            }), (tab.content_type || 'static') === 'dynamic' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              className: "jstk-ptm-dynamic-notice",
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Per-product content will be editable directly on the product edit screen, below the Product Description.', 'jetix-store-toolkit')
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.TextControl, {
               label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Priority', 'jetix-store-toolkit'),
               type: "number",

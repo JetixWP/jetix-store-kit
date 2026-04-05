@@ -1,0 +1,28 @@
+/**
+ * Product Tab Manager – admin product edit screen styles.
+ *
+ * @package JWP_STK
+ */
+
+/*
+ * .postbox handles: border, box-shadow, background, margin-bottom.
+ * We only need top margin to separate from the product description editor above.
+ */
+.jwp-stk-ptm-dynamic-field {
+	margin-top: 20px;
+}
+
+/* Remove default h2 margin so the postbox-header border sits flush */
+.jwp-stk-ptm-dynamic-field h2.postbox-header {
+	margin: 0;
+	padding: 8px 12px;
+	font-size: 14px;
+}
+
+.jwp-stk-ptm-dynamic-field h2.postbox-header label {
+	cursor: default;
+}
+
+.jwp-stk-ptm-dynamic-field .wp-core-ui.wp-editor-wrap {
+	margin: 10px 12px;
+}

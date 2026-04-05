@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
 	TextControl,
 	TextareaControl,
+	RadioControl,
 	Button,
 	Spinner,
 	Notice,
@@ -9,7 +10,17 @@ import {
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
-const EMPTY_TAB = { title: '', content: '', priority: 50 };
+const EMPTY_TAB = { title: '', content: '', content_type: 'static', id: '', priority: 50 };
+
+const generateTabId = ( title ) => {
+	const slug = title
+		.toLowerCase()
+		.replace( /[^a-z0-9]+/g, '_' )
+		.replace( /^_|_$/g, '' )
+		.substring( 0, 15 );
+	const rand = Math.random().toString( 36 ).substring( 2, 7 );
+	return `${ slug }_${ rand }`;
+};
 
 const ProductTabManagerSettings = () => {
 	const [ tabs, setTabs ] = useState( [] );
@@ -72,7 +83,8 @@ const ProductTabManagerSettings = () => {
 
 	const handleAddTab = () => {
 		if ( ! newTab.title ) return;
-		setTabs( ( prev ) => [ ...prev, { ...newTab } ] );
+		const id = newTab.id || generateTabId( newTab.title );
+		setTabs( ( prev ) => [ ...prev, { ...newTab, id } ] );
 		setNewTab( EMPTY_TAB );
 		setShowAddForm( false );
 		setDirty( true );
@@ -147,19 +159,67 @@ const ProductTabManagerSettings = () => {
 							}
 							__nextHasNoMarginBottom
 						/>
-						<TextareaControl
-							label={ __( 'Tab Content', 'jetix-store-toolkit' ) }
-							value={ newTab.content }
-							onChange={ ( val ) =>
-								handleNewTabChange( 'content', val )
-							}
-							rows={ 4 }
-							help={ __(
-								'HTML is allowed.',
-								'jetix-store-toolkit'
-							) }
-							__nextHasNoMarginBottom
-						/>
+						<div className="jstk-ptm-content-type-selector">
+							<RadioControl
+								label={ __(
+									'Content Type',
+									'jetix-store-toolkit'
+								) }
+								selected={ newTab.content_type }
+								options={ [
+									{
+										label: __(
+											'Static Content',
+											'jetix-store-toolkit'
+										),
+										value: 'static',
+									},
+									{
+										label: __(
+											'Dynamic Content',
+											'jetix-store-toolkit'
+										),
+										value: 'dynamic',
+									},
+								] }
+								onChange={ ( val ) =>
+									handleNewTabChange( 'content_type', val )
+								}
+								__nextHasNoMarginBottom
+							/>
+							<p className="jstk-ptm-content-type-description">
+								{ __(
+									'Static Content displays the same content for all products. Dynamic Content lets you set unique content per product — an editor field will appear below the Product Description on each product\'s edit screen.',
+									'jetix-store-toolkit'
+								) }
+							</p>
+						</div>
+						{ newTab.content_type === 'static' && (
+							<TextareaControl
+								label={ __(
+									'Tab Content',
+									'jetix-store-toolkit'
+								) }
+								value={ newTab.content }
+								onChange={ ( val ) =>
+									handleNewTabChange( 'content', val )
+								}
+								rows={ 4 }
+								help={ __(
+									'HTML is allowed.',
+									'jetix-store-toolkit'
+								) }
+								__nextHasNoMarginBottom
+							/>
+						) }
+						{ newTab.content_type === 'dynamic' && (
+							<p className="jstk-ptm-dynamic-notice">
+								{ __(
+									'Per-product content will be editable directly on the product edit screen, below the Product Description.',
+									'jetix-store-toolkit'
+								) }
+							</p>
+						) }
 						<TextControl
 							label={ __( 'Priority', 'jetix-store-toolkit' ) }
 							type="number"
@@ -276,26 +336,80 @@ const ProductTabManagerSettings = () => {
 											}
 											__nextHasNoMarginBottom
 										/>
-										<TextareaControl
-											label={ __(
-												'Tab Content',
-												'jetix-store-toolkit'
-											) }
-											value={ tab.content }
-											onChange={ ( val ) =>
-												updateTab(
-													index,
-													'content',
-													val
-												)
-											}
-											rows={ 4 }
-											help={ __(
-												'HTML is allowed.',
-												'jetix-store-toolkit'
-											) }
-											__nextHasNoMarginBottom
-										/>
+										<div className="jstk-ptm-content-type-selector">
+											<RadioControl
+												label={ __(
+													'Content Type',
+													'jetix-store-toolkit'
+												) }
+												selected={
+													tab.content_type ||
+													'static'
+												}
+												options={ [
+													{
+														label: __(
+															'Static Content',
+															'jetix-store-toolkit'
+														),
+														value: 'static',
+													},
+													{
+														label: __(
+															'Dynamic Content',
+															'jetix-store-toolkit'
+														),
+														value: 'dynamic',
+													},
+												] }
+												onChange={ ( val ) =>
+													updateTab(
+														index,
+														'content_type',
+														val
+													)
+												}
+												__nextHasNoMarginBottom
+											/>
+											<p className="jstk-ptm-content-type-description">
+												{ __(
+													'Static Content displays the same content for all products. Dynamic Content lets you set unique content per product — an editor field will appear below the Product Description on each product\'s edit screen.',
+													'jetix-store-toolkit'
+												) }
+											</p>
+										</div>
+										{ ( tab.content_type || 'static' ) ===
+											'static' && (
+											<TextareaControl
+												label={ __(
+													'Tab Content',
+													'jetix-store-toolkit'
+												) }
+												value={ tab.content }
+												onChange={ ( val ) =>
+													updateTab(
+														index,
+														'content',
+														val
+													)
+												}
+												rows={ 4 }
+												help={ __(
+													'HTML is allowed.',
+													'jetix-store-toolkit'
+												) }
+												__nextHasNoMarginBottom
+											/>
+										) }
+										{ ( tab.content_type || 'static' ) ===
+											'dynamic' && (
+											<p className="jstk-ptm-dynamic-notice">
+												{ __(
+													'Per-product content will be editable directly on the product edit screen, below the Product Description.',
+													'jetix-store-toolkit'
+												) }
+											</p>
+										) }
 										<TextControl
 											label={ __(
 												'Priority',

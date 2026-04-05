@@ -491,11 +491,10 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #fff;
-  border: 1px solid var(--color-border-light);
 }
 .jstk-tier-badge--core {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  background: var(--color-text-body);
+  color: var(--color-bg-ultra-light);
 }
 .jstk-tier-badge--growth {
   background: var(--color-accent);
@@ -925,6 +924,27 @@
   border-radius: 4px;
   border: 1px solid #dcdcde;
   white-space: nowrap;
+}
+.jstk-ptm-content-type-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.jstk-ptm-content-type-description {
+  margin: 0;
+  font-size: 12px;
+  color: #646970;
+  line-height: 1.5;
+}
+.jstk-ptm-dynamic-notice {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #646970;
+  background: #f6f7f7;
+  border: 1px solid #dcdcde;
+  border-radius: 4px;
+  line-height: 1.5;
 }
 /**
  * Jetix Store Toolkit — Admin Panel Styles
