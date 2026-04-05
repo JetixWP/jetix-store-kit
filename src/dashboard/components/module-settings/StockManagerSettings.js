@@ -85,7 +85,7 @@ const StockManagerSettings = () => {
 
 			<p className="jstk-settings-description">
 				{ __(
-					'The Stock Manager page is available under WooCommerce → Stock Manager when this module is active.',
+					'Configure the Stock Manager table below. Changes apply immediately to the Stock Manager operations view.',
 					'jetix-store-toolkit'
 				) }
 			</p>

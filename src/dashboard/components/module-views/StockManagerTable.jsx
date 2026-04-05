@@ -1,8 +1,9 @@
 /**
  * Stock Manager — operational table view.
  *
- * Fetches products from the WooCommerce REST API and lets users
- * edit stock quantities inline, then batch-save the changes.
+ * Fetches products from the custom REST endpoint and lets users edit
+ * stock fields inline (qty, status, manage stock, backorders), applying
+ * all settings-tab controls (per page, column visibility, low stock filter).
  *
  * @package Jetix_Store_Toolkit
  */
@@ -13,11 +14,11 @@ import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 import { Button } from '../ui';
 
-const STOCK_STATUS_LABELS = {
-	instock: __( 'In Stock', 'jetix-store-toolkit' ),
-	outofstock: __( 'Out of Stock', 'jetix-store-toolkit' ),
-	onbackorder: __( 'On Backorder', 'jetix-store-toolkit' ),
-};
+const STOCK_STATUS_OPTIONS = [
+	{ value: 'instock', label: __( 'In Stock', 'jetix-store-toolkit' ) },
+	{ value: 'outofstock', label: __( 'Out of Stock', 'jetix-store-toolkit' ) },
+	{ value: 'onbackorder', label: __( 'On Backorder', 'jetix-store-toolkit' ) },
+];
 
 const STOCK_STATUS_COLORS = {
 	instock: '#66A378',
@@ -25,17 +26,22 @@ const STOCK_STATUS_COLORS = {
 	onbackorder: '#EAB42E',
 };
 
-const FILTERS = [
+const BACKORDERS_OPTIONS = [
+	{ value: 'no', label: __( 'Do not allow', 'jetix-store-toolkit' ) },
+	{ value: 'notify', label: __( 'Allow, notify customer', 'jetix-store-toolkit' ) },
+	{ value: 'yes', label: __( 'Allow', 'jetix-store-toolkit' ) },
+];
+
+const BASE_FILTERS = [
 	{ value: '', label: __( 'All', 'jetix-store-toolkit' ) },
 	{ value: 'instock', label: __( 'In Stock', 'jetix-store-toolkit' ) },
 	{ value: 'outofstock', label: __( 'Out of Stock', 'jetix-store-toolkit' ) },
 	{ value: 'onbackorder', label: __( 'On Backorder', 'jetix-store-toolkit' ) },
 ];
 
-const PER_PAGE = 20;
-
 export default function StockManagerTable() {
 	const [ products, setProducts ] = useState( [] );
+	const [ settings, setSettings ] = useState( null );
 	const [ edited, setEdited ] = useState( {} );
 	const [ loading, setLoading ] = useState( true );
 	const [ saving, setSaving ] = useState( false );
@@ -44,24 +50,36 @@ export default function StockManagerTable() {
 	const [ totalItems, setTotalItems ] = useState( 0 );
 	const [ notice, setNotice ] = useState( null );
 	const [ stockFilter, setStockFilter ] = useState( '' );
+	const [ searchInput, setSearchInput ] = useState( '' );
+	const [ search, setSearch ] = useState( '' );
+
+	// Debounce search input.
+	useEffect( () => {
+		const timer = setTimeout( () => {
+			setSearch( searchInput );
+			setPage( 1 );
+		}, 400 );
+		return () => clearTimeout( timer );
+	}, [ searchInput ] );
 
 	const fetchProducts = useCallback(
-		async ( pg, filter ) => {
+		async ( pg, filter, searchTerm ) => {
 			setLoading( true );
 			try {
-				let path = `/wc/v3/products?per_page=${ PER_PAGE }&page=${ pg }&status=publish&_fields=id,name,sku,stock_quantity,stock_status,manage_stock,type`;
+				let path = `/jwp-stk/v1/stock-manager/products?page=${ pg }`;
 				if ( filter ) {
-					path += `&stock_status=${ filter }`;
+					path += `&stock_status=${ encodeURIComponent( filter ) }`;
+				}
+				if ( searchTerm ) {
+					path += `&search=${ encodeURIComponent( searchTerm ) }`;
 				}
 
-				const response = await apiFetch( { path, parse: false } );
-				const data = await response.json();
-				const tp = parseInt( response.headers.get( 'X-WP-TotalPages' ) || '1', 10 );
-				const ti = parseInt( response.headers.get( 'X-WP-Total' ) || '0', 10 );
+				const data = await apiFetch( { path } );
 
-				setProducts( data );
-				setTotalPages( tp );
-				setTotalItems( ti );
+				setProducts( data.items );
+				setTotalPages( data.pages );
+				setTotalItems( data.total );
+				setSettings( data.settings );
 				setEdited( {} );
 			} catch {
 				setNotice( {
@@ -76,16 +94,19 @@ export default function StockManagerTable() {
 	);
 
 	useEffect( () => {
-		fetchProducts( page, stockFilter );
-	}, [ page, stockFilter, fetchProducts ] );
+		fetchProducts( page, stockFilter, search );
+	}, [ page, stockFilter, search, fetchProducts ] );
 
 	const handleFilterChange = ( filter ) => {
 		setPage( 1 );
 		setStockFilter( filter );
 	};
 
-	const handleQtyChange = ( id, value ) => {
-		setEdited( ( prev ) => ( { ...prev, [ id ]: value } ) );
+	const handleFieldChange = ( id, field, value ) => {
+		setEdited( ( prev ) => ( {
+			...prev,
+			[ id ]: { ...prev[ id ], [ field ]: value },
+		} ) );
 	};
 
 	const handleSave = async () => {
@@ -94,11 +115,28 @@ export default function StockManagerTable() {
 		setNotice( null );
 
 		try {
-			const updates = Object.entries( edited ).map( ( [ id, qty ] ) => ( {
-				id: parseInt( id, 10 ),
-				stock_quantity: parseInt( qty, 10 ),
-				manage_stock: true,
-			} ) );
+			const updates = Object.entries( edited ).map( ( [ id, fields ] ) => {
+				const update = { id: parseInt( id, 10 ) };
+
+				if ( 'stock_status' in fields ) {
+					update.stock_status = fields.stock_status;
+				}
+				if ( 'manage_stock' in fields ) {
+					update.manage_stock = fields.manage_stock;
+				}
+				if ( 'stock_quantity' in fields ) {
+					update.stock_quantity = parseInt( fields.stock_quantity, 10 );
+					// Quantity change implies managed stock unless the user explicitly toggled it off.
+					if ( ! ( 'manage_stock' in fields ) ) {
+						update.manage_stock = true;
+					}
+				}
+				if ( 'backorders' in fields ) {
+					update.backorders = fields.backorders;
+				}
+
+				return update;
+			} );
 
 			await apiFetch( {
 				path: '/wc/v3/products/batch',
@@ -110,7 +148,7 @@ export default function StockManagerTable() {
 				status: 'success',
 				message: __( 'Stock updated successfully.', 'jetix-store-toolkit' ),
 			} );
-			fetchProducts( page, stockFilter );
+			fetchProducts( page, stockFilter, search );
 		} catch {
 			setNotice( {
 				status: 'error',
@@ -122,8 +160,21 @@ export default function StockManagerTable() {
 	};
 
 	const hasEdits = Object.keys( edited ).length > 0;
-	const startItem = ( page - 1 ) * PER_PAGE + 1;
-	const endItem = Math.min( page * PER_PAGE, totalItems );
+	const perPage = settings?.per_page || 20;
+	const startItem = ( page - 1 ) * perPage + 1;
+	const endItem = Math.min( page * perPage, totalItems );
+
+	const filters = settings?.show_low_stock
+		? [ ...BASE_FILTERS, { value: 'lowstock', label: __( 'Low Stock', 'jetix-store-toolkit' ) } ]
+		: BASE_FILTERS;
+
+	const colCount =
+		1 +
+		( settings?.show_sku ? 1 : 0 ) +
+		( settings?.show_stock_status ? 1 : 0 ) +
+		( settings?.show_manage_stock ? 1 : 0 ) +
+		( settings?.show_stock_quantity ? 1 : 0 ) +
+		( settings?.show_backorders ? 1 : 0 );
 
 	return (
 		<div className="jstk-stock-wrap">
@@ -140,7 +191,7 @@ export default function StockManagerTable() {
 
 			<div className="jstk-stock-toolbar">
 				<div className="jstk-stock-filters">
-					{ FILTERS.map( ( f ) => (
+					{ filters.map( ( f ) => (
 						<button
 							key={ f.value }
 							className={ `jstk-stock-filter-btn${ stockFilter === f.value ? ' is-active' : '' }` }
@@ -150,6 +201,13 @@ export default function StockManagerTable() {
 						</button>
 					) ) }
 				</div>
+				<input
+					type="search"
+					className="jstk-stock-search-input"
+					placeholder={ __( 'Search products\u2026', 'jetix-store-toolkit' ) }
+					value={ searchInput }
+					onChange={ ( e ) => setSearchInput( e.target.value ) }
+				/>
 				{ hasEdits && (
 					<Button
 						variant="primary"
@@ -172,20 +230,41 @@ export default function StockManagerTable() {
 						<thead>
 							<tr>
 								<th>{ __( 'Product', 'jetix-store-toolkit' ) }</th>
-								<th>{ __( 'SKU', 'jetix-store-toolkit' ) }</th>
-								<th className="jstk-stock-table__col-qty">
-									{ __( 'Stock Qty', 'jetix-store-toolkit' ) }
-								</th>
-								<th>{ __( 'Status', 'jetix-store-toolkit' ) }</th>
+								{ settings?.show_sku && (
+									<th>{ __( 'SKU', 'jetix-store-toolkit' ) }</th>
+								) }
+								{ settings?.show_stock_status && (
+									<th>{ __( 'Stock Status', 'jetix-store-toolkit' ) }</th>
+								) }
+								{ settings?.show_manage_stock && (
+									<th>{ __( 'Manage Stock', 'jetix-store-toolkit' ) }</th>
+								) }
+								{ settings?.show_stock_quantity && (
+									<th className="jstk-stock-table__col-qty">
+										{ __( 'Stock Qty', 'jetix-store-toolkit' ) }
+									</th>
+								) }
+								{ settings?.show_backorders && (
+									<th>{ __( 'Backorders', 'jetix-store-toolkit' ) }</th>
+								) }
 							</tr>
 						</thead>
 						<tbody>
 							{ products.map( ( product ) => {
+								const editedFields = edited[ product.id ] || {};
 								const currentQty =
-									edited[ product.id ] !== undefined
-										? edited[ product.id ]
-										: product.stock_quantity ?? 0;
-								const isDirty = edited[ product.id ] !== undefined;
+									'stock_quantity' in editedFields
+										? editedFields.stock_quantity
+										: product.stock_qty ?? 0;
+								const currentStatus =
+									editedFields.stock_status ?? product.stock_status;
+								const currentManageStock =
+									'manage_stock' in editedFields
+										? editedFields.manage_stock
+										: product.manage_stock;
+								const currentBackorders =
+									editedFields.backorders ?? product.backorders;
+								const isDirty = Object.keys( editedFields ).length > 0;
 
 								return (
 									<tr
@@ -193,52 +272,105 @@ export default function StockManagerTable() {
 										className={ isDirty ? 'is-edited' : '' }
 									>
 										<td className="jstk-stock-table__name">
-										<div className="jstk-stock-table__name-inner">
-											{ product.name }
-											{ product.type === 'variable' && (
-												<span className="jstk-stock-table__type-badge">
-													{ __( 'Variable', 'jetix-store-toolkit' ) }
-												</span>
-											) }
-										</div>
+											<div className="jstk-stock-table__name-inner">
+												{ product.name }
+												{ product.type === 'variable' && (
+													<span className="jstk-stock-table__type-badge">
+														{ __( 'Variable', 'jetix-store-toolkit' ) }
+													</span>
+												) }
+											</div>
 										</td>
-										<td className="jstk-stock-table__sku">
-											{ product.sku || '—' }
-										</td>
-										<td className="jstk-stock-table__qty">
-											{ product.manage_stock ? (
-												<input
-													type="number"
-													className="jstk-stock-qty-input"
-													value={ currentQty }
+										{ settings?.show_sku && (
+											<td className="jstk-stock-table__sku">
+												{ product.sku || '\u2014' }
+											</td>
+										) }
+										{ settings?.show_stock_status && (
+											<td>
+												<select
+													className="jstk-stock-select"
+													value={ currentStatus }
 													onChange={ ( e ) =>
-														handleQtyChange( product.id, e.target.value )
+														handleFieldChange(
+															product.id,
+															'stock_status',
+															e.target.value
+														)
 													}
-													min="0"
+												>
+													{ STOCK_STATUS_OPTIONS.map( ( opt ) => (
+														<option key={ opt.value } value={ opt.value }>
+															{ opt.label }
+														</option>
+													) ) }
+												</select>
+											</td>
+										) }
+										{ settings?.show_manage_stock && (
+											<td className="jstk-stock-table__manage">
+												<input
+													type="checkbox"
+													className="jstk-stock-checkbox"
+													checked={ !! currentManageStock }
+													onChange={ ( e ) =>
+														handleFieldChange(
+															product.id,
+															'manage_stock',
+															e.target.checked
+														)
+													}
 												/>
-											) : (
-												<span className="jstk-stock-table__unmanaged">—</span>
-											) }
-										</td>
-										<td>
-											<span
-												className="jstk-stock-status-badge"
-												style={ {
-													'--badge-color':
-														STOCK_STATUS_COLORS[ product.stock_status ] ||
-														'#858586',
-												} }
-											>
-												{ STOCK_STATUS_LABELS[ product.stock_status ] ||
-													product.stock_status }
-											</span>
-										</td>
+											</td>
+										) }
+										{ settings?.show_stock_quantity && (
+											<td className="jstk-stock-table__qty">
+												{ currentManageStock ? (
+													<input
+														type="number"
+														className="jstk-stock-qty-input"
+														value={ currentQty }
+														onChange={ ( e ) =>
+															handleFieldChange(
+																product.id,
+																'stock_quantity',
+																e.target.value
+															)
+														}
+														min="0"
+													/>
+												) : (
+													<span className="jstk-stock-table__unmanaged">{ '\u2014' }</span>
+												) }
+											</td>
+										) }
+										{ settings?.show_backorders && (
+											<td>
+												<select
+													className="jstk-stock-select"
+													value={ currentBackorders }
+													onChange={ ( e ) =>
+														handleFieldChange(
+															product.id,
+															'backorders',
+															e.target.value
+														)
+													}
+												>
+													{ BACKORDERS_OPTIONS.map( ( opt ) => (
+														<option key={ opt.value } value={ opt.value }>
+															{ opt.label }
+														</option>
+													) ) }
+												</select>
+											</td>
+										) }
 									</tr>
 								);
 							} ) }
 							{ products.length === 0 && (
 								<tr>
-									<td colSpan="4" className="jstk-stock-table__empty">
+									<td colSpan={ colCount } className="jstk-stock-table__empty">
 										{ __( 'No products found.', 'jetix-store-toolkit' ) }
 									</td>
 								</tr>
@@ -249,7 +381,7 @@ export default function StockManagerTable() {
 					{ totalItems > 0 && (
 						<div className="jstk-stock-footer">
 							<span className="jstk-stock-count">
-								{ `${ startItem }–${ endItem } ${ __( 'of', 'jetix-store-toolkit' ) } ${ totalItems }` }
+								{ `${ startItem }\u2013${ endItem } ${ __( 'of', 'jetix-store-toolkit' ) } ${ totalItems }` }
 							</span>
 							<div className="jstk-stock-pagination">
 								<Button
@@ -257,7 +389,7 @@ export default function StockManagerTable() {
 									disabled={ page <= 1 }
 									onClick={ () => setPage( ( p ) => p - 1 ) }
 								>
-									{ __( '‹ Previous', 'jetix-store-toolkit' ) }
+									{ __( '\u2039 Previous', 'jetix-store-toolkit' ) }
 								</Button>
 								<span className="jstk-stock-page-indicator">
 									{ page } / { totalPages }
@@ -267,7 +399,7 @@ export default function StockManagerTable() {
 									disabled={ page >= totalPages }
 									onClick={ () => setPage( ( p ) => p + 1 ) }
 								>
-									{ __( 'Next ›', 'jetix-store-toolkit' ) }
+									{ __( 'Next \u203a', 'jetix-store-toolkit' ) }
 								</Button>
 							</div>
 						</div>

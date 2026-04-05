@@ -23,6 +23,17 @@ import ProductTabManagerDefaultTabs from './module-settings/ProductTabManagerDef
  */
 const MODULE_VIEWS = {
 	'stock-manager': {
+		changelog: [
+			{
+				version: '1.0.0',
+				date: 'June 2025',
+				notes: [
+					__( 'Inline stock editing via REST API.', 'jetix-store-toolkit' ),
+					__( 'Settings-driven columns and per-page control.', 'jetix-store-toolkit' ),
+					__( 'Low stock threshold filtering.', 'jetix-store-toolkit' ),
+				],
+			},
+		],
 		operationalTabs: [
 			{
 				name: 'stock',
@@ -33,6 +44,16 @@ const MODULE_VIEWS = {
 		SettingsComponent: StockManagerSettings,
 	},
 	'custom-order-statuses': {
+		changelog: [
+			{
+				version: '1.0.0',
+				date: 'June 2025',
+				notes: [
+					__( 'Create and manage custom WooCommerce order statuses.', 'jetix-store-toolkit' ),
+					__( 'Assign colors and labels to each status.', 'jetix-store-toolkit' ),
+				],
+			},
+		],
 		operationalTabs: [
 			{
 				name: 'statuses',
@@ -43,10 +64,30 @@ const MODULE_VIEWS = {
 		SettingsComponent: null,
 	},
 	'quick-view': {
+		changelog: [
+			{
+				version: '1.0.0',
+				date: 'June 2025',
+				notes: [
+					__( 'Quick view modal for product listings.', 'jetix-store-toolkit' ),
+					__( 'Configurable content and button styling.', 'jetix-store-toolkit' ),
+				],
+			},
+		],
 		operationalTabs: [],
 		SettingsComponent: QuickViewSettings,
 	},
 	'product-tab-manager': {
+		changelog: [
+			{
+				version: '1.0.0',
+				date: 'June 2025',
+				notes: [
+					__( 'Add custom tabs to product pages.', 'jetix-store-toolkit' ),
+					__( 'Reorder and manage default WooCommerce tabs.', 'jetix-store-toolkit' ),
+				],
+			},
+		],
 		operationalTabs: [
 			{
 				name: 'custom-tabs',
@@ -98,11 +139,12 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 	const [ toggling, setToggling ] = useState( false );
 	const [ notice, setNotice ] = useState( null );
 
-	const { operationalTabs = [], SettingsComponent = null } =
+	const { operationalTabs = [], SettingsComponent = null, changelog = [] } =
 		MODULE_VIEWS[ moduleSlug ] || {};
 
 	const tabs = buildTabs( operationalTabs, SettingsComponent );
 	const tabMap = buildTabMap( operationalTabs, SettingsComponent );
+	const latestChangelog = changelog[ 0 ] || null;
 
 	const fetchModule = useCallback( async () => {
 		try {
@@ -179,12 +221,6 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 
 	return (
 		<div className="jstk-page jstk-module-page">
-			<div className="jstk-module-page__back">
-				<Button variant="tertiary" onClick={ onBack }>
-					{ __( '← Back to Modules', 'jetix-store-toolkit' ) }
-				</Button>
-			</div>
-
 			{ notice && (
 				<Notice
 					status={ notice.status }
@@ -195,33 +231,60 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 				</Notice>
 			) }
 
-			<div className="jstk-module-settings-header">
-				<div className="jstk-module-settings-header__info">
-					<div className="jstk-module-settings-header__title-row">
-						<h2
-							className="jstk-page__title"
-							style={ { marginBottom: 0 } }
-						>
-							{ module.title }
-						</h2>
-						<span
-							className={ `jstk-tier-badge jstk-tier-badge--${ module.tier }` }
-						>
-							{ module.tier }
-						</span>
+			<aside className="jstk-module-page__sidebar">
+				<div className="jstk-module-page__back">
+					<Button variant="tertiary" onClick={ onBack }>
+						{ __( '← Back to Modules', 'jetix-store-toolkit' ) }
+					</Button>
+				</div>
+
+				<div className="jstk-module-settings-header">
+					<div className="jstk-module-settings-header__info">
+						<div className="jstk-module-settings-header__title-row">
+							<div>
+								<span
+								className={ `jstk-tier-badge jstk-tier-badge--${ module.tier }` }
+							>
+								{ module.tier }
+							</span>
+							</div>
+							<h2
+								className="jstk-page__title"
+								style={ { marginBottom: 0 } }
+							>
+								{ module.title }
+							</h2>
+						</div>
+						<p className="jstk-page__desc">{ module.description }</p>
 					</div>
-					<p className="jstk-page__desc">{ module.description }</p>
+					<div className="jstk-module-settings-header__toggle">
+						<Toggle
+							id={ `module-detail-toggle-${ module.slug }` }
+							label={ module.active ? 'Active' : 'Inactive' }
+							checked={ module.active }
+							onChange={ handleToggle }
+							disabled={ toggling }
+						/>
+					</div>
 				</div>
-				<div className="jstk-module-settings-header__toggle">
-					<Toggle
-						id={ `module-detail-toggle-${ module.slug }` }
-						label={ module.active ? 'Active' : 'Inactive' }
-						checked={ module.active }
-						onChange={ handleToggle }
-						disabled={ toggling }
-					/>
-				</div>
-			</div>
+
+				{ latestChangelog && (
+					<div className="jstk-module-page__changelog">
+						<h4 className="jstk-module-page__changelog-title">
+							{ __( 'Latest Changes', 'jetix-store-toolkit' ) }
+						</h4>
+						<div className="jstk-module-page__changelog-meta">
+							<span className="jstk-version-tag">v{ latestChangelog.version }</span>
+							<span className="jstk-module-page__changelog-date">{ latestChangelog.date }</span>
+						</div>
+						<ul className="jstk-module-page__changelog-notes">
+							{ latestChangelog.notes.map( ( note, i ) => (
+								<li key={ i }>{ note }</li>
+							) ) }
+						</ul>
+					</div>
+				) }
+			</aside>
 
 			{ tabs.length > 0 ? (
 				<div className="jstk-module-page__content">

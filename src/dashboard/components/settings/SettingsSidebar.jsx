@@ -5,9 +5,8 @@
  */
 
 const LINKS = [
-	{ label: 'Website', href: 'https://developer.developer.developer' },
-	{ label: 'Documentation', href: 'https://developer.developer.developer/docs' },
-	{ label: 'Support', href: 'https://developer.developer.developer/support' },
+	{ label: 'Website', href: 'https://jetixwp.com' },
+	{ label: 'Feature Request', href: 'https://jetixwp.com/contact' },
 ];
 
 export default function SettingsSidebar() {
