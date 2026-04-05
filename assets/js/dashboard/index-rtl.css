@@ -907,6 +907,16 @@
   font-size: 11px;
   color: #646970;
 }
+.jstk-ptm-default-tabs {
+  display: flex;
+  flex-direction: column;
+}
+.jstk-ptm-default-tabs .jstk-ptm-tab-row .jstk-toggle {
+  margin-bottom: var(--space-m);
+}
+.jstk-ptm-default-tabs .jstk-ptm-tab-row .jstk-toggle .jstk-toggle__label {
+  font-weight: 500;
+}
 .jstk-ptm-accordion__priority {
   font-size: 11px;
   color: #646970;
