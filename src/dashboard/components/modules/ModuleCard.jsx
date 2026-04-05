@@ -25,14 +25,14 @@ export default function ModuleCard( { module, toggling, onToggle, onConfigure } 
 					onChange={ onToggle }
 					disabled={ toggling }
 				/>
-				{ module.active && (
-					<Button
-						variant="secondary"
-						onClick={ onConfigure }
-					>
-						Open
-					</Button>
-				) }
+				<Button
+					variant="secondary"
+					onClick={ onConfigure }
+					style={ { visibility: module.active ? 'visible' : 'hidden' } }
+					tabIndex={ module.active ? undefined : -1 }
+				>
+					Open
+				</Button>
 			</footer>
 		</article>
 	);

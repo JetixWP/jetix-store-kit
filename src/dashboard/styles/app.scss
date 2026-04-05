@@ -13,7 +13,7 @@
 // ─── Tokens ──────────────────────────────────────────────────────────────────
 
 // Colors
-$color-accent:              #2271b1;
+$color-accent:              #008710;
 $color-text-body:           #262626;
 $color-text-muted:          #858586;
 $color-bg-body:             #f0f0f1;
@@ -274,8 +274,8 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	justify-content: space-between;
 	padding: var(--space-s) var(--space-2xl);
 	height: 65px;
-	background: #fff;
-	border-bottom: 1px solid var(--color-border-light);
+	background: #f0f2eb;
+	border-bottom: 1px solid var(--color-border-medium);
 	position: sticky;
 	top: 32px;
 	z-index: 100;
@@ -331,23 +331,28 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	color: var(--color-text-body);
 	text-decoration: none;
 	transition: background 0.15s, color 0.15s;
-	background: var(--color-bg-light);
+	background: transparent;
+	border: 1.5px solid var(--color-border-medium);
 	min-width: 65px;
 
 	&:hover,
 	&:focus-visible {
-		background: var(--color-bg-body);
+		background: transparent;
 		outline: none;
+		color: var(--color-accent);
+		border-color: var(--color-accent);
 	}
 
 	&:focus,
 	&:focus-visible {
 		outline: none;
 		box-shadow: none;
+		color: var(--color-accent);
 	}
 
 	&--active {
-		background: var(--color-bg-body);
+		border-color: var(--color-accent);
+		color: var(--color-accent);
 	}
 }
 
@@ -403,7 +408,7 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	align-items: center;
 	padding: 4px 10px;
 	background: #e8f0fb;
-	color: $jstk-blue;
+	color: var(--color-accent);
 	border-radius: 999px;
 	font-size: 13px;
 	font-weight: 600;
@@ -566,8 +571,9 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	display: inline-flex;
 	align-items: center;
 	padding: 2px 8px;
-	background: $jstk-blue;
-	color: #fff;
+	background: transparent;
+	border: 1px solid var(--color-text-body);
+	color: var(--color-text-body);
 	font-size: 11px;
 	font-weight: 600;
 	border-radius: 20px;
@@ -647,8 +653,8 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	}
 
 	&.is-active {
-		color: $jstk-blue;
-		border-bottom-color: $jstk-blue;
+		color: var(--color-accent);
+		border-bottom-color: var(--color-accent);
 	}
 }
 
@@ -682,12 +688,11 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .jstk-module-settings-form {
-	margin-top: 20px;
 	background: $jstk-white;
 	border-radius: 12px;
 
 	h3 {
-		margin: 24px 0 8px;
+		margin: 24px 0 18px;
 		font-size: 15px;
 		font-weight: 600;
 		color: $jstk-text;
@@ -698,7 +703,7 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	}
 
 	.components-base-control {
-		margin-bottom: 16px;
+		margin-bottom: var(--space-m);
 	}
 }
 
@@ -714,6 +719,194 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	margin-top: 24px;
 	padding-top: 16px;
 	border-top: 1px solid $jstk-border;
+}
+
+.components-button.is-primary {
+	background-color: var(--color-accent) !important;
+	
+	&:hover {
+		background-color: color.scale( $color-accent, $lightness: -10% ) !important;
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 2px rgba( var(--color-accent), 0.18 ) !important;
+	}
+}
+
+// ─── Custom Order Statuses ───────────────────────────────────────────────────
+
+.jstk-cos-top-actions {
+	margin-bottom: 20px;
+}
+
+.jstk-cos-empty-msg {
+	margin-top: 0;
+}
+
+.jstk-cos-add-form {
+	padding: 20px;
+	margin-bottom: 20px;
+	background: $jstk-bg;
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-md;
+
+	&__title {
+		margin: 0 0 16px;
+		font-size: 13px;
+		font-weight: 600;
+		color: $jstk-text;
+	}
+
+	&__actions {
+		display: flex;
+		gap: 8px;
+		margin-top: 16px;
+	}
+}
+
+.jstk-cos-fields {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+	align-items: end;
+}
+
+.jstk-cos-text-fields {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: start;
+	
+	& > * {
+		margin-bottom: 0 !important;
+	}
+}
+
+.jstk-cos-color-field {
+	label {
+		display: block;
+		font-size: 12px;
+		font-weight: 500;
+		margin-bottom: 6px;
+		color: $jstk-text;
+	}
+}
+
+.jstk-cos-color-input {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	input[ type='color' ] {
+		width: 36px;
+		height: 36px;
+		padding: 2px;
+		border: 1px solid $jstk-border;
+		border-radius: $jstk-radius-sm;
+		cursor: pointer;
+		background: none;
+	}
+}
+
+// Accordion list.
+.jstk-cos-status-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 8px;
+}
+
+.jstk-cos-accordion {
+	border: 1px solid $jstk-border;
+	border-radius: $jstk-radius-md;
+	overflow: hidden;
+	background: $jstk-white;
+	transition: box-shadow 0.15s;
+
+	&.is-open {
+		box-shadow: 0 2px 8px rgba( 0, 0, 0, 0.06 );
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 12px 16px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		text-align: left;
+		gap: 12px;
+
+		&:hover {
+			background: $jstk-bg;
+		}
+	}
+
+	&__header-left {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		flex: 1;
+		min-width: 0;
+	}
+
+	&__header-right {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-shrink: 0;
+	}
+
+	&__label {
+		font-size: 13px;
+		font-weight: 500;
+		color: $jstk-text;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__slug {
+		font-size: 11px;
+		color: $jstk-text-muted;
+		background: $jstk-bg;
+		padding: 2px 6px;
+		border-radius: $jstk-radius-sm;
+		border: 1px solid $jstk-border;
+		white-space: nowrap;
+	}
+
+	&__chevron {
+		font-size: 10px;
+		color: $jstk-text-muted;
+	}
+
+	&__body {
+		padding: 16px;
+		border-top: 1px solid $jstk-border;
+		background: $jstk-bg;
+	}
+}
+
+// Default statuses grid.
+.jstk-cos-default-statuses {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.jstk-cos-default-row {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+
+	&__key {
+		font-size: 11px;
+		color: $jstk-text-muted;
+	}
 }
 
 // ─── Hide Footer Credits in WP Admin ─────────────────────────────────────────
@@ -767,8 +960,8 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	}
 
 	&.is-active {
-		background: $jstk-blue;
-		border-color: $jstk-blue;
+		background: var(--color-accent);
+		border-color: var(--color-accent);
 		color: $jstk-white;
 	}
 }
@@ -813,7 +1006,7 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 		}
 
 		&.is-edited {
-			background: rgba( $jstk-blue, 0.04 );
+			background: rgba( var(--color-accent), 0.04 );
 		}
 	}
 
@@ -875,8 +1068,8 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 
 	&:focus {
 		outline: none;
-		border-color: $jstk-blue;
-		box-shadow: 0 0 0 2px rgba( $jstk-blue, 0.18 );
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 2px rgba( var(--color-accent), 0.18 );
 	}
 }
 
@@ -892,8 +1085,8 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 
 	&:focus {
 		outline: none;
-		border-color: $jstk-blue;
-		box-shadow: 0 0 0 2px rgba( $jstk-blue, 0.18 );
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 2px rgba( var(--color-accent), 0.18 );
 	}
 }
 
@@ -909,8 +1102,8 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 
 	&:focus {
 		outline: none;
-		border-color: $jstk-blue;
-		box-shadow: 0 0 0 2px rgba( $jstk-blue, 0.18 );
+		border-color: var(--color-accent);
+		box-shadow: 0 0 0 2px rgba( var(--color-accent), 0.18 );
 	}
 }
 
@@ -918,7 +1111,7 @@ $jstk-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.12);
 	width: 16px;
 	height: 16px;
 	cursor: pointer;
-	accent-color: $jstk-blue;
+	accent-color: var(--color-accent);
 }
 
 .jstk-stock-status-badge {

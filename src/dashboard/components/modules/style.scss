@@ -28,17 +28,19 @@
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	color: #fff;
+	border: 1px solid var(--color-border-light);
 
 	&--core {
-		background: #2271b1;
+		color: var(--color-accent);
+		border-color: var(--color-accent);
 	}
 
 	&--growth {
-		background: #2d9e3f;
+		background: var(--color-accent);
 	}
 
 	&--power {
-		background: #8c5ae0;
+		background: var(--color-accent);
 	}
 }
 

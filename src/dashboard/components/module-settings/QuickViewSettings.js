@@ -2,11 +2,11 @@ import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
 	TextControl,
 	SelectControl,
-	ToggleControl,
 	Button,
 	Spinner,
 	Notice,
 } from '@wordpress/components';
+import { Toggle } from '../ui';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
@@ -112,48 +112,42 @@ const QuickViewSettings = () => {
 
 			<h3>{ __( 'Modal Content', 'jetix-store-toolkit' ) }</h3>
 
-			<ToggleControl
-				label={ __( 'Show Gallery', 'jetix-store-toolkit' ) }
-				checked={ !! settings.show_gallery }
-				onChange={ ( val ) => updateSetting( 'show_gallery', val ) }
-				__nextHasNoMarginBottom
-			/>
+<Toggle
+			label={ __( 'Show Gallery', 'jetix-store-toolkit' ) }
+			checked={ !! settings.show_gallery }
+			onChange={ ( val ) => updateSetting( 'show_gallery', val ) }
+		/>
 
-			<ToggleControl
-				label={ __( 'Show Price', 'jetix-store-toolkit' ) }
-				checked={ !! settings.show_price }
-				onChange={ ( val ) => updateSetting( 'show_price', val ) }
-				__nextHasNoMarginBottom
-			/>
+		<Toggle
+			label={ __( 'Show Price', 'jetix-store-toolkit' ) }
+			checked={ !! settings.show_price }
+			onChange={ ( val ) => updateSetting( 'show_price', val ) }
+		/>
 
-			<ToggleControl
-				label={ __( 'Show Rating', 'jetix-store-toolkit' ) }
-				checked={ !! settings.show_rating }
-				onChange={ ( val ) => updateSetting( 'show_rating', val ) }
-				__nextHasNoMarginBottom
-			/>
+		<Toggle
+			label={ __( 'Show Rating', 'jetix-store-toolkit' ) }
+			checked={ !! settings.show_rating }
+			onChange={ ( val ) => updateSetting( 'show_rating', val ) }
+		/>
 
-			<ToggleControl
-				label={ __( 'Show Short Description', 'jetix-store-toolkit' ) }
-				checked={ !! settings.show_excerpt }
-				onChange={ ( val ) => updateSetting( 'show_excerpt', val ) }
-				__nextHasNoMarginBottom
-			/>
+		<Toggle
+			label={ __( 'Show Short Description', 'jetix-store-toolkit' ) }
+			checked={ !! settings.show_excerpt }
+			onChange={ ( val ) => updateSetting( 'show_excerpt', val ) }
+		/>
 
-			<ToggleControl
-				label={ __( 'Show Add to Cart', 'jetix-store-toolkit' ) }
-				checked={ !! settings.show_add_to_cart }
-				onChange={ ( val ) =>
-					updateSetting( 'show_add_to_cart', val )
-				}
-				__nextHasNoMarginBottom
-			/>
+		<Toggle
+			label={ __( 'Show Add to Cart', 'jetix-store-toolkit' ) }
+			checked={ !! settings.show_add_to_cart }
+			onChange={ ( val ) =>
+				updateSetting( 'show_add_to_cart', val )
+			}
+		/>
 
-			<ToggleControl
-				label={ __( 'Show Product Meta', 'jetix-store-toolkit' ) }
-				checked={ !! settings.show_meta }
-				onChange={ ( val ) => updateSetting( 'show_meta', val ) }
-				__nextHasNoMarginBottom
+		<Toggle
+			label={ __( 'Show Product Meta', 'jetix-store-toolkit' ) }
+			checked={ !! settings.show_meta }
+			onChange={ ( val ) => updateSetting( 'show_meta', val ) }
 			/>
 
 			<div className="jstk-settings-actions">

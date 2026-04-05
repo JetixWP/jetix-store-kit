@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
 	TextControl,
-	ToggleControl,
 	Button,
 	Spinner,
 	Notice,
 } from '@wordpress/components';
+import { Toggle } from '../ui';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
@@ -92,13 +92,12 @@ const ProductTabManagerDefaultTabs = () => {
 
 			<div className="jstk-ptm-default-tabs">
 				<div className="jstk-ptm-tab-row">
-					<ToggleControl
+					<Toggle
 						label={ __( 'Description Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_description }
 						onChange={ ( val ) =>
 							updateSetting( 'disable_description', ! val )
 						}
-						__nextHasNoMarginBottom
 					/>
 					{ ! settings.disable_description && (
 						<TextControl
@@ -114,13 +113,12 @@ const ProductTabManagerDefaultTabs = () => {
 				</div>
 
 				<div className="jstk-ptm-tab-row">
-					<ToggleControl
+					<Toggle
 						label={ __( 'Additional Information Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_additional_info }
 						onChange={ ( val ) =>
 							updateSetting( 'disable_additional_info', ! val )
 						}
-						__nextHasNoMarginBottom
 					/>
 					{ ! settings.disable_additional_info && (
 						<TextControl
@@ -139,13 +137,12 @@ const ProductTabManagerDefaultTabs = () => {
 				</div>
 
 				<div className="jstk-ptm-tab-row">
-					<ToggleControl
+					<Toggle
 						label={ __( 'Reviews Tab', 'jetix-store-toolkit' ) }
 						checked={ ! settings.disable_reviews }
 						onChange={ ( val ) =>
 							updateSetting( 'disable_reviews', ! val )
 						}
-						__nextHasNoMarginBottom
 					/>
 					{ ! settings.disable_reviews && (
 						<TextControl
