@@ -61,8 +61,8 @@ if ( ! function_exists( 'jwp_stk_fs' ) ) {
 					'has_paid_plans'   => false,
 					'is_org_compliant' => true,
 					'menu'             => array(
-						'slug'       => 'jwp-stk-settings',
-						'first-path' => 'admin.php?page=jwp-stk-settings',
+						'slug'       => 'jetix-store-toolkit',
+						'first-path' => 'admin.php?page=jwp-stk-modules',
 						'support'    => false,
 						'account'    => false,
 						'contact'    => false,
