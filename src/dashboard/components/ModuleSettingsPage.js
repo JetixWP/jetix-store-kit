@@ -7,6 +7,12 @@ import { Button, Toggle } from './ui';
 // Operational views.
 import StockManagerTable from './module-views/StockManagerTable';
 
+// Module changelogs.
+import stockManagerChangelog from '../changelogs/stock-manager.json';
+import customOrderStatusesChangelog from '../changelogs/custom-order-statuses.json';
+import quickViewChangelog from '../changelogs/quick-view.json';
+import productTabManagerChangelog from '../changelogs/product-tab-manager.json';
+
 // Settings components.
 import QuickViewSettings from './module-settings/QuickViewSettings';
 import CustomOrderStatusesSettings from './module-settings/CustomOrderStatusesSettings';
@@ -23,17 +29,7 @@ import ProductTabManagerDefaultTabs from './module-settings/ProductTabManagerDef
  */
 const MODULE_VIEWS = {
 	'stock-manager': {
-		changelog: [
-			{
-				version: '1.0.0',
-				date: 'June 2025',
-				notes: [
-					__( 'Inline stock editing via REST API.', 'jetix-store-toolkit' ),
-					__( 'Settings-driven columns and per-page control.', 'jetix-store-toolkit' ),
-					__( 'Low stock threshold filtering.', 'jetix-store-toolkit' ),
-				],
-			},
-		],
+		changelog: stockManagerChangelog,
 		operationalTabs: [
 			{
 				name: 'stock',
@@ -44,16 +40,7 @@ const MODULE_VIEWS = {
 		SettingsComponent: StockManagerSettings,
 	},
 	'custom-order-statuses': {
-		changelog: [
-			{
-				version: '1.0.0',
-				date: 'June 2025',
-				notes: [
-					__( 'Create and manage custom WooCommerce order statuses.', 'jetix-store-toolkit' ),
-					__( 'Assign colors and labels to each status.', 'jetix-store-toolkit' ),
-				],
-			},
-		],
+		changelog: customOrderStatusesChangelog,
 		operationalTabs: [
 			{
 				name: 'statuses',
@@ -64,30 +51,12 @@ const MODULE_VIEWS = {
 		SettingsComponent: null,
 	},
 	'quick-view': {
-		changelog: [
-			{
-				version: '1.0.0',
-				date: 'June 2025',
-				notes: [
-					__( 'Quick view modal for product listings.', 'jetix-store-toolkit' ),
-					__( 'Configurable content and button styling.', 'jetix-store-toolkit' ),
-				],
-			},
-		],
+		changelog: quickViewChangelog,
 		operationalTabs: [],
 		SettingsComponent: QuickViewSettings,
 	},
 	'product-tab-manager': {
-		changelog: [
-			{
-				version: '1.0.0',
-				date: 'June 2025',
-				notes: [
-					__( 'Add custom tabs to product pages.', 'jetix-store-toolkit' ),
-					__( 'Reorder and manage default WooCommerce tabs.', 'jetix-store-toolkit' ),
-				],
-			},
-		],
+		changelog: productTabManagerChangelog,
 		operationalTabs: [
 			{
 				name: 'custom-tabs',
@@ -271,7 +240,7 @@ const ModuleSettingsPage = ( { moduleSlug, onBack } ) => {
 				{ latestChangelog && (
 					<div className="jstk-module-page__changelog">
 						<h4 className="jstk-module-page__changelog-title">
-							{ __( 'Latest Changes', 'jetix-store-toolkit' ) }
+							{ __( 'Latest Module Changes', 'jetix-store-toolkit' ) }
 						</h4>
 						<div className="jstk-module-page__changelog-meta">
 							<span className="jstk-version-tag">v{ latestChangelog.version }</span>
