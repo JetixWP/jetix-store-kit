@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-04T13:37:31+00:00\n"
+"POT-Creation-Date: 2026-04-05T14:47:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: jetix-store-toolkit\n"
@@ -43,30 +43,37 @@ msgstr ""
 
 #: includes/Admin/class-register.php:59
 #: includes/Admin/class-register.php:60
+#: includes/Admin/class-register.php:61
+#: includes/Admin/class-register.php:62
 msgid "Store Toolkit"
 msgstr ""
 
 #: includes/Admin/class-register.php:71
+#: includes/Admin/class-register.php:73
 msgid "Dashboard — Store Toolkit"
 msgstr ""
 
 #: includes/Admin/class-register.php:72
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/App.js:9
+#: includes/Admin/class-register.php:74
 msgid "Dashboard"
 msgstr ""
 
 #: includes/Admin/class-register.php:80
+#: includes/Admin/class-register.php:82
 msgid "Modules — Store Toolkit"
 msgstr ""
 
 #: includes/Admin/class-register.php:81
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/App.js:10
+#: includes/Admin/class-register.php:83
 msgid "Modules"
 msgstr ""
 
 #: includes/Admin/class-register.php:89
+#: includes/Admin/class-register.php:91
 msgid "Global Settings — Store Toolkit"
 msgstr ""
 
@@ -74,6 +81,7 @@ msgstr ""
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/App.js:11
 #: src/dashboard/components/DashboardPanel.js:78
+#: includes/Admin/class-register.php:92
 msgid "Global Settings"
 msgstr ""
 
@@ -94,6 +102,7 @@ msgstr ""
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/ModuleSettingsPage.js:86
 #: src/dashboard/components/ModuleSettingsPage.js:84
+#: src/dashboard/components/modules/ModuleSettingsPage.js:201
 msgid "Module not found."
 msgstr ""
 
@@ -107,6 +116,8 @@ msgid "Let shoppers preview product details in a modal without leaving the shop 
 msgstr ""
 
 #: includes/class-module-manager.php:68
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:50
 msgid "Cart Notices"
 msgstr ""
 
@@ -115,10 +126,14 @@ msgid "Show targeted messages in the cart — upsell thresholds, free shipping p
 msgstr ""
 
 #: includes/class-module-manager.php:75
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:15
 msgid "Checkout Field Editor"
 msgstr ""
 
 #: includes/class-module-manager.php:76
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:16
 msgid "Add, remove, reorder, or customise every WooCommerce checkout field without code."
 msgstr ""
 
@@ -137,6 +152,8 @@ msgstr ""
 #: includes/Modules/StockManager/class-module.php:70
 #: includes/Modules/StockManager/class-module.php:126
 #: includes/class-module-manager.php:82
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModuleSettingsPage.js:38
 msgid "Stock Manager"
 msgstr ""
 
@@ -157,6 +174,9 @@ msgstr ""
 
 #: includes/class-plugin.php:156
 #: includes/class-plugin.php:155
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModuleSettingsPage.js:70
+#: src/dashboard/components/modules/ModuleSettingsPage.js:116
 msgid "Settings"
 msgstr ""
 
@@ -247,19 +267,24 @@ msgstr ""
 
 #. translators: %s: status label
 #: includes/Modules/CustomOrderStatuses/class-module.php:142
+#: includes/Modules/CustomOrderStatuses/class-module.php:154
 msgid "Change status to %s"
 msgstr ""
 
 #: includes/Modules/QuickView/class-module.php:154
 #: includes/Modules/StockManager/class-module.php:271
+#: includes/Modules/QuickView/class-module.php:208
+#: includes/Modules/StockManager/class-module.php:216
 msgid "Product not found."
 msgstr ""
 
 #: includes/Modules/QuickView/class-module.php:241
+#: includes/Modules/QuickView/class-module.php:295
 msgid "SKU:"
 msgstr ""
 
 #: includes/Modules/QuickView/class-module.php:256
+#: includes/Modules/QuickView/class-module.php:310
 msgid "View full details"
 msgstr ""
 
@@ -276,6 +301,8 @@ msgid "Error"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:111
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:373
 msgid "No products found."
 msgstr ""
 
@@ -300,22 +327,32 @@ msgid "Low stock"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:140
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:207
 msgid "Search products…"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:147
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:232
 msgid "Product"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:149
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:234
 msgid "SKU"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:152
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:237
 msgid "Stock Status"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:155
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:240
 msgid "Manage Stock"
 msgstr ""
 
@@ -324,6 +361,8 @@ msgid "Quantity"
 msgstr ""
 
 #: includes/Modules/StockManager/class-module.php:161
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:248
 msgid "Backorders"
 msgstr ""
 
@@ -342,6 +381,7 @@ msgstr ""
 
 #. translators: %s: WooCommerce plugin name
 #: jetix-store-toolkit.php:53
+#: jetix-store-toolkit.php:107
 msgid "%1$s requires %2$s to be installed and active."
 msgstr ""
 
@@ -409,6 +449,7 @@ msgstr ""
 #: src/dashboard/components/ModuleSettingsPage.js:66
 #: src/dashboard/components/ModulesPanel.js:62
 #: src/dashboard/components/ModuleSettingsPage.js:64
+#: src/dashboard/components/modules/ModuleSettingsPage.js:169
 msgid "Failed to update module."
 msgstr ""
 
@@ -439,6 +480,13 @@ msgstr ""
 #: src/dashboard/components/module-settings/QuickViewSettings.js:28
 #: src/dashboard/components/module-settings/StockManagerSettings.js:27
 #: src/dashboard/components/SettingsPanel.js:26
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js:37
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:42
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:27
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:44
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:28
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:26
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:27
 msgid "Failed to load settings."
 msgstr ""
 
@@ -448,6 +496,11 @@ msgstr ""
 #: src/dashboard/components/module-settings/QuickViewSettings.js:51
 #: src/dashboard/components/module-settings/StockManagerSettings.js:50
 #: src/dashboard/components/SettingsPanel.js:53
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:50
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:68
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:51
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:49
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:50
 msgid "Settings saved."
 msgstr ""
 
@@ -458,61 +511,79 @@ msgstr ""
 #: src/dashboard/components/module-settings/QuickViewSettings.js:56
 #: src/dashboard/components/module-settings/StockManagerSettings.js:55
 #: src/dashboard/components/SettingsPanel.js:58
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js:68
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:71
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:55
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:73
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:56
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:54
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:55
 msgid "Failed to save settings."
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:88
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:95
 msgid "Button Label"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:95
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:102
 msgid "Button Position"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:100
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:107
 msgid "Before Add to Cart"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:104
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:111
 msgid "After Add to Cart"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:113
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:86
 msgid "Modal Content"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:116
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:88
 msgid "Show Gallery"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:123
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:93
 msgid "Show Price"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:130
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:99
 msgid "Show Rating"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:137
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:105
 msgid "Show Short Description"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:144
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:111
 msgid "Show Add to Cart"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/QuickViewSettings.js:153
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:119
 msgid "Show Product Meta"
 msgstr ""
 
@@ -523,6 +594,12 @@ msgstr ""
 #: src/dashboard/components/module-settings/QuickViewSettings.js:166
 #: src/dashboard/components/module-settings/StockManagerSettings.js:179
 #: src/dashboard/components/SettingsPanel.js:133
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:357
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:168
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:449
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:235
+#: src/dashboard/components/modules/module-tabs/QuickViewSettings.js:132
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:175
 msgid "Save Settings"
 msgstr ""
 
@@ -535,12 +612,16 @@ msgstr ""
 #: src/dashboard/components/module-settings/CheckoutFieldEditorSettings.js:184
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:191
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:225
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:270
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:305
 msgid "Remove"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/CheckoutFieldEditorSettings.js:191
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:146
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:173
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:291
 msgid "Label"
 msgstr ""
 
@@ -566,6 +647,7 @@ msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:52
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:66
 msgid "Settings saved. Reload the page to see new statuses."
 msgstr ""
 
@@ -581,6 +663,7 @@ msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:131
+#: src/dashboard/components/modules/ModuleSettingsPage.js:49
 msgid "Custom Statuses"
 msgstr ""
 
@@ -591,16 +674,22 @@ msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:154
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:181
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:306
 msgid "Slug"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:160
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:186
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:323
 msgid "Max 17 characters, lowercase letters, numbers, hyphens."
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/CustomOrderStatusesSettings.js:167
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:195
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:332
 msgid "Color"
 msgstr ""
 
@@ -616,66 +705,79 @@ msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:94
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:94
 msgid "Products Per Page"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:106
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:106
 msgid "Low Stock Threshold"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:116
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:116
 msgid "Products with stock at or below this number are flagged as low stock."
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:123
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:124
 msgid "Display Columns"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:126
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:127
 msgid "Show SKU"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:132
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:132
 msgid "Show Stock Status"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:140
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:139
 msgid "Show Manage Stock"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:148
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:146
 msgid "Show Stock Quantity"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:156
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:153
 msgid "Show Backorders"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/StockManagerSettings.js:164
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:160
 msgid "Show Low Stock Filter"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:111
+#: src/dashboard/components/modules/ModuleSettingsPage.js:86
 msgid "Default Tabs"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:113
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:87
 msgid "Toggle default WooCommerce product tabs on or off, and optionally rename them."
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:122
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:96
 msgid "Description Tab"
 msgstr ""
 
@@ -683,36 +785,45 @@ msgstr ""
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:134
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:159
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:189
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:104
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:125
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:149
 msgid "Custom Title"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:135
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:105
 msgid "Description"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:147
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:117
 msgid "Additional Information Tab"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:160
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:126
 msgid "Additional information"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:180
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:141
 msgid "Reviews Tab"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:190
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerDefaultTabs.js:150
 msgid "Reviews"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:201
+#: src/dashboard/components/modules/ModuleSettingsPage.js:81
 msgid "Custom Tabs"
 msgstr ""
 
@@ -728,11 +839,15 @@ msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:229
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:155
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:325
 msgid "Tab Title"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:237
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:199
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:384
 msgid "Tab Content"
 msgstr ""
 
@@ -743,11 +858,16 @@ msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:250
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:224
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:289
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:414
 msgid "Priority"
 msgstr ""
 
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/module-settings/ProductTabManagerSettings.js:260
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:233
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:427
 msgid "Lower number = appears first. Default WC tabs: Description 10, Additional Info 20, Reviews 30."
 msgstr ""
 
@@ -759,6 +879,7 @@ msgstr ""
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/ModuleSettingsPage.js:40
 #: src/dashboard/components/ModuleSettingsPage.js:38
+#: src/dashboard/components/modules/ModuleSettingsPage.js:144
 msgid "Failed to load module."
 msgstr ""
 
@@ -767,6 +888,8 @@ msgstr ""
 #: src/dashboard/components/ModuleSettingsPage.js:114
 #: src/dashboard/components/ModuleSettingsPage.js:86
 #: src/dashboard/components/ModuleSettingsPage.js:112
+#: src/dashboard/components/modules/ModuleSettingsPage.js:203
+#: src/dashboard/components/modules/ModuleSettingsPage.js:224
 msgid "← Back to Modules"
 msgstr ""
 
@@ -785,6 +908,7 @@ msgstr ""
 #: assets/js/dashboard/index.js:1
 #: src/dashboard/components/ModuleSettingsPage.js:148
 #: src/dashboard/components/ModuleSettingsPage.js:146
+#: src/dashboard/components/modules/ModuleSettingsPage.js:304
 msgid "No configuration available for this module."
 msgstr ""
 
@@ -833,4 +957,413 @@ msgstr ""
 #. Description of the plugin
 #: jetix-store-toolkit.php
 msgid "Modular all-in-one WooCommerce toolkit — enable only what your store needs. Quick View, Cart Notices, Checkout Fields, Wishlist and more."
+msgstr ""
+
+#: includes/class-module-manager.php:61
+msgid "Product Quick View"
+msgstr ""
+
+#: includes/class-module-manager.php:76
+msgid "Create custom order statuses beyond WooCommerce defaults."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:23
+msgid "Wishlist"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:24
+msgid "Let customers save products for later and share their wishlist."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:31
+msgid "Product Bundles"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:32
+msgid "Bundle products together at a fixed or discounted price."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:39
+msgid "Points & Rewards"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:40
+msgid "Award points for purchases, reviews, and referrals. Let customers redeem points as cart discounts."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:51
+msgid "Show targeted messages in the cart — upsell thresholds, free shipping bars, limited-time alerts."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:58
+msgid "Instant Product Search"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:59
+msgid "Live search with product thumbnails, prices, and direct links as the user types."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:66
+msgid "Orders & Customers Export"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:67
+msgid "Export orders and customers to CSV with custom column selection and date filters."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:74
+msgid "Gift Vouchers"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:75
+msgid "Create and sell digital gift vouchers redeemable at checkout."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:102
+msgid "Coming Soon"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:191
+msgid "Upcoming Modules"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:192
+msgid "These modules are actively being built and will become available in upcoming releases."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:199
+msgid "Planned"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModulesGrid.jsx:200
+msgid "On our roadmap — coming further down the line."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:18
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:37
+msgid "In Stock"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:19
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:38
+msgid "Out of Stock"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:20
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:39
+msgid "On Backorder"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:30
+msgid "Do not allow"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:31
+msgid "Allow, notify customer"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:32
+msgid "Allow"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:36
+msgid "All"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:87
+msgid "Failed to load products."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:168
+msgid "Low Stock"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:149
+msgid "Stock updated successfully."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:155
+msgid "Failed to save stock changes."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:218
+msgid "Save Changes"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:244
+msgid "Stock Qty"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:279
+msgid "Variable"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:383
+msgid "of"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:391
+msgid "‹ Previous"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-views/StockManagerTable.jsx:401
+msgid "Next ›"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/StockManagerSettings.js:87
+msgid "Configure the Stock Manager table below. Changes apply immediately to the Stock Manager operations view."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:160
+msgid "+ Add New Status"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:168
+msgid "New Custom Status"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:210
+msgid "Add Status"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:216
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:252
+msgid "Cancel"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:224
+msgid "No custom statuses yet. Click the button above to add one."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesSettings.js:252
+msgid "(unnamed)"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModuleSettingsPage.js:54
+msgid "Default Statuses"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js:63
+msgid "Default status labels saved."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js:96
+msgid "Customise the display labels for the default WooCommerce order statuses. Leave a field blank to use the original label."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/CustomOrderStatusesDefaultStatuses.js:130
+msgid "Save Labels"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModuleSettingsPage.js:65
+msgid "Customize Button"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:88
+msgid "Customise the Quick View trigger button appearance and placement."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:115
+msgid "Controls where the button appears relative to the Add to Cart button on product cards."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:123
+msgid "Button Alignment"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:128
+msgid "Left"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:132
+msgid "Center"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:136
+msgid "Right"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:140
+msgid "Full Width"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:144
+msgid "The button is wrapped in a full-width block element so it respects this alignment within the product card."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:152
+msgid "Button Style"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:157
+msgid "Filled"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:161
+msgid "Outline"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:169
+msgid "Button Size"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:174
+msgid "Small"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:178
+msgid "Normal"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:182
+msgid "Large"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:193
+msgid "Background Color"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:205
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:223
+msgid "Restore default"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/QuickViewButtonSettings.js:211
+msgid "Text Color"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:143
+msgid "+ Add New Tab"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:151
+msgid "New Custom Tab"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:164
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:341
+msgid "Content Type"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:171
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:351
+msgid "Static Content"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:178
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:358
+msgid "Dynamic Content"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:191
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:375
+msgid "Static Content displays the same content for all products. Dynamic Content lets you set unique content per product — an editor field will appear below the Product Description on each product's edit screen."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:208
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:397
+msgid "HTML is allowed."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:217
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:407
+msgid "Per-product content will be editable directly on the product edit screen, below the Product Description."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:246
+msgid "Add Tab"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:260
+msgid "No custom tabs yet. Click the button above to add one."
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/module-tabs/ProductTabManagerSettings.js:283
+msgid "(untitled)"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModuleSettingsPage.js:261
+msgid "Latest Module Changes"
+msgstr ""
+
+#: assets/js/dashboard/index.js:1
+#: src/dashboard/components/modules/ModuleSettingsPage.js:291
+msgid "No content available."
 msgstr ""
