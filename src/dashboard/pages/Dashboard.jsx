@@ -75,7 +75,7 @@ export default function Dashboard( { navigate } ) {
 					variant="tertiary"
 					onClick={ () => navigate( 'settings' ) }
 				>
-					Settings
+					Global Settings
 				</Button>
 			</div>
 		</div>

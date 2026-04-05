@@ -4,10 +4,10 @@ import {
 	Button,
 	Spinner,
 	Notice,
-	ColorIndicator,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
+import { ColorPicker } from '../../ui';
 
 const EMPTY_STATUS = { label: '', slug: '', color: '#787c82' };
 
@@ -190,26 +190,14 @@ const CustomOrderStatusesSettings = () => {
 							__nextHasNoMarginBottom
 						/>
 						</div>
-						<div className="jstk-cos-color-field">
-							<label>
-								{ __( 'Color', 'jetix-store-toolkit' ) }
-							</label>
-							<div className="jstk-cos-color-input">
-								<ColorIndicator
-									colorValue={ newStatus.color }
-								/>
-								<input
-									type="color"
-									value={ newStatus.color }
-									onChange={ ( e ) =>
-										handleNewStatusChange(
-											'color',
-											e.target.value
-										)
-									}
-								/>
-							</div>
-						</div>
+						<ColorPicker
+							id="jstk-cos-new-color"
+							label={ __( 'Color', 'jetix-store-toolkit' ) }
+							value={ newStatus.color }
+							onChange={ ( val ) =>
+								handleNewStatusChange( 'color', val )
+							}
+						/>
 					</div>
 					<div className="jstk-cos-add-form__actions">
 						<Button
@@ -254,10 +242,10 @@ const CustomOrderStatusesSettings = () => {
 								aria-expanded={ expandedIndex === index }
 							>
 								<div className="jstk-cos-accordion__header-left">
-									<ColorIndicator
-										colorValue={
-											status.color || '#787c82'
-										}
+									<span
+										className="jstk-cos-accordion__color-dot"
+										style={ { background: status.color || '#787c82' } }
+										aria-hidden="true"
 									/>
 									<span className="jstk-cos-accordion__label">
 										{ status.label ||
@@ -339,36 +327,17 @@ const CustomOrderStatusesSettings = () => {
 												__nextHasNoMarginBottom
 											/>
 										</div>
-										<div className="jstk-cos-color-field">
-											<label>
-												{ __(
-													'Color',
-													'jetix-store-toolkit'
-												) }
-											</label>
-											<div className="jstk-cos-color-input">
-												<ColorIndicator
-													colorValue={
-														status.color ||
-														'#787c82'
-													}
-												/>
-												<input
-													type="color"
-													value={
-														status.color ||
-														'#787c82'
-													}
-													onChange={ ( e ) =>
-														updateStatus(
-															index,
-															'color',
-															e.target.value
-														)
-													}
-												/>
-											</div>
-										</div>
+										<ColorPicker
+											id={ `jstk-cos-color-${ index }` }
+											label={ __(
+												'Color',
+												'jetix-store-toolkit'
+											) }
+											value={ status.color || '#787c82' }
+											onChange={ ( val ) =>
+												updateStatus( index, 'color', val )
+											}
+										/>
 									</div>
 								</div>
 							) }

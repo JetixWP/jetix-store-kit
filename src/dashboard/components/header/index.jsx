@@ -32,7 +32,7 @@ export default function Header( { currentPage, navigate } ) {
 						</svg>
 
 				</span>
-				<span className="jstk-header__title">Store Toolkit for Woo</span>
+				<span className="jstk-header__title">Store Toolkit for WooCommerce</span>
 			</a>
 
 			<nav className="jstk-nav" aria-label="Jetix Store Toolkit navigation">

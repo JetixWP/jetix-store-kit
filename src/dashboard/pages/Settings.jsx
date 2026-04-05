@@ -18,7 +18,7 @@ const DEFAULT_SETTINGS = {
 const TABS = [
 	{
 		name: 'general',
-		title: 'General',
+		title: 'Compatibility',
 		className: 'jstk-settings-tab',
 	},
 ];

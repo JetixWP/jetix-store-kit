@@ -13,8 +13,7 @@ export default function SettingsSidebar() {
 					{ '👋' } Thank you for using our plugin!
 				</h3>
 				<p className="jstk-settings-sidebar__widget-text">
-					We are currently looking for user feedback to improve it further for most use cases. If you have something to suggest, please feel free to drop your request at{ ' ' }
-					<a href="mailto:hello@jetixwp.com">hello@jetixwp.com</a>.
+					We are currently looking for your feedback to improve it further for most use cases. If you have something to suggest, please feel free to drop your request by clicking the below button.
 				</p>
 				<p className="jstk-settings-sidebar__widget-text">
 					If you like this plugin, you will absolutely love our other plugins. Check them out here:
@@ -34,11 +33,11 @@ export default function SettingsSidebar() {
 						target="_blank"
 						rel="noreferrer"
 					>
-						Submit a feature request
+						Submit a Request
 					</a>
 				</div>
 				<p className="jstk-settings-sidebar__widget-note">
-					<em>Thank you for using our Store Toolkit for WooCommerce again, you are not just any supporter but truly the building blocks of our small but mighty product agency.</em>
+					<em>Thank you for using our Store Toolkit for WooCommerce again, you are not just any supporter but truly the builders of our small but mighty product agency.</em>
 					<br /><br />
 					<strong>Krishna Kant Chourasiya</strong><br /><em>Founder and Lead Developer at JetixWP</em>
 				</p>

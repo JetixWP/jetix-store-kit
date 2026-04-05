@@ -1,9 +1,9 @@
 import { useState } from '@wordpress/element';
 import { Button } from './components/ui';
-import Header from './components/Header';
+import Header from './components/header';
 import Dashboard from './pages/Dashboard';
 import Modules from './pages/Modules';
-import ModuleSettingsPage from './components/ModuleSettingsPage';
+import ModuleSettingsPage from './components/modules/ModuleSettingsPage';
 import Settings from './pages/Settings';
 
 const { currentPage: initialPage } = window.jwpStkDashboard || {};

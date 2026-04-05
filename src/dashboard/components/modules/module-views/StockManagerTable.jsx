@@ -12,7 +12,7 @@ import { useState, useEffect, useCallback } from '@wordpress/element';
 import { Spinner } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
-import { Button } from '../ui';
+import { Button, Toggle } from '../../ui';
 
 const STOCK_STATUS_OPTIONS = [
 	{ value: 'instock', label: __( 'In Stock', 'jetix-store-toolkit' ) },
@@ -309,15 +309,14 @@ export default function StockManagerTable() {
 										) }
 										{ settings?.show_manage_stock && (
 											<td className="jstk-stock-table__manage">
-												<input
-													type="checkbox"
-													className="jstk-stock-checkbox"
+												<Toggle
+													id={ `manage-stock-${ product.id }` }
 													checked={ !! currentManageStock }
-													onChange={ ( e ) =>
+													onChange={ ( val ) =>
 														handleFieldChange(
 															product.id,
 															'manage_stock',
-															e.target.checked
+															val
 														)
 													}
 												/>

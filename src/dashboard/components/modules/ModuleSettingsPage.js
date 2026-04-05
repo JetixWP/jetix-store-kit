@@ -2,24 +2,24 @@ import { useState, useEffect, useCallback } from '@wordpress/element';
 import { Spinner, Notice, TabPanel } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
-import { Button, Toggle } from './ui';
+import { Button, Toggle } from '../ui';
 
 // Operational views.
 import StockManagerTable from './module-views/StockManagerTable';
 
 // Module changelogs.
-import stockManagerChangelog from '../changelogs/stock-manager.json';
-import customOrderStatusesChangelog from '../changelogs/custom-order-statuses.json';
-import quickViewChangelog from '../changelogs/quick-view.json';
-import productTabManagerChangelog from '../changelogs/product-tab-manager.json';
+import stockManagerChangelog from '../../changelogs/stock-manager.json';
+import customOrderStatusesChangelog from '../../changelogs/custom-order-statuses.json';
+import quickViewChangelog from '../../changelogs/quick-view.json';
+import productTabManagerChangelog from '../../changelogs/product-tab-manager.json';
 
 // Settings components.
-import QuickViewSettings from './module-settings/QuickViewSettings';
-import CustomOrderStatusesSettings from './module-settings/CustomOrderStatusesSettings';
-import CustomOrderStatusesDefaultStatuses from './module-settings/CustomOrderStatusesDefaultStatuses';
-import StockManagerSettings from './module-settings/StockManagerSettings';
-import ProductTabManagerSettings from './module-settings/ProductTabManagerSettings';
-import ProductTabManagerDefaultTabs from './module-settings/ProductTabManagerDefaultTabs';
+import QuickViewSettings from './module-tabs/QuickViewSettings';
+import CustomOrderStatusesSettings from './module-tabs/CustomOrderStatusesSettings';
+import CustomOrderStatusesDefaultStatuses from './module-tabs/CustomOrderStatusesDefaultStatuses';
+import StockManagerSettings from './module-tabs/StockManagerSettings';
+import ProductTabManagerSettings from './module-tabs/ProductTabManagerSettings';
+import ProductTabManagerDefaultTabs from './module-tabs/ProductTabManagerDefaultTabs';
 
 /**
  * Per-module tab definition.

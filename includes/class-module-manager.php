@@ -73,7 +73,7 @@ class Module_Manager {
 			),
 			'custom-order-statuses' => array(
 				'title'       => __( 'Custom Order Statuses', 'jetix-store-toolkit' ),
-				'description' => __( 'Create custom order statuses beyond WooCommerce defaults with colours, icons, and email triggers.', 'jetix-store-toolkit' ),
+				'description' => __( 'Create custom order statuses beyond WooCommerce defaults.', 'jetix-store-toolkit' ),
 				'tier'        => 'core',
 				'enabled'     => true,
 				'default'     => false,

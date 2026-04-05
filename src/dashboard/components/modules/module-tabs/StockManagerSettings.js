@@ -5,7 +5,7 @@ import {
 	Spinner,
 	Notice,
 } from '@wordpress/components';
-import { Toggle } from '../ui';
+import { Toggle } from '../../ui';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
@@ -120,48 +120,50 @@ const StockManagerSettings = () => {
 				__nextHasNoMarginBottom
 			/>
 
-			<h3>{ __( 'Display Columns', 'jetix-store-toolkit' ) }</h3>
+			<div className="jstk-module-settings-extras">
+				<h3>{ __( 'Display Columns', 'jetix-store-toolkit' ) }</h3>
 
-<Toggle
-			label={ __( 'Show SKU', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_sku }
-			onChange={ ( val ) => updateSetting( 'show_sku', val ) }
-		/>
-		<Toggle
-			label={ __( 'Show Stock Status', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_stock_status }
-			onChange={ ( val ) =>
-				updateSetting( 'show_stock_status', val )
-			}
-		/>
-		<Toggle
-			label={ __( 'Show Manage Stock', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_manage_stock }
-			onChange={ ( val ) =>
-				updateSetting( 'show_manage_stock', val )
-			}
-		/>
-		<Toggle
-			label={ __( 'Show Stock Quantity', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_stock_quantity }
-			onChange={ ( val ) =>
-				updateSetting( 'show_stock_quantity', val )
-			}
-		/>
-		<Toggle
-			label={ __( 'Show Backorders', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_backorders }
-			onChange={ ( val ) =>
-				updateSetting( 'show_backorders', val )
-			}
-		/>
-		<Toggle
-			label={ __( 'Show Low Stock Filter', 'jetix-store-toolkit' ) }
-			checked={ !! settings.show_low_stock }
-			onChange={ ( val ) =>
-				updateSetting( 'show_low_stock', val )
-			}
-			/>
+				<Toggle
+					label={ __( 'Show SKU', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_sku }
+					onChange={ ( val ) => updateSetting( 'show_sku', val ) }
+				/>
+				<Toggle
+					label={ __( 'Show Stock Status', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_stock_status }
+					onChange={ ( val ) =>
+						updateSetting( 'show_stock_status', val )
+					}
+				/>
+				<Toggle
+					label={ __( 'Show Manage Stock', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_manage_stock }
+					onChange={ ( val ) =>
+						updateSetting( 'show_manage_stock', val )
+					}
+				/>
+				<Toggle
+					label={ __( 'Show Stock Quantity', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_stock_quantity }
+					onChange={ ( val ) =>
+						updateSetting( 'show_stock_quantity', val )
+					}
+				/>
+				<Toggle
+					label={ __( 'Show Backorders', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_backorders }
+					onChange={ ( val ) =>
+						updateSetting( 'show_backorders', val )
+					}
+				/>
+				<Toggle
+					label={ __( 'Show Low Stock Filter', 'jetix-store-toolkit' ) }
+					checked={ !! settings.show_low_stock }
+					onChange={ ( val ) =>
+						updateSetting( 'show_low_stock', val )
+					}
+					/>
+			</div>
 
 			<div className="jstk-settings-actions">
 				<Button

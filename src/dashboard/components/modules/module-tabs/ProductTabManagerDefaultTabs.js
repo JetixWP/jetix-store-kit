@@ -5,7 +5,7 @@ import {
 	Spinner,
 	Notice,
 } from '@wordpress/components';
-import { Toggle } from '../ui';
+import { Toggle } from '../../ui';
 import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
