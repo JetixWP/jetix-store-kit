@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
 	TextControl,
 	TextareaControl,
-	ToggleControl,
 	Button,
 	Spinner,
 	Notice,
@@ -60,10 +59,6 @@ const ProductTabManagerSettings = () => {
 		}
 	}, [ settings ] );
 
-	const updateSetting = ( key, value ) => {
-		setSettings( ( prev ) => ( { ...prev, [ key ]: value } ) );
-	};
-
 	const addCustomTab = () => {
 		setSettings( ( prev ) => {
 			const tabs = [ ...( prev.custom_tabs || [] ) ];
@@ -108,98 +103,6 @@ const ProductTabManagerSettings = () => {
 				</Notice>
 			) }
 
-			<h3>{ __( 'Default Tabs', 'jetix-store-toolkit' ) }</h3>
-			<p className="jstk-settings-description">
-				{ __(
-					'Toggle default WooCommerce product tabs on or off, and optionally rename them.',
-					'jetix-store-toolkit'
-				) }
-			</p>
-
-			<div className="jstk-ptm-default-tabs">
-				<div className="jstk-ptm-tab-row">
-					<ToggleControl
-						label={ __( 'Description Tab', 'jetix-store-toolkit' ) }
-						checked={ ! settings.disable_description }
-						onChange={ ( val ) =>
-							updateSetting(
-								'disable_description',
-								! val
-							)
-						}
-						__nextHasNoMarginBottom
-					/>
-					{ ! settings.disable_description && (
-						<TextControl
-							label={ __( 'Custom Title', 'jetix-store-toolkit' ) }
-							placeholder={ __( 'Description', 'jetix-store-toolkit' ) }
-							value={ settings.description_title || '' }
-							onChange={ ( val ) =>
-								updateSetting( 'description_title', val )
-							}
-							__nextHasNoMarginBottom
-						/>
-					) }
-				</div>
-
-				<div className="jstk-ptm-tab-row">
-					<ToggleControl
-						label={ __( 'Additional Information Tab', 'jetix-store-toolkit' ) }
-						checked={ ! settings.disable_additional_info }
-						onChange={ ( val ) =>
-							updateSetting(
-								'disable_additional_info',
-								! val
-							)
-						}
-						__nextHasNoMarginBottom
-					/>
-					{ ! settings.disable_additional_info && (
-						<TextControl
-							label={ __( 'Custom Title', 'jetix-store-toolkit' ) }
-							placeholder={ __(
-								'Additional information',
-								'jetix-store-toolkit'
-							) }
-							value={
-								settings.additional_information_title || ''
-							}
-							onChange={ ( val ) =>
-								updateSetting(
-									'additional_information_title',
-									val
-								)
-							}
-							__nextHasNoMarginBottom
-						/>
-					) }
-				</div>
-
-				<div className="jstk-ptm-tab-row">
-					<ToggleControl
-						label={ __( 'Reviews Tab', 'jetix-store-toolkit' ) }
-						checked={ ! settings.disable_reviews }
-						onChange={ ( val ) =>
-							updateSetting( 'disable_reviews', ! val )
-						}
-						__nextHasNoMarginBottom
-					/>
-					{ ! settings.disable_reviews && (
-						<TextControl
-							label={ __( 'Custom Title', 'jetix-store-toolkit' ) }
-							placeholder={ __( 'Reviews', 'jetix-store-toolkit' ) }
-							value={ settings.reviews_title || '' }
-							onChange={ ( val ) =>
-								updateSetting( 'reviews_title', val )
-							}
-							__nextHasNoMarginBottom
-						/>
-					) }
-				</div>
-			</div>
-
-			<h3>{ __( 'Custom Tabs', 'jetix-store-toolkit' ) }</h3>
-
 			{ ( settings.custom_tabs || [] ).length === 0 && (
 				<p className="jstk-settings-description">
 					{ __(
@@ -213,8 +116,7 @@ const ProductTabManagerSettings = () => {
 				<div key={ index } className="jstk-ptm-custom-tab">
 					<div className="jstk-ptm-custom-tab__header">
 						<strong>
-							{ tab.title ||
-								__( 'Untitled Tab', 'jetix-store-toolkit' ) }
+							{ tab.title || __( 'Untitled Tab', 'jetix-store-toolkit' ) }
 						</strong>
 						<Button
 							isDestructive
@@ -228,17 +130,13 @@ const ProductTabManagerSettings = () => {
 					<TextControl
 						label={ __( 'Tab Title', 'jetix-store-toolkit' ) }
 						value={ tab.title || '' }
-						onChange={ ( val ) =>
-							updateTab( index, 'title', val )
-						}
+						onChange={ ( val ) => updateTab( index, 'title', val ) }
 						__nextHasNoMarginBottom
 					/>
 					<TextareaControl
 						label={ __( 'Tab Content', 'jetix-store-toolkit' ) }
 						value={ tab.content || '' }
-						onChange={ ( val ) =>
-							updateTab( index, 'content', val )
-						}
+						onChange={ ( val ) => updateTab( index, 'content', val ) }
 						rows={ 4 }
 						help={ __(
 							'HTML is allowed. Content will be auto-wrapped in paragraphs.',
@@ -251,11 +149,7 @@ const ProductTabManagerSettings = () => {
 						type="number"
 						value={ tab.priority || 50 }
 						onChange={ ( val ) =>
-							updateTab(
-								index,
-								'priority',
-								parseInt( val, 10 ) || 50
-							)
+							updateTab( index, 'priority', parseInt( val, 10 ) || 50 )
 						}
 						help={ __(
 							'Lower number = appears first. Default WC tabs: Description 10, Additional Info 20, Reviews 30.',

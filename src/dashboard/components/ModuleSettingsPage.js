@@ -12,6 +12,7 @@ import QuickViewSettings from './module-settings/QuickViewSettings';
 import CustomOrderStatusesSettings from './module-settings/CustomOrderStatusesSettings';
 import StockManagerSettings from './module-settings/StockManagerSettings';
 import ProductTabManagerSettings from './module-settings/ProductTabManagerSettings';
+import ProductTabManagerDefaultTabs from './module-settings/ProductTabManagerDefaultTabs';
 
 /**
  * Per-module tab definition.
@@ -48,9 +49,14 @@ const MODULE_VIEWS = {
 	'product-tab-manager': {
 		operationalTabs: [
 			{
-				name: 'tabs',
-				title: __( 'Product Tabs', 'jetix-store-toolkit' ),
+				name: 'custom-tabs',
+				title: __( 'Custom Tabs', 'jetix-store-toolkit' ),
 				Component: ProductTabManagerSettings,
+			},
+			{
+				name: 'default-tabs',
+				title: __( 'Default Tabs', 'jetix-store-toolkit' ),
+				Component: ProductTabManagerDefaultTabs,
 			},
 		],
 		SettingsComponent: null,
