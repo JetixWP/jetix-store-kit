@@ -80,8 +80,8 @@
 	$( document ).on( 'click', '.jwp-stk-quick-view-btn', function( e ) {
 		e.preventDefault();
 
-		var productId = $( this ).data( 'product-id' );
-		if ( ! productId ) {
+		var productId = parseInt( $( this ).data( 'product-id' ), 10 );
+		if ( ! productId || productId <= 0 ) {
 			return;
 		}
 

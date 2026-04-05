@@ -253,6 +253,14 @@ class Module extends Base_Module {
 	 * @return void
 	 */
 	public function save_product_dynamic_tab_meta( $product_id ) {
+		if ( wp_is_post_autosave( $product_id ) || wp_is_post_revision( $product_id ) ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'edit_post', $product_id ) ) {
+			return;
+		}
+
 		if ( ! isset( $_POST['jwp_stk_ptm_dynamic_tabs_nonce'] ) ) {
 			return;
 		}

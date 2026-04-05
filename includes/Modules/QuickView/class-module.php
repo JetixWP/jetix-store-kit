@@ -52,6 +52,24 @@ class Module extends Base_Module {
 	}
 
 	/**
+	 * Sanitize a setting value.
+	 *
+	 * @param string $key   Setting key.
+	 * @param mixed  $value Setting value.
+	 * @return mixed
+	 */
+	public function sanitize_setting( $key, $value ) {
+		if ( in_array( $key, array( 'button_bg_color', 'button_text_color' ), true ) ) {
+			if ( '' === $value || null === $value ) {
+				return '';
+			}
+			$sanitized = sanitize_hex_color( $value );
+			return $sanitized ? $sanitized : '';
+		}
+		return parent::sanitize_setting( $key, $value );
+	}
+
+	/**
 	 * Initialise the module.
 	 *
 	 * @return void
